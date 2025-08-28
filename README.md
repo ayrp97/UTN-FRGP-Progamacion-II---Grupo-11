@@ -16,6 +16,8 @@ Tutoriales utilizados:
 Webs utilizadas:
   - ASCII Chart <br>
     https://microsoft.github.io/makecode-csp/unit-6/day-12/ascii-chart
+  - Texto a Voz <br>
+    https://luvvoice.com/es
 
 Capturas del Gestor de Salas de Cine
 
