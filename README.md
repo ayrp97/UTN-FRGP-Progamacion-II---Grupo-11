@@ -34,10 +34,10 @@ En cuanto a cada una de las ventas de entradas, al multicine le interesa saber:
   - El DNI del comprador
   - La cantidad de entradas vendidas en esa venta.
   
-A partir de la descripción se pide:
-  ●	Definir cuáles son los objetos que se necesitan para registrar la información necesaria.
-  ●	Para cada uno de los objetos, definir cuáles son las propiedades necesarias.
-  ●	Definir el tipo de dato que corresponda para representar cada propiedad.
+A partir de la descripción se pide: <br>
+  -	Definir cuáles son los objetos que se necesitan para registrar la información necesaria. <br>
+  -	Para cada uno de los objetos, definir cuáles son las propiedades necesarias. <br>
+  -	Definir el tipo de dato que corresponda para representar cada propiedad. <br>
 
 Luego determinar cuáles son las clases y cuáles son los archivos necesarios para el sistema.
 
