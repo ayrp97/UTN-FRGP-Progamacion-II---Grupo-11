@@ -1,5 +1,46 @@
 # PROG2-TP1-G11
-Repositorio para el Trabajo Práctico Integrador de la materia Programación 2 
+Repositorio para el Trabajo Práctico Integrador de la materia Programación 2 <br> <br>
+
+:bulb: CONSIGNA:
+
+ADMINISTRACIÓN DE SALAS DE CINE
+
+Un multicine lleva el registro de las películas, las salas y las ventas de entradas para las películas que exhibe en las salas que posee.
+
+Por cada una de las películas registra:
+ - Un número de identificación
+ - El nombre de la película
+ - El apellido y nombre del director
+ - El género de la película (1: apta todo público; 2: para mayores de 14 años; 3: para mayores de 18 años)
+ - La clasificación de la película:
+    - 1: Apta todo público
+    - 2: Para mayores de 14 años
+    - 3: Para mayores de 18 años
+ - La fecha de estreno.
+
+Para cada sala se registra:
+ - El número
+ - El nombre de la sala
+ - El tipo de sala (Depende de sus comodidades):
+    - 1: Estándar
+    - 2: Premium
+    - 3: Confort plus
+ - La cantidad de butacas disponibles.
+ 
+En cuanto a cada una de las ventas de entradas, al multicine le interesa saber:
+  - Cuál es la película
+  - En qué sala se proyecta
+  - Cuál es el día de proyección
+  - El DNI del comprador
+  - La cantidad de entradas vendidas en esa venta.
+  
+A partir de la descripción se pide:
+  ●	Definir cuáles son los objetos que se necesitan para registrar la información necesaria.
+  ●	Para cada uno de los objetos, definir cuáles son las propiedades necesarias.
+  ●	Definir el tipo de dato que corresponda para representar cada propiedad.
+
+Luego determinar cuáles son las clases y cuáles son los archivos necesarios para el sistema
+
 
 :wrench: Herramientas utilizadas: <br><br>
   :small_orange_diamond: VSC <br>
@@ -25,5 +66,6 @@ Repositorio para el Trabajo Práctico Integrador de la materia Programación 2
 
 :camera: Capturas del Gestor de Salas de Cine <br>
 
-<img width="800"  alt="image" src="https://github.com/user-attachments/assets/136bdb26-4d05-4cda-b6d0-ad191a984849" />
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/a955201a-a250-42ea-a3dc-6607ec90dbb2" />
+
 
