@@ -39,7 +39,10 @@ A partir de la descripción se pide:
   ●	Para cada uno de los objetos, definir cuáles son las propiedades necesarias.
   ●	Definir el tipo de dato que corresponda para representar cada propiedad.
 
-Luego determinar cuáles son las clases y cuáles son los archivos necesarios para el sistema
+Luego determinar cuáles son las clases y cuáles son los archivos necesarios para el sistema.
+
+Link del Informe: https://docs.google.com/document/d/17y5qIlReQdYqo_wqEz_y88Q-CPMZdB6Cbx97RcLv9AA/edit?usp=sharing
+
 
 
 :wrench: Herramientas utilizadas: <br><br>
