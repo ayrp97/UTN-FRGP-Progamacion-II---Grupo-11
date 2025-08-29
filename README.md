@@ -11,7 +11,7 @@ Por cada una de las películas registra:
  - Un número de identificación
  - El nombre de la película
  - El apellido y nombre del director
- - El género de la película (1: apta todo público; 2: para mayores de 14 años; 3: para mayores de 18 años)
+ - El género de la película
  - La clasificación de la película:
     - 1: Apta todo público
     - 2: Para mayores de 14 años
