@@ -1,0 +1,92 @@
+# depslib dependency file v1.0
+1756517581 source:c:\users\jacob\desktop\gestordesalasdecine\01main.cpp
+	<iostream>
+	<locale>
+	"utilities/rlutil.h"
+	<windows.h>
+	<mmsystem.h>
+	<string>
+	<cstdlib>
+	"mainHeader.h"
+	<stdlib.h>
+
+1571584340 c:\users\jacob\desktop\gestordesalasdecine\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1748994513 c:\users\jacob\desktop\gestordesalasdecine\mainheader.h
+	<string>
+
+1756517167 source:c:\users\jacob\desktop\gestordesalasdecine\02menugestor.cpp
+	<iostream>
+	<locale>
+	<string>
+	"rlutil.h"
+	<windows.h>
+	"mainHeader.h"
+
+1756554707 source:c:\users\jacob\desktop\gestordesalasdecine\04salas.cpp
+	<iostream>
+	<locale>
+	"utilities/rlutil.h"
+	"mainHeader.h"
+
+1756554723 source:c:\users\jacob\desktop\gestordesalasdecine\05ventas.cpp
+	<iostream>
+	<locale>
+	"utilities/rlutil.h"
+	"mainHeader.h"
+
+1747771507 source:c:\users\jacob\desktop\gestordesalasdecine\07salir.cpp
+	<iostream>
+	<locale>
+	"rlutil.h"
+	"mainHeader.h"
+
+1756517402 source:c:\users\jacob\desktop\gestordesalasdecine\08fondoventana.cpp
+	<iostream>
+	<locale>
+	"utilities/rlutil.h"
+	"mainHeader.h"
+
+1756554715 source:c:\users\jacob\desktop\gestordesalasdecine\03peliculas.cpp
+	<iostream>
+	<locale>
+	"utilities/rlutil.h"
+	"mainHeader.h"
+
+1756327976 source:c:\users\jacob\desktop\gestordesalasdecine\06creditos.cpp
+	<iostream>
+	<locale>
+	"rlutil.h"
+	"mainHeader.h"
+
+1756517418 source:c:\users\jacob\desktop\gestordesalasdecine\09dibujomenu.cpp
+	<iostream>
+	<locale>
+	"utilities/rlutil.h"
+
+1571584340 c:\users\jacob\desktop\gestordesalasdecine\utilities\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
