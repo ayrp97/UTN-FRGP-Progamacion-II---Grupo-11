@@ -19,7 +19,7 @@ void peliculas(){
     while (cortePeliculas !=0) {
         switch(rlutil::getkey()){
             case 0:
-                PlaySound(TEXT("keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
+                PlaySound(TEXT("../../sounds/keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 cortePeliculas = 0;
                 rlutil::cls();
                 break;

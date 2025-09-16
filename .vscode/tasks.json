@@ -1,0 +1,56 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Compilar proyecto C++",
+			"type": "shell",
+			"command": "g++",
+			"args": [
+				"01main.cpp",
+				"02menuGestor.cpp", 
+				"06creditos.cpp",
+				"07salir.cpp",
+				"functions/peliculas/03peliculas.cpp",
+				"functions/salas/04salas.cpp",
+				"functions/ventas/05ventas.cpp",
+				"UX-UI/08fondoVentana.cpp",
+				"UX-UI/09dibujoMenu.cpp",
+				"-o",
+				"bin/Debug/GestorDeSalasDeCine.exe",
+			"-Iutilities",
+			"-I.",
+				"-std=c++17",
+			"-Wall",
+			"-lwinmm"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Compilar todos los archivos del proyecto C++"
+		},
+		{
+			"label": "Ejecutar programa",
+			"type": "shell",
+			"command": "${workspaceFolder}/bin/Debug/GestorDeSalasDeCine.exe",
+			"group": "test",
+			"dependsOn": "Compilar proyecto C++",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": true,
+				"panel": "shared"
+			},
+			"detail": "Compilar y ejecutar el programa"
+		}
+	]
+}

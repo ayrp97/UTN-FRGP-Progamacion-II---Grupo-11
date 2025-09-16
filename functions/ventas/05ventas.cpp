@@ -23,7 +23,7 @@ void ventas(){
 
         switch(rlutil::getkey()){
             case 0:
-                PlaySound(TEXT("keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
+                PlaySound(TEXT("../../sounds/keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 corteVentas = 0;
                 rlutil::cls();
                 break;

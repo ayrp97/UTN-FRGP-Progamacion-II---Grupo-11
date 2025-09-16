@@ -23,7 +23,7 @@ void salas(){
 
         switch(rlutil::getkey()){
             case 0:
-                PlaySound(TEXT("keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
+                PlaySound(TEXT("../../sounds/keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 corteSalas = 0;
                 rlutil::cls();
                 break;
