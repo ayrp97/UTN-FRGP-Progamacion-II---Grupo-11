@@ -1,0 +1,252 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="27.1.4" pages="2">
+  <diagram id="K-ErdFQCQU7AakNy0v-b" name="DER">
+    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="WnIIxkk4qAhei41H8n5M-1" value="&lt;font style=&quot;font-size: 21px;&quot;&gt;&lt;b&gt;DIAGRAMA DE ENTIDAD - RELACION&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="224" y="30" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-1" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=40;dy=40;" parent="1" vertex="1">
+          <mxGeometry x="300" y="455" width="210" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-2" value="ALUMNOS" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;fillColor=#000000;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="300" y="455" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-3" value="Cod.Carrera&lt;div&gt;Nro.Legajo&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="340" y="495" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-4" value="PK" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="300" y="495" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-5" value="DNI alumno" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="535" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-6" value="Apellido y Nombre" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="555" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-7" value="Fecha de Nacimiento" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="575" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-8" value="Nacionalidad" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="595" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-9" value="Año de Matriculacion" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="615" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-10" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=40;dy=40;" parent="1" vertex="1">
+          <mxGeometry x="300" y="270" width="210" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-11" value="MATERIAS REGULARIZADAS" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;fillColor=#000000;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="300" y="270" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-12" value="Cod.Carrera&lt;div&gt;Nro.Legajo&lt;/div&gt;&lt;div&gt;Cod. Materia&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="340" y="310" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="r-WwCW6zppuT7G_FauUe-14" target="r-WwCW6zppuT7G_FauUe-40" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-14" value="PK" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="300" y="310" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-15" value="Año de cursada" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="415" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-16" value="Legajo del docente" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="390" width="170" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-17" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=40;dy=40;" parent="1" vertex="1">
+          <mxGeometry x="600" y="535" width="210" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-18" value="CALIFICACIONES" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;fillColor=#000000;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="600" y="535" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-19" value="Cod.Carrera&lt;div&gt;Nro.Legajo&lt;/div&gt;&lt;div&gt;Cod. Materia&lt;/div&gt;&lt;div&gt;Evaluación&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="640" y="575" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-20" value="PK" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="600" y="575" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-21" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="640" y="655" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-22" value="Notas" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="640" y="655" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-23" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=40;dy=40;" parent="1" vertex="1">
+          <mxGeometry x="40" y="495" width="210" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-24" value="MATERIAS APROBADAS" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;fillColor=#000000;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="40" y="495" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-25" value="Cod.Carrera&lt;div&gt;Nro.Legajo&lt;/div&gt;&lt;div&gt;Cod. Materia&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="80" y="535" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-26" value="PK" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="40" y="535" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-27" value="Fecha" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="615" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-28" value="Número de Acta" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="635" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-29" value="Nota" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="655" width="170" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-30" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=40;dy=40;" parent="1" vertex="1">
+          <mxGeometry x="40" y="270" width="210" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-31" value="MATERIAS" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;fillColor=#000000;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="40" y="270" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-32" value="&lt;div&gt;Cod. Materia&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="79" y="310" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-33" value="PK" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="40" y="310" width="40" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-34" value="Nombre materia" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="360" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-35" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=40;dy=40;" parent="1" vertex="1">
+          <mxGeometry x="600" y="270" width="210" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-36" value="DOCENTES" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;fillColor=#000000;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="600" y="270" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-37" value="&lt;div&gt;Legajo Docente&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="640" y="310" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-38" value="PK" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="600" y="310" width="40" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-39" value="Nombre de Docente" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="640" y="360" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-40" value="FK" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="300" y="390" width="40" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-41" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" parent="1" source="r-WwCW6zppuT7G_FauUe-3" target="r-WwCW6zppuT7G_FauUe-15" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="529" y="675" as="sourcePoint" />
+            <mxPoint x="519" y="417" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r-WwCW6zppuT7G_FauUe-43" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="r-WwCW6zppuT7G_FauUe-38" target="r-WwCW6zppuT7G_FauUe-12" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="598.98" y="350" as="sourcePoint" />
+            <mxPoint x="510" y="349.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="32zNAjU93OmMnO3YTAN2-8" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;rounded=0;entryX=-0.025;entryY=0.338;entryDx=0;entryDy=0;exitX=1;exitY=0.609;exitDx=0;exitDy=0;exitPerimeter=0;entryPerimeter=0;" parent="1" source="r-WwCW6zppuT7G_FauUe-30" target="r-WwCW6zppuT7G_FauUe-14" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="252" y="325" as="sourcePoint" />
+            <mxPoint x="360" y="462.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="32zNAjU93OmMnO3YTAN2-9" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="r-WwCW6zppuT7G_FauUe-12" target="r-WwCW6zppuT7G_FauUe-18" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="549" y="925" as="sourcePoint" />
+            <mxPoint x="649" y="825" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="32zNAjU93OmMnO3YTAN2-10" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;rounded=0;exitX=0;exitY=0.917;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="r-WwCW6zppuT7G_FauUe-1" target="r-WwCW6zppuT7G_FauUe-27" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="330" y="705" as="sourcePoint" />
+            <mxPoint x="289" y="860" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="99" y="1435" />
+              <mxPoint x="280" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l3AQ79wPA3v_nrN4Xu8Y-3" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="r-WwCW6zppuT7G_FauUe-30" target="r-WwCW6zppuT7G_FauUe-25" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="260" y="350" as="sourcePoint" />
+            <mxPoint x="300" y="490" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="280" y="380" />
+              <mxPoint x="310" y="740" />
+              <mxPoint x="155" y="320" />
+              <mxPoint x="140" y="330" />
+              <mxPoint x="90" y="330" />
+              <mxPoint x="90" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l3AQ79wPA3v_nrN4Xu8Y-9" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;rounded=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=-0.01;entryY=0.907;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="r-WwCW6zppuT7G_FauUe-29" target="r-WwCW6zppuT7G_FauUe-17" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="370" y="645" as="sourcePoint" />
+            <mxPoint x="470" y="545" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QfV97mRExdBFu7GpThFP-1" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=40;dy=40;" parent="1" vertex="1">
+          <mxGeometry x="300" y="720" width="210" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="QfV97mRExdBFu7GpThFP-2" value="ESTUDIOS" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;fillColor=#000000;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="300" y="720" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QfV97mRExdBFu7GpThFP-3" value="Cod.Carrera&lt;div&gt;Nro.Legajo&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="340" y="760" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QfV97mRExdBFu7GpThFP-4" value="PK" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="300" y="760" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QfV97mRExdBFu7GpThFP-5" value="&lt;b&gt;&lt;u&gt;DNI alumno&lt;/u&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="800" width="170" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="QfV97mRExdBFu7GpThFP-6" value="Año de Matriculacion" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="825" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="QfV97mRExdBFu7GpThFP-7" value="FK" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="300" y="800" width="40" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="JmvneAkiRx306Mh_ifKw-1" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=40;dy=40;" parent="1" vertex="1">
+          <mxGeometry x="301" y="120" width="210" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="JmvneAkiRx306Mh_ifKw-2" value="MATERIASXDOCENTES" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;fillColor=#000000;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="300" y="120" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JmvneAkiRx306Mh_ifKw-3" value="Cod.Carrera&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Cod. Materia&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Legajo Docente&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="341" y="160" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JmvneAkiRx306Mh_ifKw-4" value="PK" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=5" parent="1" vertex="1">
+          <mxGeometry x="301" y="160" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="LEDd-KZN1-uy_XIiosQH-1" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;rounded=0;entryX=-0.025;entryY=0.375;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryPerimeter=0;" parent="1" source="r-WwCW6zppuT7G_FauUe-30" target="JmvneAkiRx306Mh_ifKw-4" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="120" y="180" as="sourcePoint" />
+            <mxPoint x="169" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LEDd-KZN1-uy_XIiosQH-2" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="r-WwCW6zppuT7G_FauUe-38" target="JmvneAkiRx306Mh_ifKw-3" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="540" y="240" as="sourcePoint" />
+            <mxPoint x="550" y="323" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="2Lqp2EWPe3b7ijztwbsu" name="Página-2">
+    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="qxqdhDb07xL83g0K8C0f-1" value="Main" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="334" y="30" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qxqdhDb07xL83g0K8C0f-4" value="&lt;div&gt;&lt;b&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(51, 153, 255));&quot;&gt;Clase&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;&lt;b&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(51, 153, 255));&quot;&gt;Salas&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;font color=&quot;#3399ff&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3399ff&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(102, 255, 102));&quot;&gt;private:&lt;/font&gt;&lt;/div&gt;&lt;div&gt;char Numero de sala&lt;/div&gt;&lt;div&gt;int Capacidad de asientos&lt;/div&gt;&lt;div&gt;&amp;nbsp;chat Tipos de asientos&lt;/div&gt;&lt;div&gt;(2D, 3D, 4D + Confort)&lt;/div&gt;&lt;div&gt;int Asientos ocupados&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(102, 255, 102));&quot;&gt;public:&lt;/font&gt;&lt;/div&gt;&lt;div&gt;Modificar atributos set y get&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 0, 0));&quot;&gt;Configurador de salas&lt;/font&gt;(){&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Crea un obj y lo almacena en un vector dinamico que se almacena en un archivo. Permite modificaciones, por ejemplo, configurar la capacidad, los tipos de asientos, etc.&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 0, 0));&quot;&gt;Agregar pelicula a sala&lt;/font&gt;(){&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Funcion para que en un determinado numero de sala, contenga la pelicula que se va a proyectar hasta que el usuario quiera.&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 0, 0));&quot;&gt;Quitar pelicula de sala&lt;/font&gt;&lt;/span&gt;(){&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Funcion para que en un determinado numero de sala, se quite la pelicula que se esta proyectando&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 17, 8));&quot;&gt;reportes &lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(){&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Lista las salas con las caracteristicas de cada una.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="130" width="240" height="560" as="geometry" />
+        </mxCell>
+        <mxCell id="qxqdhDb07xL83g0K8C0f-5" value="&lt;div&gt;&lt;div style=&quot;text-align: center;&quot;&gt;&lt;b&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(51, 153, 255));&quot;&gt;Clases&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(51, 153, 255));&quot;&gt;Peliculas&lt;/font&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent;&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(102, 255, 102));&quot;&gt;private:&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;span style=&quot;text-align: left;&quot;&gt;char&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;[ ]&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;&amp;nbsp;Nombre&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;text-align: left;&quot;&gt;char&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;[ ]&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;Genero&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;text-align: left;&quot;&gt;int Duracion&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;text-align: left;&quot;&gt;int ATP [3 ó 5]&lt;/span&gt;&lt;div&gt;&lt;div style=&quot;&quot;&gt;char Fecha Estreno&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(102, 255, 102));&quot;&gt;public:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;Modificar atributos set y get&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 6, 6));&quot;&gt;Alta de Pelicula&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; (){&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Crea un obj y se almacena en un vector dinamico que posteriormente se guarda en un archivo&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;CLS SALAS debe poder leer este objeto.&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Con una variable bool controlas que este activa = true&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 0, 0));&quot;&gt;Baja de Pelicula&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; (){&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Se cambia a false la variable que controla que la pelicula este activa.&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 0, 0));&quot;&gt;reportes &lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(){&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Lista las peliculas de alta o baja(todas, por genero, por duracion, etc), con fechas, totales recaudados, etc siempre hablando de la pelicula en cuestion.&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="20" y="130" width="250" height="560" as="geometry" />
+        </mxCell>
+        <mxCell id="qxqdhDb07xL83g0K8C0f-10" value="&lt;div&gt;&lt;b&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(51, 153, 255));&quot;&gt;Clase&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;&lt;b&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(51, 153, 255));&quot;&gt;Ventas&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;font color=&quot;#3399ff&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3399ff&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(102, 255, 102));&quot;&gt;private:&lt;/font&gt;&lt;/div&gt;&lt;div&gt;int Numero de Venta&lt;/div&gt;&lt;div&gt;int Cantidad de Asientos&lt;/div&gt;&lt;div&gt;&amp;nbsp;int precio de asientos&lt;/div&gt;&lt;div&gt;(2D, 3D, 4D + Confort)&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(102, 255, 102));&quot;&gt;public:&lt;/font&gt;&lt;/div&gt;&lt;div&gt;Modificar atributos set y get&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 0, 0));&quot;&gt;Nueva venta&lt;/font&gt;(){&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Crea un obj y lo almacena en un vector dinamico que se almacena en un archivo. No se permiten modificaciones. Solamente registra las ventas. Debe permitir, elegir una pelicula y horario, y permitir elegir cantidad de asientos que se quieren vender.&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Se pueden aplicar promociones&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Confirma la venta y la registra.&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 0, 0));&quot;&gt;Anular venta&lt;/font&gt;(){&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Anula la venta registrada segun algun indicador, y anula los montos que se registraron.&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Automaticamente genera un codigo de descuento %50 para recuperar al cliente en su proxima visita.&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 17, 8));&quot;&gt;reportes &lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(){&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Lista las ventas segun el criterio del usuario (anual, mensual, diario) o por salas, o por genero de pelicula.&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="130" width="250" height="560" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
