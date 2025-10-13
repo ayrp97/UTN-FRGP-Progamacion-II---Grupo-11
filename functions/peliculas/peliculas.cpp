@@ -2,6 +2,8 @@
 #include <locale>
 #include "rlutil.h"
 #include "mainHeader.h"
+#include <clsdataPeliculas.h>
+#include <clsPeliculas.h>
 using namespace std;
 
 void peliculas(){
