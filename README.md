@@ -69,6 +69,4 @@ Link del Informe: https://docs.google.com/document/d/17y5qIlReQdYqo_wqEz_y88Q-CP
 
 :camera: Capturas del Gestor de Salas de Cine <br>
 
-<img width="800" alt="image" src="https://github.com/user-attachments/assets/a955201a-a250-42ea-a3dc-6607ec90dbb2" />
-
 
