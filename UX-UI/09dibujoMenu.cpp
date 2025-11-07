@@ -1,6 +1,6 @@
 #include <iostream>
 #include <locale>
-#include "rlutil.h"
+#include "../rlutil.h"
 using namespace std;
 
 void dibujoMenu(){

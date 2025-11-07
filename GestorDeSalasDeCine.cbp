@@ -32,20 +32,33 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="01main.cpp" />
-		<Unit filename="02menuGestor.cpp">
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="03peliculas.cpp" />
-		<Unit filename="04salas.cpp" />
-		<Unit filename="05ventas.cpp" />
-		<Unit filename="06creditos.cpp" />
-		<Unit filename="07salir.cpp" />
-		<Unit filename="08fondoVentana.cpp" />
-		<Unit filename="09dibujoMenu.cpp" />
-		<Unit filename="mainHeader.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename=".vscode/launch.json" />
+		<Unit filename=".vscode/tasks.json" />
+		<Unit filename="Esquema.drawio" />
+		<Unit filename="GestorDeSalasDeCine.depend" />
+		<Unit filename="GestorDeSalasDeCine.layout" />
+		<Unit filename="README.md" />
+		<Unit filename="UX-UI/08fondoVentana.cpp" />
+		<Unit filename="UX-UI/09dibujoMenu.cpp" />
+		<Unit filename="bin/Debug/GestorDeSalasDeCine.exe" />
+		<Unit filename="creditos.cpp" />
+		<Unit filename="functions/peliculas/clsPeliculas.cpp" />
+		<Unit filename="functions/peliculas/clsPeliculas.h" />
+		<Unit filename="functions/peliculas/clsdataPeliculas.cpp" />
+		<Unit filename="functions/peliculas/clsdataPeliculas.h" />
+		<Unit filename="functions/peliculas/peliculas.cpp" />
+		<Unit filename="functions/peliculas/rlutil.h" />
+		<Unit filename="functions/salas/salas.cpp" />
+		<Unit filename="functions/ventas/ventas.cpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="mainHeader.h" />
+		<Unit filename="menuGestor.cpp" />
+		<Unit filename="rlutil.h" />
+		<Unit filename="salir.cpp" />
+		<Unit filename="sounds/Bienvenida.wav" />
+		<Unit filename="sounds/keySoundLight.wav" />
+		<Unit filename="sounds/keySoundStrong.wav" />
+		<Unit filename="utilities/rlutil.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

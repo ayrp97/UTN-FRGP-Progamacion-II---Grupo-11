@@ -90,3 +90,112 @@
 	<sys/types.h>
 	<sys/time.h>
 
+1760380334 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\clsdatapeliculas.cpp
+	"clsdataPeliculas.h"
+	<cstring>
+
+1760379121 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\clsdatapeliculas.h
+	<string>
+
+1760379936 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\clspeliculas.cpp
+	"clsPeliculas.h"
+	<iostream>
+	<iomanip>
+
+1760379156 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\clspeliculas.h
+	"clsDataPeliculas.h"
+	<vector>
+
+1760372320 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\main.cpp
+	<iostream>
+	<locale>
+	"utilities/rlutil.h"
+	<windows.h>
+	<mmsystem.h>
+	<string>
+	<cstdlib>
+	"mainHeader.h"
+	<stdlib.h>
+
+1756556481 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\utilities\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1756344620 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\mainheader.h
+	<string>
+
+1760372320 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\menugestor.cpp
+	<iostream>
+	<locale>
+	<string>
+	"rlutil.h"
+	<windows.h>
+	"mainHeader.h"
+
+1762478266 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1760372320 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\salir.cpp
+	<iostream>
+	<locale>
+	"rlutil.h"
+	"mainHeader.h"
+
+1762479341 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\creditos.cpp
+	<iostream>
+	<locale>
+	"rlutil.h"
+	"mainHeader.h"
+
+1762479544 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\ux-ui\09dibujomenu.cpp
+	<iostream>
+	<locale>
+	"../rlutil.h"
+
+1762479629 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\peliculas.cpp
+	<iostream>
+	<locale>
+	"../../rlutil.h"
+	"../../mainHeader.h"
+	"clsdataPeliculas.h"
+	"clsPeliculas.h"
+
+1762479601 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\salas.cpp
+	<iostream>
+	<locale>
+	"../../rlutil.h"
+	"../../mainHeader.h"
+
+1762479619 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\ventas.cpp
+	<iostream>
+	<locale>
+	"../../rlutil.h"
+	"../../mainHeader.h"
+
+1762479611 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\ux-ui\08fondoventana.cpp
+	<iostream>
+	<locale>
+	"../rlutil.h"
+	"../mainHeader.h"
+

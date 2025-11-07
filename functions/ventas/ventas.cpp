@@ -1,7 +1,7 @@
 #include <iostream>
 #include <locale>
-#include "rlutil.h"
-#include "mainHeader.h"
+#include "../../rlutil.h"
+#include "../../mainHeader.h"
 using namespace std;
 
 void ventas(){
