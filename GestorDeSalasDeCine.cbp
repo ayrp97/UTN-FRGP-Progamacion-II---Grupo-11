@@ -58,6 +58,8 @@
 		<Unit filename="sounds/Bienvenida.wav" />
 		<Unit filename="sounds/keySoundLight.wav" />
 		<Unit filename="sounds/keySoundStrong.wav" />
+		<Unit filename="utilities/classes/clsFechas.cpp" />
+		<Unit filename="utilities/classes/clsFechas.h" />
 		<Unit filename="utilities/rlutil.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

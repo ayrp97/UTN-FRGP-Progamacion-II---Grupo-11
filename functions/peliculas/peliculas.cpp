@@ -4,6 +4,7 @@
 #include "../../mainHeader.h"
 #include "clsdataPeliculas.h"
 #include "clsPeliculas.h"
+#include "../../utilities/classes/clsFechas.h"
 using namespace std;
 
 void peliculas() {

@@ -1,5 +1,5 @@
 #pragma once
-
+#include "../../utilities/classes/clsFechas.h"
 #include <string>
 
 class clsDataPeliculas {
@@ -10,7 +10,7 @@ private:
     char genero[30];
     char clasificacion[4]; // ATP, +16, +18
     char director[50];
-    // Fecha estreno;      /* <-- Se agregará la clase Fecha más adelante */
+    clsFecha estreno;      // Fecha de estreno
     std::string idiomas;   // Español, Ingles subtitulado, Original subtitulado
     std::string formatos;  // 2D, 3D, 4D
     bool activa;
@@ -25,7 +25,7 @@ public:
     std::string getGenero() const;
     std::string getClasificacion() const;
     std::string getDirector() const;
-    // Fecha getFechaEstreno() const; /* <-- futura implementación */
+    clsFecha getFechaEstreno() const;
     std::string getIdiomas() const;
     std::string getFormatos() const;
     bool estaActiva() const;
@@ -37,7 +37,7 @@ public:
     void setGenero(const std::string& nuevoGenero);
     void setClasificacion(const std::string& nuevaClasificacion);
     void setDirector(const std::string& nuevoDirector);
-    // void setFechaEstreno(const Fecha& fecha); /* <-- futura implementación */
+    void setFechaEstreno(const clsFecha& nuevaFecha);
     void setIdiomas(const std::string& nuevosIdiomas);
     void setFormatos(const std::string& nuevosFormatos);
     void setActiva(bool estado);

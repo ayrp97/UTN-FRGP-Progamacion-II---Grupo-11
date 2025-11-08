@@ -1,21 +1,25 @@
 #pragma once
 
 #include "clsDataPeliculas.h"
-#include <vector>
+#include "../../utilities/classes/clsFechas.h"
+#include <string>
 
 class clsPelicula {
 private:
-    std::vector<clsDataPeliculas> peliculas;
+    clsDataPeliculas* peliculas;  // arreglo dinámico
+    int cantidad;                 // películas actualmente cargadas
+    int capacidad;                // tamaño actual del arreglo
 
-    // Genera ID automático (AAAA-MM-XXXX)
-    std::string generarId(); /* <-- implementación de ejemplo abajo */
+    std::string generarId();      // Genera ID automático AAAAMMXXXX
+    void redimensionar();         // Duplica el tamaño del arreglo si se llena
 
 public:
+    clsPelicula();
+    ~clsPelicula();
+
     void cargarNuevaPelicula();
     void modificarPelicula(const std::string& id);
     void darDeBaja(const std::string& id);
     void darDeAlta(const std::string& id);
-
-    // Mostrar lista de películas
     void mostrarPeliculas() const;
 };

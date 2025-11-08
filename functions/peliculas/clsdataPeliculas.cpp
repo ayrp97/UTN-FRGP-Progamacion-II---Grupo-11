@@ -1,4 +1,5 @@
 #include "clsdataPeliculas.h"
+#include "../../utilities/classes/clsFechas.h"
 #include <cstring>
 
 // Constructor por defecto
@@ -36,9 +37,9 @@ std::string clsDataPeliculas::getClasificacion() const {
 std::string clsDataPeliculas::getDirector() const { 
     return std::string(director); 
 }
-/* void clsDataPeliculas::setFechaEstreno(const Fecha& fecha) { 
- futura implementación 
-} */
+clsFecha clsDataPeliculas::getFechaEstreno() const {
+    return estreno;
+}
 std::string clsDataPeliculas::getIdiomas() const { 
     return idiomas; 
 }
@@ -71,9 +72,9 @@ void clsDataPeliculas::setClasificacion(const std::string& nuevaClasificacion) {
 void clsDataPeliculas::setDirector(const std::string& nuevoDirector) { 
     std::strncpy(director, nuevoDirector.c_str(), 49); director[49] = '\0'; 
 }
-/* void clsDataPeliculas::setFechaEstreno(const Fecha& fecha) { 
- futura implementación 
-} */
+void clsDataPeliculas::setFechaEstreno(const clsFecha& nuevaFecha) {
+    estreno = nuevaFecha;
+}
 void clsDataPeliculas::setIdiomas(const std::string& nuevosIdiomas) { 
     idiomas = nuevosIdiomas; 
 }
