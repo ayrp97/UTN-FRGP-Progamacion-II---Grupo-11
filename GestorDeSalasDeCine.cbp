@@ -32,14 +32,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename=".vscode/launch.json" />
-		<Unit filename=".vscode/tasks.json" />
+		<Linker>
+			<Add library="winmm" />
+		</Linker>
 		<Unit filename="Esquema.drawio" />
 		<Unit filename="GestorDeSalasDeCine.depend" />
 		<Unit filename="GestorDeSalasDeCine.layout" />
 		<Unit filename="README.md" />
 		<Unit filename="UX-UI/08fondoVentana.cpp" />
 		<Unit filename="UX-UI/09dibujoMenu.cpp" />
+		<Unit filename="contador.txt" />
 		<Unit filename="creditos.cpp" />
 		<Unit filename="functions/peliculas/clsPeliculas.cpp" />
 		<Unit filename="functions/peliculas/clsPeliculas.h" />
@@ -53,6 +55,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="mainHeader.h" />
 		<Unit filename="menuGestor.cpp" />
+		<Unit filename="peliculas.dat" />
 		<Unit filename="rlutil.h" />
 		<Unit filename="salir.cpp" />
 		<Unit filename="sounds/Bienvenida.wav" />

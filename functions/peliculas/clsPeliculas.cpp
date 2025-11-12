@@ -1,6 +1,9 @@
 #include "clsPeliculas.h"
 #include <iomanip>
 #include <sstream>
+#include <string>
+#include <fstream>
+
 
 // ------------------- Constructor y Destructor -------------------
 
@@ -27,13 +30,29 @@ bool clsPelicula::getGuardadoAutomatico() const {
 
 // ------------------- Métodos privados -------------------
 
+
 std::string clsPelicula::generarId() {
-    static int contador = 1;
-    int year = 2025;
-    int month = 1;
+    const std::string archivo = "contador.txt";
+    int contador = 1;
+
+    // Leer el último valor del archivo
+    std::ifstream in(archivo);
+    if (in.is_open()) {
+        in >> contador;
+        in.close();
+    }
+
+    // Generar el ID con 5 dígitos
     std::ostringstream oss;
-    oss << year << std::setw(2) << std::setfill('0') << month
-        << std::setw(4) << std::setfill('0') << contador++;
+    oss << std::setw(5) << std::setfill('0') << contador;
+
+    // Guardar el siguiente valor en el archivo
+    std::ofstream out(archivo);
+    if (out.is_open()) {
+        out << (contador + 1);
+        out.close();
+    }
+
     return oss.str();
 }
 
@@ -72,8 +91,12 @@ void clsPelicula::cargarNuevaPelicula() {
     clsFecha f; f.cargar();
     p.setFechaEstreno(f);
 
-    std::cout << "Idiomas disponibles: "; std::getline(std::cin, temp); p.setIdiomas(temp);
-    std::cout << "Formato de proyeccion: "; std::getline(std::cin, temp); p.setFormatos(temp);
+    std::cout << "Idiomas disponibles: ";
+    std::cin.ignore();
+    std::getline(std::cin, temp); p.setIdiomas(temp);
+    std::cout << "Formato de proyeccion: ";
+    std::cin.ignore();
+    std::getline(std::cin, temp); p.setFormatos(temp);
 
     p.setActiva(true);
     peliculas[cantidad++] = p;
@@ -82,6 +105,10 @@ void clsPelicula::cargarNuevaPelicula() {
 
     // 🔹 Guardado automático
     if (guardadoAutomatico) guardarPeliculas(*this);
+
+    std::cout << "Presione ENTER para continuar...";
+    std::cin.get();
+
 }
 
 void clsPelicula::modificarPelicula(const std::string& id) {

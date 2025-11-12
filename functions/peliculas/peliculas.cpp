@@ -1,6 +1,7 @@
 #include <iostream>
-#include <locale>
+#include <string>
 #include "../../rlutil.h"
+#include <windows.h>
 #include "../../mainHeader.h"
 #include "clsdataPeliculas.h"
 #include "clsPeliculas.h"
@@ -8,79 +9,111 @@
 #include "function_persistenciaPeliculas.h"
 using namespace std;
 
+void mostrarItemPeliculas(const char* text, int posx, int posy, bool selected) {
+    if (selected) {
+        rlutil::setBackgroundColor(rlutil::BLUE);
+    } else {
+        rlutil::setBackgroundColor(rlutil::BLACK);
+    }
+    rlutil::locate(posx, posy);
+    cout << text << endl;
+    rlutil::setBackgroundColor(rlutil::BLACK);
+}
+
 void peliculas() {
-    
     rlutil::hidecursor();
+    rlutil::setBackgroundColor(rlutil::BLACK);
     rlutil::cls();
-    fondoVentana();
+    rlutil::setColor(rlutil::WHITE);
 
-    clsPelicula gestor;          // manejador principal
-    bool guardadoAutomatico = true;  // activado por defecto
-
-    // Cargar datos del archivo al iniciar
+    clsPelicula gestor;
+    bool guardadoAutomatico = true;
     cargarPeliculas(gestor);
 
-    int opcion = -1;
-    string id;
+    int opcion = 0; // índice seleccionado
+    bool salir = false;
 
-    while (opcion != 0) {
-    rlutil::cls();
-        rlutil::setColor(rlutil::GREEN);
-        rlutil::locate(10, 5); cout << "===== MENU DE PELICULAS =====";
+    while (!salir) {
+        fondoVentana();
+        rlutil::setColor(rlutil::YELLOW);
+        rlutil::locate(46, 17);
+        cout << "GESTION DE PELICULAS";
+
         rlutil::setColor(rlutil::WHITE);
-        rlutil::locate(10, 7); cout << "1. Agregar nueva pelicula";
-        rlutil::locate(10, 8); cout << "2. Modificar pelicula";
-        rlutil::locate(10, 9); cout << "3. Dar de baja";
-        rlutil::locate(10,10); cout << "4. Dar de alta";
-        rlutil::locate(10,11); cout << "5. Mostrar todas";
-        rlutil::locate(10,12); cout << "6. Configuracion de guardado";
-        rlutil::locate(10,13); cout << "0. Volver al menu principal";
+        mostrarItemPeliculas(" AGREGAR NUEVA PELICULA ", 50, 20, opcion == 0);
+        mostrarItemPeliculas(" MODIFICAR PELICULA     ", 50, 21, opcion == 1);
+        mostrarItemPeliculas(" DAR DE BAJA            ", 50, 22, opcion == 2);
+        mostrarItemPeliculas(" DAR DE ALTA            ", 50, 23, opcion == 3);
+        mostrarItemPeliculas(" MOSTRAR TODAS          ", 50, 24, opcion == 4);
+        mostrarItemPeliculas(" CONFIGURACION GUARDADO ", 50, 25, opcion == 5);
+        mostrarItemPeliculas(" VOLVER AL MENU         ", 50, 26, opcion == 6);
 
-        rlutil::locate(10,15); cout << "Opcion: ";
-        cin >> opcion;
-        cin.ignore();
-        rlutil::cls();
+        rlutil::locate(47, 20 + opcion);
+        cout << (char)175; // puntero >>
 
-        switch (opcion) {
-            case 1:
-                gestor.cargarNuevaPelicula();
+        switch (rlutil::getkey()) {
+            case 14: // Flecha arriba
+                rlutil::locate(47, 20 + opcion);
+                cout << " ";
+                opcion--;
+                PlaySound(TEXT("../../sounds/keySoundLight.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                if (opcion < 0) opcion = 0;
                 break;
 
-            case 2:
-                cout << "Ingrese ID de la pelicula a modificar: ";
-                getline(cin, id);
-                gestor.modificarPelicula(id);
+            case 15: // Flecha abajo
+                rlutil::locate(47, 20 + opcion);
+                cout << " ";
+                opcion++;
+                PlaySound(TEXT("../../sounds/keySoundLight.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                if (opcion > 6) opcion = 6;
                 break;
 
-            case 3:
-                cout << "Ingrese ID de la pelicula a dar de baja: ";
-                getline(cin, id);
-                gestor.darDeBaja(id);
-                break;
-
-            case 4:
-                cout << "Ingrese ID de la pelicula a activar: ";
-                getline(cin, id);
-                gestor.darDeAlta(id);
-                break;
-
-            case 5:
-                gestor.mostrarPeliculas();
-                rlutil::anykey(); // espera que el usuario presione una tecla
-                break;
-            
-            case 6:
-                menuGuardarPeliculas(guardadoAutomatico, gestor);
-                break;
-
-            case 0:
+            case 1: // Enter
+                PlaySound(TEXT("../../sounds/keySoundStrong.wav"), NULL, SND_FILENAME | SND_ASYNC);
                 rlutil::cls();
-                cout << "Volviendo al menu principal...\n";
-                break;
-
-            default:
-                cout << "Opcion invalida.\n";
-                rlutil::anykey();
+                switch (opcion) {
+                    case 0:
+                        gestor.cargarNuevaPelicula();
+                        rlutil::cls();
+                        break;
+                    case 1: {
+                        string id;
+                        cout << "Ingrese ID de la pelicula a modificar: ";
+                        getline(cin, id);
+                        gestor.modificarPelicula(id);
+                        rlutil::cls();
+                        break;
+                    }
+                    case 2: {
+                        string id;
+                        cout << "Ingrese ID de la pelicula a dar de baja: ";
+                        getline(cin, id);
+                        gestor.darDeBaja(id);
+                        rlutil::cls();
+                        break;
+                    }
+                    case 3: {
+                        string id;
+                        cout << "Ingrese ID de la pelicula a activar: ";
+                        getline(cin, id);
+                        gestor.darDeAlta(id);
+                        rlutil::cls();
+                        break;
+                    }
+                    case 4:
+                        gestor.mostrarPeliculas();
+                        rlutil::anykey();
+                        rlutil::cls();
+                        break;
+                    case 5:
+                        menuGuardarPeliculas(guardadoAutomatico, gestor);
+                        rlutil::cls();
+                        break;
+                    case 6:
+                        salir = true;
+                        rlutil::cls();
+                        break;
+                }
                 break;
         }
     }
