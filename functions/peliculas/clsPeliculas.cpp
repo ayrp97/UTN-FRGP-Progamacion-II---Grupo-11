@@ -1,26 +1,36 @@
 #include "clsPeliculas.h"
-#include <iostream>
 #include <iomanip>
 #include <sstream>
 
 // ------------------- Constructor y Destructor -------------------
 
 clsPelicula::clsPelicula() {
-    capacidad = 5;  // tamaño inicial
+    capacidad = 5;
     cantidad = 0;
     peliculas = new clsDataPeliculas[capacidad];
+    guardadoAutomatico = true; // 🔹 activado por defecto
 }
 
 clsPelicula::~clsPelicula() {
     delete[] peliculas;
 }
 
+// ------------------- Métodos de control -------------------
+
+void clsPelicula::setGuardadoAutomatico(bool estado) {
+    guardadoAutomatico = estado;
+}
+
+bool clsPelicula::getGuardadoAutomatico() const {
+    return guardadoAutomatico;
+}
+
 // ------------------- Métodos privados -------------------
 
 std::string clsPelicula::generarId() {
     static int contador = 1;
-    int year = 2025;   // podés automatizar con fecha actual si querés
-    int month = 1;     // podés cambiar manualmente o con la fecha actual
+    int year = 2025;
+    int month = 1;
     std::ostringstream oss;
     oss << year << std::setw(2) << std::setfill('0') << month
         << std::setw(4) << std::setfill('0') << contador++;
@@ -52,23 +62,26 @@ void clsPelicula::cargarNuevaPelicula() {
     int dur;
 
     std::cout << "Nombre: "; std::getline(std::cin, temp); p.setNombre(temp);
-    std::cout << "Duracion (minutos): "; std::cin >> dur; p.setDuracion(dur); std::cin.ignore();
+    std::cout << "Duracion (minutos): "; std::cin >> dur; std::cin.ignore();
+    p.setDuracion(dur);
     std::cout << "Genero: "; std::getline(std::cin, temp); p.setGenero(temp);
     std::cout << "Clasificacion (ATP, +16, +18): "; std::getline(std::cin, temp); p.setClasificacion(temp);
     std::cout << "Director: "; std::getline(std::cin, temp); p.setDirector(temp);
+
     std::cout << "Fecha de estreno:\n";
-    clsFecha fechaEstreno;
-    fechaEstreno.cargar();
-    p.setFechaEstreno(fechaEstreno);
+    clsFecha f; f.cargar();
+    p.setFechaEstreno(f);
+
     std::cout << "Idiomas disponibles: "; std::getline(std::cin, temp); p.setIdiomas(temp);
     std::cout << "Formato de proyeccion: "; std::getline(std::cin, temp); p.setFormatos(temp);
 
     p.setActiva(true);
-
-    peliculas[cantidad] = p;
-    cantidad++;
+    peliculas[cantidad++] = p;
 
     std::cout << "Película cargada con ID: " << p.getId() << "\n";
+
+    // 🔹 Guardado automático
+    if (guardadoAutomatico) guardarPeliculas(*this);
 }
 
 void clsPelicula::modificarPelicula(const std::string& id) {
@@ -76,6 +89,7 @@ void clsPelicula::modificarPelicula(const std::string& id) {
         if (peliculas[i].getId() == id) {
             clsDataPeliculas& p = peliculas[i];
             int opcion = 0;
+
             while (opcion != 9) {
                 std::cout << "\n--- Modificar Película ---\n";
                 std::cout << "1. Nombre (" << p.getNombre() << ")\n";
@@ -88,63 +102,33 @@ void clsPelicula::modificarPelicula(const std::string& id) {
                 std::cout << "8. Fecha de estreno ("; p.getFechaEstreno().mostrar(); std::cout << ")\n";
                 std::cout << "9. Salir\n";
                 std::cout << "Ingrese la opcion a modificar: ";
-                std::cin >> opcion;
-                std::cin.ignore();
+                std::cin >> opcion; std::cin.ignore();
 
                 std::string temp;
                 int dur;
 
                 switch(opcion) {
-                    case 1: {
-                        std::cout << "Nuevo Nombre: "; std::getline(std::cin, temp); 
-                        if (!temp.empty()) p.setNombre(temp);
-                        break;
-                    }
-                    case 2: {
-                        std::cout << "Nueva Duracion (min): "; std::cin >> dur; std::cin.ignore();
-                        p.setDuracion(dur);
-                        break;
-                    }
-                    case 3: {
-                        std::cout << "Nuevo Genero: "; std::getline(std::cin, temp); 
-                        if (!temp.empty()) p.setGenero(temp);
-                        break;
-                    }
-                    case 4: {
-                        std::cout << "Nueva Clasificacion (ATP, +16, +18): "; std::getline(std::cin, temp);
-                        if (!temp.empty()) p.setClasificacion(temp);
-                        break;
-                    }
-                    case 5: {
-                        std::cout << "Nuevo Director: "; std::getline(std::cin, temp);
-                        if (!temp.empty()) p.setDirector(temp);
-                        break;
-                    }
-                    case 6: {
-                        std::cout << "Nuevos Idiomas: "; std::getline(std::cin, temp);
-                        if (!temp.empty()) p.setIdiomas(temp);
-                        break;
-                    }
-                    case 7: {
-                        std::cout << "Nuevo Formato: "; std::getline(std::cin, temp);
-                        if (!temp.empty()) p.setFormatos(temp);
-                        break;
-                    }
+                    case 1: std::cout << "Nuevo Nombre: "; std::getline(std::cin, temp); if (!temp.empty()) p.setNombre(temp); break;
+                    case 2: std::cout << "Nueva Duracion (min): "; std::cin >> dur; std::cin.ignore(); p.setDuracion(dur); break;
+                    case 3: std::cout << "Nuevo Genero: "; std::getline(std::cin, temp); if (!temp.empty()) p.setGenero(temp); break;
+                    case 4: std::cout << "Nueva Clasificacion: "; std::getline(std::cin, temp); if (!temp.empty()) p.setClasificacion(temp); break;
+                    case 5: std::cout << "Nuevo Director: "; std::getline(std::cin, temp); if (!temp.empty()) p.setDirector(temp); break;
+                    case 6: std::cout << "Nuevos Idiomas: "; std::getline(std::cin, temp); if (!temp.empty()) p.setIdiomas(temp); break;
+                    case 7: std::cout << "Nuevo Formato: "; std::getline(std::cin, temp); if (!temp.empty()) p.setFormatos(temp); break;
                     case 8: {
                         std::cout << "Nueva fecha de estreno:\n";
-                        clsFecha nuevaFecha;
-                        nuevaFecha.cargar();
-                        p.setFechaEstreno(nuevaFecha);
+                        clsFecha nuevaFecha; nuevaFecha.cargar(); p.setFechaEstreno(nuevaFecha);
                         break;
                     }
-                    case 9:
-                        std::cout << "Saliendo del menu de modificacion...\n";
-                        break;
-                    default:
-                        std::cout << "Opcion invalida.\n";
+                    case 9: std::cout << "Saliendo del menu de modificacion...\n"; break;
+                    default: std::cout << "Opcion invalida.\n";
                 }
             }
+
             std::cout << "Película modificada!\n";
+
+            // 🔹 Guardado automático
+            if (guardadoAutomatico) guardarPeliculas(*this);
             return;
         }
     }
@@ -156,6 +140,9 @@ void clsPelicula::darDeBaja(const std::string& id) {
         if (peliculas[i].getId() == id) {
             peliculas[i].setActiva(false);
             std::cout << "Película dada de baja.\n";
+
+            // 🔹 Guardado automático
+            if (guardadoAutomatico) guardarPeliculas(*this);
             return;
         }
     }
@@ -167,6 +154,9 @@ void clsPelicula::darDeAlta(const std::string& id) {
         if (peliculas[i].getId() == id) {
             peliculas[i].setActiva(true);
             std::cout << "Película activada.\n";
+
+            // 🔹 Guardado automático
+            if (guardadoAutomatico) guardarPeliculas(*this);
             return;
         }
     }
@@ -181,4 +171,18 @@ void clsPelicula::mostrarPeliculas() const {
         p.getFechaEstreno().mostrar();
         std::cout << " - " << (p.estaActiva() ? "Activa" : "Inactiva") << "\n";
     }
+}
+
+// ------------------- Métodos auxiliares -------------------
+
+int clsPelicula::getCantidad() const { return cantidad; }
+const clsDataPeliculas* clsPelicula::getPeliculas() const { return peliculas; }
+
+void clsPelicula::agregarPelicula(const clsDataPeliculas& p) {
+    if (cantidad == capacidad) redimensionar();
+    peliculas[cantidad++] = p;
+}
+
+void clsPelicula::vaciarPeliculas() {
+    cantidad = 0;
 }

@@ -40,14 +40,14 @@
 		<Unit filename="README.md" />
 		<Unit filename="UX-UI/08fondoVentana.cpp" />
 		<Unit filename="UX-UI/09dibujoMenu.cpp" />
-		<Unit filename="bin/Debug/GestorDeSalasDeCine.exe" />
 		<Unit filename="creditos.cpp" />
 		<Unit filename="functions/peliculas/clsPeliculas.cpp" />
 		<Unit filename="functions/peliculas/clsPeliculas.h" />
 		<Unit filename="functions/peliculas/clsdataPeliculas.cpp" />
 		<Unit filename="functions/peliculas/clsdataPeliculas.h" />
+		<Unit filename="functions/peliculas/function_persistenciaPeliculas.cpp" />
+		<Unit filename="functions/peliculas/function_persistenciaPeliculas.h" />
 		<Unit filename="functions/peliculas/peliculas.cpp" />
-		<Unit filename="functions/peliculas/rlutil.h" />
 		<Unit filename="functions/salas/salas.cpp" />
 		<Unit filename="functions/ventas/ventas.cpp" />
 		<Unit filename="main.cpp" />
@@ -60,6 +60,7 @@
 		<Unit filename="sounds/keySoundStrong.wav" />
 		<Unit filename="utilities/classes/clsFechas.cpp" />
 		<Unit filename="utilities/classes/clsFechas.h" />
+		<Unit filename="utilities/menuGuardar.cpp" />
 		<Unit filename="utilities/rlutil.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

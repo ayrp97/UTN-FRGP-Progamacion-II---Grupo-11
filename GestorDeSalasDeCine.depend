@@ -90,26 +90,28 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1762592785 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\clsdatapeliculas.cpp
-	"clsdataPeliculas.h"
+1762908094 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\clsdatapeliculas.cpp
+	"clsDataPeliculas.h"
+
+1762908055 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\clsdatapeliculas.h
 	"../../utilities/classes/clsFechas.h"
 	<cstring>
-
-1762592286 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\clsdatapeliculas.h
-	"../../utilities/classes/clsFechas.h"
 	<string>
 
-1760379936 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\clspeliculas.cpp
+1762905390 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\clspeliculas.cpp
 	"clsPeliculas.h"
 	<iostream>
 	<iomanip>
+	<sstream>
 
-1762507786 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\clspeliculas.h
-	"clsDataPeliculas.h"
+1762909193 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\clspeliculas.h
+	<iostream>
+	<string>
+	"clsdataPeliculas.h"
 	"../../utilities/classes/clsFechas.h"
-	<vector>
+	"function_persistenciaPeliculas.h"
 
-1760372320 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\main.cpp
+1762813793 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\main.cpp
 	<iostream>
 	<locale>
 	"utilities/rlutil.h"
@@ -134,10 +136,10 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1756344620 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\mainheader.h
+1762813787 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\mainheader.h
 	<string>
 
-1760372320 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\menugestor.cpp
+1762813483 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\menugestor.cpp
 	<iostream>
 	<locale>
 	<string>
@@ -159,7 +161,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1760372320 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\salir.cpp
+1762813791 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\salir.cpp
 	<iostream>
 	<locale>
 	"rlutil.h"
@@ -176,7 +178,7 @@
 	<locale>
 	"../rlutil.h"
 
-1762507713 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\peliculas.cpp
+1762905913 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\peliculas.cpp
 	<iostream>
 	<locale>
 	"../../rlutil.h"
@@ -184,8 +186,9 @@
 	"clsdataPeliculas.h"
 	"clsPeliculas.h"
 	"../../utilities/classes/clsFechas.h"
+	"function_persistenciaPeliculas.h"
 
-1762479601 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\salas.cpp
+1762907318 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\salas.cpp
 	<iostream>
 	<locale>
 	"../../rlutil.h"
@@ -203,9 +206,52 @@
 	"../rlutil.h"
 	"../mainHeader.h"
 
-1762507550 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\utilities\classes\clsfechas.h
+1762907368 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\utilities\classes\clsfechas.h
+	<string>
 
-1762507580 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\utilities\classes\clsfechas.cpp
+1762905589 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\utilities\classes\clsfechas.cpp
 	<iostream>
+	<sstream>
 	"clsFechas.h"
+
+1762816122 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clsasientos.cpp
+	"clsAsientos.h"
+	<iostream>
+	<iomanip>
+
+1762816121 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clsasientos.h
+	<iostream>
+	<string>
+
+1762816296 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clsproyeccion.cpp
+	"clsProyeccion.h"
+	<iostream>
+	<iomanip>
+
+1762816123 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clsproyeccion.h
+	<string>
+	"clsAsientos.h"
+	"../../utilities/classes/clsFechas.h"
+
+1762816116 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clssalas.cpp
+	"clsSalas.h"
+	<iostream>
+
+1762816115 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clssalas.h
+	<iostream>
+	<string>
+
+1762813798 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\utilities\menuguardar.cpp
+	<iostream>
+	<string>
+
+1762907339 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\function_persistenciapeliculas.cpp
+	<iostream>
+	<fstream>
+	<iomanip>
+	"function_persistenciaPeliculas.h"
+
+1762909311 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\function_persistenciapeliculas.h
+	<string>
+	"clsPeliculas.h"
 

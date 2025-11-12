@@ -1,4 +1,6 @@
 #pragma once
+#include <string>
+
 
 class clsFecha {
 private:
@@ -31,4 +33,7 @@ public:
     // Operaciones con fechas
     int comparar(const clsFecha& otra) const; // -1 si menor, 0 si igual, 1 si mayor
     void sumarDias(int cantidad);
+
+    std::string toString() const;
+
 };

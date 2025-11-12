@@ -1,21 +1,23 @@
 #pragma once
 #include "../../utilities/classes/clsFechas.h"
+#include <cstring>   // para strcpy y strncpy
 #include <string>
 
 class clsDataPeliculas {
 private:
-    char id[11];           // AAAA-MM-XXXX
+    char id[10];
     char nombre[50];
-    int duracion;          // en minutos
+    int duracion;
     char genero[30];
-    char clasificacion[4]; // ATP, +16, +18
+    char clasificacion[5];
     char director[50];
-    clsFecha estreno;      // Fecha de estreno
-    std::string idiomas;   // Español, Ingles subtitulado, Original subtitulado
-    std::string formatos;  // 2D, 3D, 4D
+    clsFecha estreno;
+    char idiomas[50];
+    char formatos[50];
     bool activa;
 
 public:
+    // Constructor
     clsDataPeliculas();
 
     // Getters

@@ -5,20 +5,26 @@
 #include "clsdataPeliculas.h"
 #include "clsPeliculas.h"
 #include "../../utilities/classes/clsFechas.h"
+#include "function_persistenciaPeliculas.h"
 using namespace std;
 
 void peliculas() {
+    
     rlutil::hidecursor();
     rlutil::cls();
     fondoVentana();
 
-    clsPelicula gestor; // <<--- Este es tu "manejador" principal
+    clsPelicula gestor;          // manejador principal
+    bool guardadoAutomatico = true;  // activado por defecto
+
+    // Cargar datos del archivo al iniciar
+    cargarPeliculas(gestor);
 
     int opcion = -1;
     string id;
 
     while (opcion != 0) {
-        rlutil::cls();
+    rlutil::cls();
         rlutil::setColor(rlutil::GREEN);
         rlutil::locate(10, 5); cout << "===== MENU DE PELICULAS =====";
         rlutil::setColor(rlutil::WHITE);
@@ -27,11 +33,12 @@ void peliculas() {
         rlutil::locate(10, 9); cout << "3. Dar de baja";
         rlutil::locate(10,10); cout << "4. Dar de alta";
         rlutil::locate(10,11); cout << "5. Mostrar todas";
-        rlutil::locate(10,12); cout << "0. Volver al menu principal";
+        rlutil::locate(10,12); cout << "6. Configuracion de guardado";
+        rlutil::locate(10,13); cout << "0. Volver al menu principal";
 
-        rlutil::locate(10,14); cout << "Opcion: ";
+        rlutil::locate(10,15); cout << "Opcion: ";
         cin >> opcion;
-        cin.ignore(); // limpiar el buffer por seguridad
+        cin.ignore();
         rlutil::cls();
 
         switch (opcion) {
@@ -60,6 +67,10 @@ void peliculas() {
             case 5:
                 gestor.mostrarPeliculas();
                 rlutil::anykey(); // espera que el usuario presione una tecla
+                break;
+            
+            case 6:
+                menuGuardarPeliculas(guardadoAutomatico, gestor);
                 break;
 
             case 0:

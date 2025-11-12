@@ -1,25 +1,39 @@
 #pragma once
-
-#include "clsDataPeliculas.h"
-#include "../../utilities/classes/clsFechas.h"
+#include <iostream>
 #include <string>
+#include "clsdataPeliculas.h"
+#include "../../utilities/classes/clsFechas.h"
+#include "function_persistenciaPeliculas.h"
 
 class clsPelicula {
 private:
-    clsDataPeliculas* peliculas;  // arreglo dinámico
-    int cantidad;                 // películas actualmente cargadas
-    int capacidad;                // tamaño actual del arreglo
+    clsDataPeliculas* peliculas;   // arreglo dinámico
+    int cantidad;                  // cantidad actual de películas
+    int capacidad;                 // tamaño máximo actual del arreglo
+    bool guardadoAutomatico;       // 🔹 bandera de guardado automático
 
-    std::string generarId();      // Genera ID automático AAAAMMXXXX
-    void redimensionar();         // Duplica el tamaño del arreglo si se llena
+    void redimensionar();
+    std::string generarId();
 
 public:
+    // Constructor y Destructor
     clsPelicula();
     ~clsPelicula();
 
+    // Control del guardado automático
+    void setGuardadoAutomatico(bool estado);
+    bool getGuardadoAutomatico() const;
+
+    // Métodos principales
     void cargarNuevaPelicula();
     void modificarPelicula(const std::string& id);
     void darDeBaja(const std::string& id);
     void darDeAlta(const std::string& id);
     void mostrarPeliculas() const;
+
+    // Métodos auxiliares para persistencia
+    int getCantidad() const;
+    const clsDataPeliculas* getPeliculas() const;
+    void agregarPelicula(const clsDataPeliculas& p);
+    void vaciarPeliculas();
 };

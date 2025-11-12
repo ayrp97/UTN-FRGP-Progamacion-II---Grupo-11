@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include "clsFechas.h"
 using namespace std;
 
@@ -107,3 +108,10 @@ void clsFecha::sumarDias(int cantidad) {
         }
     }
 }
+
+std::string clsFecha::toString() const {
+    std::ostringstream oss;
+    oss << dia << "/" << mes << "/" << anio;
+    return oss.str();
+}
+
