@@ -36,4 +36,6 @@ public:
     const clsDataPeliculas* getPeliculas() const;
     void agregarPelicula(const clsDataPeliculas& p);
     void vaciarPeliculas();
+    int buscarPelicula(const std::string& id) const;
+    int getDuracion(int index) const;
 };

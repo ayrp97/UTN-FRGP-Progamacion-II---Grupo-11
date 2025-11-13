@@ -32,7 +32,7 @@ bool clsPelicula::getGuardadoAutomatico() const {
 
 
 std::string clsPelicula::generarId() {
-    const std::string archivo = "contador.txt";
+    const std::string archivo = "contador_id_peliculas.txt";
     int contador = 1;
 
     // Leer el último valor del archivo
@@ -44,7 +44,7 @@ std::string clsPelicula::generarId() {
 
     // Generar el ID con 5 dígitos
     std::ostringstream oss;
-    oss << std::setw(5) << std::setfill('0') << contador;
+    oss << "PE" << std::setw(5) << std::setfill('0') << contador;
 
     // Guardar el siguiente valor en el archivo
     std::ofstream out(archivo);
@@ -212,4 +212,23 @@ void clsPelicula::agregarPelicula(const clsDataPeliculas& p) {
 
 void clsPelicula::vaciarPeliculas() {
     cantidad = 0;
+}
+
+int clsPelicula::buscarPelicula(const std::string& id) const {
+    for (int i = 0; i < cantidad; i++) {
+        if (peliculas[i].getId() == id) {
+            return i;
+        }
+    }
+    return -1;  // No encontrada
+}
+
+/// ===============================================
+/// Obtener duración de la película por índice
+/// ===============================================
+int clsPelicula::getDuracion(int index) const {
+    if (index < 0 || index >= cantidad) {
+        return -1;  // índice inválido
+    }
+    return peliculas[index].getDuracion();
 }

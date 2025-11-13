@@ -7,6 +7,7 @@
 #include "clsPeliculas.h"
 #include "../../utilities/classes/clsFechas.h"
 #include "function_persistenciaPeliculas.h"
+
 using namespace std;
 
 void mostrarItemPeliculas(const char* text, int posx, int posy, bool selected) {
