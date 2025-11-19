@@ -63,7 +63,7 @@ void menuGestor(){
                 rlutil::locate(52,20+y);
                 cout << " " << endl;
                 y--;
-                PlaySound(TEXT("../../sounds/keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 if (y<0){y=0;}
                 break;
 
@@ -71,12 +71,12 @@ void menuGestor(){
                 rlutil::locate(52,20+y);
                 cout << " " << endl;
                 y++;
-                PlaySound(TEXT("../../sounds/keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 if (y>4){y=4;}
                 break;
 
             case 1: // AL PRECIONAR LA TECLA ENTER
-                PlaySound(TEXT("../../sounds/keySoundStrong.wav"),NULL,SND_FILENAME | SND_ASYNC );
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundStrong.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 switch (y){
                     case 0: // SI SE ESTA POSICIONADO EN "PELICULAS"
                         peliculas();

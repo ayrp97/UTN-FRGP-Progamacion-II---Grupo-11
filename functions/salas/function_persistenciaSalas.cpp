@@ -156,16 +156,19 @@ void menuGuardarSalas(bool& guardadoAutomatico, clsSala& gestor) {
 
         switch (key) {
             case rlutil::KEY_UP:
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 opcion--;
                 if (opcion < 0) opcion = 4;
                 break;
 
             case rlutil::KEY_DOWN:
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 opcion++;
                 if (opcion > 4) opcion = 0;
                 break;
 
             case rlutil::KEY_ENTER:
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundStrong.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 switch (opcion) {
                     case 0:
                         guardadoAutomatico = !guardadoAutomatico;

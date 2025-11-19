@@ -15,7 +15,7 @@ int main(){
     int corteTotal = 1;
 
     // BIENVENIDA DURANTE EL INICIO DEL PROGRAMA
-  PlaySound(TEXT("../../sounds/Bienvenida.wav"),NULL,SND_FILENAME | SND_ASYNC ); //SND_LOOP
+  PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\Bienvenida.wav"),NULL,SND_FILENAME | SND_ASYNC ); //SND_LOOP
 
     // CAPA DE MEN� PRINCIPAL
     while (corteTotal !=0){

@@ -57,7 +57,7 @@ void peliculas() {
                 rlutil::locate(47, 20 + opcion);
                 cout << " ";
                 opcion--;
-                PlaySound(TEXT("../../sounds/keySoundLight.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 if (opcion < 0) opcion = 0;
                 break;
 
@@ -65,12 +65,12 @@ void peliculas() {
                 rlutil::locate(47, 20 + opcion);
                 cout << " ";
                 opcion++;
-                PlaySound(TEXT("../../sounds/keySoundLight.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 if (opcion > 6) opcion = 6;
                 break;
 
             case 1: // Enter
-                PlaySound(TEXT("../../sounds/keySoundStrong.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundStrong.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 rlutil::cls();
                 switch (opcion) {
                     case 0:

@@ -58,19 +58,19 @@ void menuFunciones(clsFunciones& funciones, clsSala& gestorSalas, clsPelicula& g
 
         switch (key) {
             case 14: // Flecha ARRIBA
-                PlaySound(TEXT("../../sounds/keySoundLight.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 opcion--;
                 if (opcion < 0) opcion = 7;
                 break;
 
             case 15: // Flecha ABAJO
-                PlaySound(TEXT("../../sounds/keySoundLight.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 opcion++;
                 if (opcion > 7) opcion = 0;
                 break;
 
             case 1: { // ENTER
-                PlaySound(TEXT("../../sounds/keySoundStrong.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundStrong.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 rlutil::cls();
                 fondoVentana();
 
@@ -205,19 +205,19 @@ void salas() {
         // ------------------- Navegación y Ejecución -------------------
         switch (rlutil::getkey()) {
             case 14: // Flecha ARRIBA
-                PlaySound(TEXT("../../sounds/keySoundLight.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 opcion--;
                 if (opcion < 0) opcion = 6;
                 break;
 
             case 15: // Flecha ABAJO
-                PlaySound(TEXT("../../sounds/keySoundLight.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 opcion++;
                 if (opcion > 6) opcion = 0;
                 break;
 
             case 1: { // TECLA ENTER (Ejecutar)
-                PlaySound(TEXT("../../sounds/keySoundStrong.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundStrong.wav"),NULL,SND_FILENAME | SND_ASYNC );
                 rlutil::cls();
 
                 switch (opcion) {
