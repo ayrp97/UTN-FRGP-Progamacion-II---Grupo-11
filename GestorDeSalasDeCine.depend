@@ -190,16 +190,16 @@
 	"../../utilities/classes/clsFechas.h"
 	"function_persistenciaPeliculas.h"
 
-1763068126 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\salas.cpp
+1763521710 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\salas.cpp
 	<iostream>
 	<locale>
+	<windows.h>
 	"../../rlutil.h"
 	"../../mainHeader.h"
 	"clsSalas.h"
 	"function_persistenciaSalas.h"
 	"funcion/clsFunciones.h"
 	"../peliculas/clsPeliculas.h"
-	<windows.h>
 
 1762970302 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\ventas.cpp
 	<iostream>
@@ -240,13 +240,13 @@
 	"clsAsientos.h"
 	"../../utilities/classes/clsFechas.h"
 
-1762996799 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clssalas.cpp
+1763519671 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clssalas.cpp
 	<iostream>
 	<fstream>
 	<iomanip>
 	"clsSalas.h"
 
-1762994142 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clssalas.h
+1763519621 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clssalas.h
 	<string>
 	"clsDataSalas.h"
 
@@ -254,11 +254,13 @@
 	<iostream>
 	<string>
 
-1762970302 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\function_persistenciapeliculas.cpp
+1763517773 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\function_persistenciapeliculas.cpp
 	<iostream>
 	<fstream>
 	<iomanip>
 	"function_persistenciaPeliculas.h"
+	"../../rlutil.h"
+	"../../mainHeader.h"
 
 1762970302 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\function_persistenciapeliculas.h
 	<string>
@@ -433,13 +435,15 @@
 	<cstring>
 	<string>
 
-1762994292 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\function_persistenciasalas.cpp
+1763520218 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\function_persistenciasalas.cpp
 	<iostream>
 	<fstream>
 	<iomanip>
 	"function_persistenciaSalas.h"
+	"../../rlutil.h"
+	"../../mainHeader.h"
 
-1762991500 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\function_persistenciasalas.h
+1763520067 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\function_persistenciasalas.h
 	<string>
 	"clsSalas.h"
 

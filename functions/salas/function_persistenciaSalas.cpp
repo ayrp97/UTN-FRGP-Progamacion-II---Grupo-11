@@ -2,6 +2,8 @@
 #include <fstream>
 #include <iomanip>
 #include "function_persistenciaSalas.h"
+#include "../../rlutil.h"
+#include "../../mainHeader.h"
 
 using namespace std;
 
@@ -90,62 +92,101 @@ void exportarSalasCSV(const clsSala& gestor, const string& nombreArchivo) {
 // ============================================================
 // BORRAR ARCHIVO
 // ============================================================
-void borrarArchivoSalas() {
+void borrarArchivoSalas(clsSala& gestor) {
     ofstream clear(ARCHIVO_SALAS, ios::binary | ios::trunc);
-    cout << "Archivo de salas borrado.\n";
+    if (!clear.is_open()) {
+        cout << "Error al abrir el archivo de salas para borrar.\n";
+        return;
+    }
+    clear.close();
+
+    // Vaciar también las salas en memoria
+    gestor.vaciarSalas();  // este método lo definimos en clsSala
+
+    cout << "Archivo de salas y datos en memoria borrados.\n";
 }
 
 // ============================================================
 // MENU DE CONFIGURACIÓN DE GUARDADO
 // ============================================================
+void mostrarItemGuardar(const char* texto, int x, int y, bool seleccionado) {
+    if (seleccionado) {
+        rlutil::setBackgroundColor(rlutil::WHITE);
+        rlutil::setColor(rlutil::BLACK);
+    } else {
+        rlutil::setBackgroundColor(rlutil::BLACK);
+        rlutil::setColor(rlutil::WHITE);
+    }
+
+    rlutil::locate(x, y);
+    cout << texto;
+
+    rlutil::setBackgroundColor(rlutil::BLACK); // Reset
+}
+
 void menuGuardarSalas(bool& guardadoAutomatico, clsSala& gestor) {
-    int opcion = -1;
+    int opcion = 0; // Navegación con flechas
+    bool salir = false;
 
-    while (opcion != 0) {
-        cout << "\n===== CONFIGURACION DE GUARDADO DE SALAS =====\n";
-        cout << "1. " << (guardadoAutomatico ? "Desactivar" : "Activar") << " guardado automatico\n";
-        cout << "2. Guardar cambios manualmente\n";
-        cout << "3. Exportar salas a CSV\n";
-        cout << "4. Borrar archivo de salas\n";
-        cout << "0. Volver\n";
-        cout << "Opcion: ";
+    while (!salir) {
 
-        cin >> opcion;
+        rlutil::cls();
+        fondoVentana(); // Tu función de fondo
 
-        // Lectura segura para evitar fallos
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            opcion = -1;
-        } else {
-            cin.ignore(1000, '\n');
-        }
+        rlutil::setColor(rlutil::YELLOW);
+        rlutil::locate(46, 12);
+        cout << "CONFIGURACION DE GUARDADO";
 
-        switch (opcion) {
-            case 1:
-                guardadoAutomatico = !guardadoAutomatico;
-                cout << "Guardado automatico "
-                     << (guardadoAutomatico ? "activado.\n" : "desactivado.\n");
+        // Mostrar items del menú
+        rlutil::setColor(rlutil::WHITE);
+
+        mostrarItemGuardar(
+            guardadoAutomatico ? " DESACTIVAR GUARDADO AUTOMATICO "
+                               : " ACTIVAR GUARDADO AUTOMATICO   ",
+            50, 20, opcion == 0
+        );
+
+        mostrarItemGuardar(" GUARDAR CAMBIOS MANUALMENTE      ", 50, 21, opcion == 1);
+        mostrarItemGuardar(" EXPORTAR SALAS A CSV             ", 50, 22, opcion == 2);
+        mostrarItemGuardar(" BORRAR ARCHIVO DE SALAS          ", 50, 23, opcion == 3);
+        mostrarItemGuardar(" VOLVER                           ", 50, 25, opcion == 4);
+
+        // Entrada por teclado
+        int key = rlutil::getkey();
+
+        switch (key) {
+            case rlutil::KEY_UP:
+                opcion--;
+                if (opcion < 0) opcion = 4;
                 break;
 
-            case 2:
-                guardarSalas(gestor);
+            case rlutil::KEY_DOWN:
+                opcion++;
+                if (opcion > 4) opcion = 0;
                 break;
 
-            case 3:
-                exportarSalasCSV(gestor, "salas.csv");
-                break;
+            case rlutil::KEY_ENTER:
+                switch (opcion) {
+                    case 0:
+                        guardadoAutomatico = !guardadoAutomatico;
+                        break;
 
-            case 4:
-                borrarArchivoSalas();
-                break;
+                    case 1:
+                        guardarSalas(gestor);
+                        break;
 
-            case 0:
-                cout << "Volviendo...\n";
-                break;
+                    case 2:
+                        exportarSalasCSV(gestor, "salas.csv");
+                        break;
 
-            default:
-                cout << "Opcion invalida.\n";
+                    case 3:
+                        borrarArchivoSalas(gestor);
+                        break;
+
+                    case 4:
+                        salir = true;
+                        break;
+                }
                 break;
         }
     }

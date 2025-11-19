@@ -12,7 +12,7 @@ void cargarSalas(clsSala& gestor);
 void exportarSalasCSV(const clsSala& gestor, const std::string& nombreArchivo);
 
 // Borrado
-void borrarArchivoSalas();
+void borrarArchivoSalas(clsSala& gestor);
 
 // Menú de configuración
 void menuGuardarSalas(bool& guardadoAutomatico, clsSala& gestor);

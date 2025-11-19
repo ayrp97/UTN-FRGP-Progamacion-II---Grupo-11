@@ -2,6 +2,8 @@
 #include <fstream>
 #include <iomanip>
 #include "function_persistenciaPeliculas.h"
+#include "../../rlutil.h"
+#include "../../mainHeader.h"
 using namespace std;
 
 // ============================================================
@@ -94,43 +96,87 @@ void borrarArchivoPeliculas() {
 // ============================================================
 // MENU DE CONFIGURACION DE GUARDADO
 // ============================================================
+
+void mostrarItemGuardarPeliculas(const char* texto, int x, int y, bool seleccionado) {
+    if (seleccionado) {
+        rlutil::setBackgroundColor(rlutil::WHITE);
+        rlutil::setColor(rlutil::BLACK);
+    } else {
+        rlutil::setBackgroundColor(rlutil::BLACK);
+        rlutil::setColor(rlutil::WHITE);
+    }
+
+    rlutil::locate(x, y);
+    cout << texto;
+
+    rlutil::setBackgroundColor(rlutil::BLACK);
+}
+
 void menuGuardarPeliculas(bool& guardadoAutomatico, clsPelicula& gestor) {
-    int opcion = -1;
-    while (opcion != 0) {
-        cout << "\n===== CONFIGURACION DE GUARDADO =====\n";
-        cout << "1. " << (guardadoAutomatico ? "Desactivar" : "Activar") << " guardado automatico\n";
-        cout << "2. Guardar cambios manualmente\n";
-        cout << "3. Exportar datos a CSV\n";
-        cout << "4. Borrar todos los datos\n";
-        cout << "0. Volver\n";
-        cout << "Opcion: ";
-        cin >> opcion;
-        cin.ignore();
+    int opcion = 0;
+    bool salir = false;
 
-        switch (opcion) {
-            case 1:
-                guardadoAutomatico = !guardadoAutomatico;
-                cout << "Guardado automatico " << (guardadoAutomatico ? "activado.\n" : "desactivado.\n");
+    while (!salir) {
+        rlutil::cls();
+        fondoVentana();
+
+        rlutil::setColor(rlutil::YELLOW);
+        rlutil::locate(46, 12);
+        cout << "CONFIGURACION DE GUARDADO - PELICULAS";
+
+        rlutil::setColor(rlutil::WHITE);
+
+        // ----- Opciones -----
+        mostrarItemGuardarPeliculas(
+            guardadoAutomatico ? " DESACTIVAR GUARDADO AUTOMATICO " 
+                               : " ACTIVAR GUARDADO AUTOMATICO   ",
+            50, 20, opcion == 0
+        );
+
+        mostrarItemGuardarPeliculas(" GUARDAR CAMBIOS MANUALMENTE      ", 50, 21, opcion == 1);
+        mostrarItemGuardarPeliculas(" EXPORTAR PELICULAS A CSV         ", 50, 22, opcion == 2);
+        mostrarItemGuardarPeliculas(" BORRAR ARCHIVO DE PELICULAS      ", 50, 23, opcion == 3);
+        mostrarItemGuardarPeliculas(" VOLVER                           ", 50, 25, opcion == 4);
+
+        // Entrada por teclado
+        int key = rlutil::getkey();
+
+        switch (key) {
+
+            case rlutil::KEY_UP:
+                opcion--;
+                if (opcion < 0) opcion = 4;
                 break;
 
-            case 2:
-                guardarPeliculas(gestor);
+            case rlutil::KEY_DOWN:
+                opcion++;
+                if (opcion > 4) opcion = 0;
                 break;
 
-            case 3:
-                exportarPeliculasCSV(gestor, "peliculas.csv");
-                break;
+            case rlutil::KEY_ENTER:
+                switch (opcion) {
 
-            case 4:
-                borrarArchivoPeliculas();
-                break;
+                    case 0:
+                        guardadoAutomatico = !guardadoAutomatico;
+                        break;
 
-            case 0:
-                cout << "Volviendo al menu anterior...\n";
-                break;
+                    case 1:
+                        guardarPeliculas(gestor);
+                        break;
 
-            default:
-                cout << "Opcion invalida.\n";
+                    case 2:
+                        exportarPeliculasCSV(gestor, "peliculas.csv");
+                        break;
+
+                    case 3:
+                        borrarArchivoPeliculas();
+                        break;
+
+                    case 4:
+                        salir = true;
+                        break;
+                }
+                break;
         }
     }
 }
