@@ -40,6 +40,13 @@ void clsDataSalas::setActiva(bool estado) {
     activa = estado;
 }
 
+std::string clsDataSalas::getTipoSala() const {
+    return std::string(tipoSala);
+}
 
+void clsDataSalas::setTipoSala(const std::string& tipo) {
+    std::strncpy(tipoSala, tipo.c_str(), 29);
+    tipoSala[29] = '\0';
+}
 
 

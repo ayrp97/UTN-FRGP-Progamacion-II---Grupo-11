@@ -69,45 +69,46 @@ int obtenerCapacidadPorTipo(const std::string& tipo) {
 // ----------------------------------------------------------
 void clsSala::crearSala() {
     if (cantidad >= capacidadMax) {
-        std::cout << "No se pueden crear más salas (máximo 15).\n";
+        std::cout << "No se pueden crear más salas.\n";
         return;
     }
 
     clsDataSalas nueva;
 
+    // ... (Generación de ID igual que antes) ...
     std::string id = generarIdSala();
     nueva.setIdSala(id);
 
-    std::cout << "ID generado: " << id << "\n";
+    // SELECCIÓN DE TIPO
+    std::string tipoSeleccionado;
+    int capacidad = 0;
 
-    std::string tipo;
     std::cout << "Ingrese tipo de sala:\n";
     std::cout << "1) BASIC 2D\n2) BASIC 3D\n3) PREMIUM 2D CONFORT\n4) PREMIUM 3D CONFORT\n5) PREMIUM 4D MOTION\n";
     std::cout << "Opcion: ";
-
     int op;
     std::cin >> op;
     std::cin.ignore();
 
     switch (op) {
-        case 1: tipo = "BASIC 2D"; break;
-        case 2: tipo = "BASIC 3D"; break;
-        case 3: tipo = "PREMIUM 2D CONFORT"; break;
-        case 4: tipo = "PREMIUM 3D CONFORT"; break;
-        case 5: tipo = "PREMIUM 4D MOTION"; break;
+        case 1: tipoSeleccionado = "BASIC 2D"; capacidad = 120; break;
+        case 2: tipoSeleccionado = "BASIC 3D"; capacidad = 120; break;
+        case 3: tipoSeleccionado = "PREMIUM 2D CONFORT"; capacidad = 100; break;
+        case 4: tipoSeleccionado = "PREMIUM 3D CONFORT"; capacidad = 100; break;
+        case 5: tipoSeleccionado = "PREMIUM 4D MOTION"; capacidad = 80; break;
         default:
             std::cout << "Tipo inválido.\n";
             return;
     }
 
-    int capacidad = obtenerCapacidadPorTipo(tipo);
+    // AQUÍ GUARDAMOS AMBOS DATOS:
+    nueva.setTipoSala(tipoSeleccionado); // <--- ESTO ES LO QUE FALTABA
     nueva.setCapacidad(capacidad);
-
+    
     nueva.setActiva(true);
-
     salas[cantidad++] = nueva;
 
-    std::cout << "Sala creada correctamente.\n";
+    std::cout << "Sala " << tipoSeleccionado << " creada correctamente.\n";
 }
 
 // ----------------------------------------------------------

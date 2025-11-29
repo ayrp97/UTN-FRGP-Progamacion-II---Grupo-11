@@ -33,13 +33,18 @@ int clsFunciones::redondear10(int minutos) const {
 
 string clsFunciones::generarIdFuncion(const string& idPelicula,
                                       const string& idSala,
-                                      int horaInicio) const
+                                      int horaInicio,
+                                      int dia, int mes, int anio) const
 {
     ostringstream oss;
     oss << idPelicula << "_"
         << idSala << "_FU"
-        << setw(4) << setfill('0') << horaInicio;
+        << setw(4) << setfill('0') << horaInicio << "_"
+        << setw(2) << setfill('0') << dia
+        << setw(2) << setfill('0') << mes
+        << anio;
 
+    // Resultado: PE00001_SA00001_FU1200_01122025
     return oss.str();
 }
 
@@ -124,7 +129,7 @@ void clsFunciones::crearFuncion(clsSala& salas, clsPelicula& peliculas)
         return;
     }
 
-    string idFuncion = generarIdFuncion(idPeli, idSala, hora);
+    string idFuncion = generarIdFuncion(idPeli, idSala, hora, dia, mes, anio);
     f.setIdFuncion(idFuncion);
 
     funciones[cantidad++] = f;
@@ -180,7 +185,7 @@ void clsFunciones::crearFuncionesPorDia(clsSala& salas, clsPelicula& peliculas)
 
         if (!verificarSolapamiento(idSala, dia, mes, anio, horaInicio, horaFin)) {
 
-            string idFuncion = generarIdFuncion(idPeli, idSala, horaInicio);
+            string idFuncion = generarIdFuncion(idPeli, idSala, horaInicio, dia, mes, anio);
             f.setIdFuncion(idFuncion);
 
             funciones[cantidad++] = f;
@@ -247,7 +252,7 @@ void clsFunciones::crearFuncionesPorMes(clsSala& salas, clsPelicula& peliculas)
             int horaFin = f.getHoraFin();
 
             if (!verificarSolapamiento(idSala, dia, mes, anio, horaInicio, horaFin)) {
-                string idFuncion = generarIdFuncion(idPeli, idSala, horaInicio);
+                string idFuncion = generarIdFuncion(idPeli, idSala, horaInicio, dia, mes, anio);
                 f.setIdFuncion(idFuncion);
 
                 funciones[cantidad++] = f;
@@ -275,16 +280,17 @@ void clsFunciones::mostrarFunciones(const clsPelicula& gestorPeliculas) const
     }
 
     rlutil::setColor(rlutil::YELLOW);
-
-    // Encabezado sin la SALA
+    
+    // Encabezado CON la columna de Asientos Libres
     cout << left << setw(30) << "ID FUNCION"
          << left << setw(25) << "PELICULA"
          << left << setw(15) << "FECHA"
          << left << setw(10) << "HORARIO"
+         << left << setw(10) << "LIBRES" // <--- NUEVA COLUMNA
          << endl;
 
-    // Ajusté la línea separadora (le quité 10 caracteres)
-    cout << string(80, '-') << endl;
+    // Línea separadora un poco más larga
+    cout << string(90, '-') << endl; 
     rlutil::setColor(rlutil::WHITE);
 
     for (int i = 0; i < cantidad; i++) {
@@ -302,11 +308,12 @@ void clsFunciones::mostrarFunciones(const clsPelicula& gestorPeliculas) const
         int hora = f.getHoraInicio();
         string horaStr = to_string(hora / 100) + ":" + (hora % 100 < 10 ? "0" : "") + to_string(hora % 100);
 
-        // 3. Mostramos la fila (Sin el getSala)
+        // 3. Mostramos la fila con los asientos disponibles
         cout << left << setw(30) << f.getIdFuncion()
-             << left << setw(25) << nombrePelicula
+             << left << setw(25) << nombrePelicula.substr(0, 24) 
              << left << setw(15) << f.getFecha().toString()
              << left << setw(10) << horaStr
+             << left << setw(10) << f.getAsientosDisponibles() // <--- EL DATO CLAVE
              << "\n";
     }
 }
@@ -483,3 +490,20 @@ bool clsFunciones::cargarFunciones(const char* nombreArchivo)
 
 int clsFunciones::getCantidad() const { return cantidad; }
 const clsDataFuncion* clsFunciones::getFunciones() const { return funciones; }
+
+bool clsFunciones::restarCapacidad(const std::string& idFuncion, int cantidad) {
+    int pos = buscarFuncion(idFuncion); // Reutilizamos tu método de búsqueda
+
+    if (pos == -1) return false; // ID no encontrado
+
+    // 1. Modificar Memoria
+    int actuales = funciones[pos].getAsientosDisponibles();
+    
+    // Validación extra por seguridad
+    if (actuales < cantidad) return false; 
+
+    funciones[pos].setAsientosDisponibles(actuales - cantidad);
+
+    // 2. Guardar en Disco
+    return guardarFunciones("funciones.dat");
+}

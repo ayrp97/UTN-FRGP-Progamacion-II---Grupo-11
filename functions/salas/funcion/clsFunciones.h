@@ -13,7 +13,8 @@ private:
     int redondear10(int minutos) const;
     std::string generarIdFuncion(const std::string& idPelicula,
                                  const std::string& idSala,
-                                 int horaInicio) const;
+                                 int horaInicio,
+                                 int dia, int mes, int anio) const;
 
     bool verificarSolapamiento(const std::string& idSala,
                                int dia, int mes, int anio,
@@ -51,4 +52,6 @@ public:
     // ───────────────────────────────
     int getCantidad() const;
     const clsDataFuncion* getFunciones() const;
+
+    bool restarCapacidad(const std::string& idFuncion, int cantidad);
 };
