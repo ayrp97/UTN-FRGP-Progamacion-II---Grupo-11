@@ -33,9 +33,9 @@ public:
     // ───────────────────────────────
     // Consultas
     // ───────────────────────────────
-    void mostrarFunciones() const;
-    void mostrarFuncionesPorSala(const std::string& idSala) const;
-    void mostrarFuncionesPorFecha(int dia, int mes, int anio) const;
+    void mostrarFunciones(const clsPelicula& gestorPeliculas) const;
+    void mostrarFuncionesPorSala(const std::string& idSala, const clsPelicula& gestorPeliculas) const;
+    void mostrarFuncionesPorFecha(int dia, int mes, int anio, const clsPelicula& gestorPeliculas) const;
 
     int buscarFuncion(const std::string& id) const;
     void desactivarFuncion(const std::string& id);

@@ -1,17 +1,18 @@
 #pragma once
 #include <string>
-#include "../../../utilities/classes/clsFechas.h"   // <-- ruta correcta y nombre correcto
+#include <cstring> // Necesario para strcpy, strncpy
+#include "../../../utilities/classes/clsFechas.h"
 
 class clsDataFuncion {
 private:
-    std::string idFuncion;
-    std::string idSala;
-    std::string idPelicula;
+    char idFuncion[50];  // Cambiado de string a char[]
+    char idSala[10];     // Cambiado de string a char[]
+    char idPelicula[10]; // Cambiado de string a char[]
 
-    clsFecha fecha;          // <--- ahora usa clsFecha
+    clsFecha fecha;
 
-    int horaInicio;           // HHMM
-    int duracionTotal;        // minutos (película + publicidad + limpieza)
+    int horaInicio;
+    int duracionTotal;
     int capacidadSala;
     int asientosDisponibles;
     bool activa;

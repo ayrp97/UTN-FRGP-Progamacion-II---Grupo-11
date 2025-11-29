@@ -94,7 +94,7 @@ void menuFunciones(clsFunciones& funciones, clsSala& gestorSalas, clsPelicula& g
                         break;
 
                     case 3: // MOSTRAR TODAS LAS FUNCIONES
-                        funciones.mostrarFunciones();
+                        funciones.mostrarFunciones(gestorPeliculas);
                         rlutil::anykey();
                         break;
 
@@ -102,7 +102,7 @@ void menuFunciones(clsFunciones& funciones, clsSala& gestorSalas, clsPelicula& g
                         string idSala;
                         cout << "Ingrese ID de la sala: ";
                         getline(cin, idSala);
-                        funciones.mostrarFuncionesPorSala(idSala);
+                        funciones.mostrarFuncionesPorSala(idSala, gestorPeliculas);
                         rlutil::anykey();
                         break;
                     }
@@ -113,7 +113,7 @@ void menuFunciones(clsFunciones& funciones, clsSala& gestorSalas, clsPelicula& g
                         cout << "Ingrese mes: "; cin >> m;
                         cout << "Ingrese anio: "; cin >> a;
                         cin.ignore();
-                        funciones.mostrarFuncionesPorFecha(d, m, a);
+                        funciones.mostrarFuncionesPorFecha(d, m, a, gestorPeliculas);
                         rlutil::anykey();
                         break;
                     }
