@@ -3,6 +3,7 @@
 #include <fstream>
 #include <ctime>
 #include <iomanip>
+#include <sstream>
 #include "../../rlutil.h"
 #include "../../mainHeader.h"
 
