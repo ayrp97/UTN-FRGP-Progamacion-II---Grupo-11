@@ -98,7 +98,7 @@
 	<cstring>
 	<string>
 
-1763004369 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\clspeliculas.cpp
+1764696002 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\clspeliculas.cpp
 	"clsPeliculas.h"
 	<iomanip>
 	<sstream>
@@ -112,7 +112,7 @@
 	"../../utilities/classes/clsFechas.h"
 	"function_persistenciaPeliculas.h"
 
-1763546418 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\main.cpp
+1764694660 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\main.cpp
 	<iostream>
 	<locale>
 	"utilities/rlutil.h"
@@ -123,7 +123,7 @@
 	"mainHeader.h"
 	<stdlib.h>
 
-1762970308 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\utilities\rlutil.h
+1764514758 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\utilities\rlutil.h
 	<iostream>
 	<string>
 	<cstdio>
@@ -137,18 +137,19 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1762970304 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\mainheader.h
+1765207627 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\mainheader.h
 	<string>
 
-1763546362 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\menugestor.cpp
+1765211023 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\menugestor.cpp
 	<iostream>
 	<locale>
 	<string>
-	"rlutil.h"
 	<windows.h>
+	"rlutil.h"
 	"mainHeader.h"
+	"utilities/classes/clsReportes.h"
 
-1762970306 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\rlutil.h
+1764514758 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\rlutil.h
 	<iostream>
 	<string>
 	<cstdio>
@@ -168,7 +169,7 @@
 	"rlutil.h"
 	"mainHeader.h"
 
-1762970302 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\creditos.cpp
+1764514758 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\creditos.cpp
 	<iostream>
 	<locale>
 	"rlutil.h"
@@ -179,18 +180,18 @@
 	<locale>
 	"../rlutil.h"
 
-1763546658 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\peliculas.cpp
+1765205425 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\peliculas.cpp
 	<iostream>
 	<string>
-	"../../rlutil.h"
 	<windows.h>
-	"../../mainHeader.h"
-	"clsdataPeliculas.h"
 	"clsPeliculas.h"
-	"../../utilities/classes/clsFechas.h"
+	"clsdataPeliculas.h"
 	"function_persistenciaPeliculas.h"
+	"../../rlutil.h"
+	"../../mainHeader.h"
+	"../../utilities/classes/clsFechas.h"
 
-1764418408 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\salas.cpp
+1765205564 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\salas.cpp
 	<iostream>
 	<locale>
 	<windows.h>
@@ -201,7 +202,7 @@
 	"funcion/clsFunciones.h"
 	"../peliculas/clsPeliculas.h"
 
-1764435548 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\ventas.cpp
+1765207718 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\ventas.cpp
 	<iostream>
 	<locale>
 	<windows.h>
@@ -249,7 +250,7 @@
 	"clsAsientos.h"
 	"../../utilities/classes/clsFechas.h"
 
-1764434815 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clssalas.cpp
+1764514758 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clssalas.cpp
 	<iostream>
 	<fstream>
 	<iomanip>
@@ -263,7 +264,7 @@
 	<iostream>
 	<string>
 
-1763592988 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\function_persistenciapeliculas.cpp
+1765205277 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\peliculas\function_persistenciapeliculas.cpp
 	<iostream>
 	<fstream>
 	<iomanip>
@@ -437,14 +438,14 @@
 	"clsdataSalas.h"
 	"clsdataFuncion.h"
 
-1764434749 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clsdatasalas.cpp
+1765198385 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clsdatasalas.cpp
 	"clsDataSalas.h"
 
 1764434716 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\clsdatasalas.h
 	<cstring>
 	<string>
 
-1763593242 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\function_persistenciasalas.cpp
+1765199406 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\salas\function_persistenciasalas.cpp
 	<iostream>
 	<fstream>
 	<iomanip>
@@ -504,15 +505,15 @@
 	<string>
 	<cstring>
 
-1764440613 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\clsmaestroventas.cpp
+1765208096 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\clsmaestroventas.cpp
 	"clsmaestroVentas.h"
 
-1764440519 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\clsmaestroventas.h
+1765207995 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\clsmaestroventas.h
 	<string>
 	"clsdetalleVentas.h"
 	"../../utilities/classes/clsFechas.h"
 
-1764446599 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\clsventas.cpp
+1765208298 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\clsventas.cpp
 	"clsVentas.h"
 	<iostream>
 	<fstream>
@@ -530,19 +531,43 @@
 	"Precios/clsPrecios.h"
 	<string>
 
-1764427214 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\precios\clsprecios.h
+1765192507 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\precios\clsprecios.h
 	<string>
 	"clsTarifa.h"
 	"../Candy/clsCandy.h"
+	"../../../mainHeader.h"
 
 1764427293 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\precios\clstarifa.h
 	<string>
 	<cstring>
 
-1764435720 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\precios\clsprecios.cpp
+1765206082 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\functions\ventas\precios\clsprecios.cpp
 	<iostream>
 	<fstream>
 	<iomanip>
 	"clsPrecios.h"
 	"../../../rlutil.h"
+
+1765199057 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\ux-ui\10dibujarmenú.cpp
+	<iostream>
+	<locale>
+	"../rlutil.h"
+	"../mainHeader.h"
+
+1765203573 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\ux-ui\11navegacionteclas.cpp
+	<iostream>
+	<locale>
+	"../rlutil.h"
+	"../mainHeader.h"
+
+1765202812 source:d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\ux-ui\12configuracionesvisuales.cpp
+	<iostream>
+	<locale>
+	"../rlutil.h"
+	"../mainHeader.h"
+
+1765211430 d:\utn frgp\prog ii\salas de cine\prog2-tp1-g11\utilities\classes\clsreportes.h
+	"../../functions/ventas/clsVentas.h"
+	"../../functions/peliculas/clsPeliculas.h"
+	"../../functions/ventas/Candy/clsCandy.h"
 

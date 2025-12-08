@@ -10,152 +10,131 @@
 
 using namespace std;
 
-// ---------------------------------------------------------
-// Función para mostrar ítems con diseño tipo películas.cpp
-// ---------------------------------------------------------
-void mostrarItemSalas(const char* text, int posx, int posy, bool selected) {
-    if (selected) rlutil::setBackgroundColor(rlutil::BLUE);
-    else rlutil::setBackgroundColor(rlutil::BLACK);
-
-    rlutil::locate(posx, posy);
-    cout << text << endl;
-
-    rlutil::setBackgroundColor(rlutil::BLACK);
-}
-
-// ---------------------------------------------------------
-// SUBMENU: GESTION DE FUNCIONES
-// ---------------------------------------------------------
 void menuFunciones(clsFunciones& funciones, clsSala& gestorSalas, clsPelicula& gestorPeliculas) {
-    int opcion = 0;
-    bool salir = false;
-
-    while (!salir) {
+    while (true) {
         rlutil::cls();
         fondoVentana();
 
-        rlutil::setColor(rlutil::YELLOW);
-        rlutil::locate(48, 10);
-        cout << "GESTION DE FUNCIONES";
+        const char* opciones[] = {
+            " CREAR FUNCION UNICA ",
+            " CREAR FUNCIONES POR DIA ",
+            " CREAR FUNCIONES POR MES ",
+            " MOSTRAR TODAS ",
+            " FUNCIONES POR SALA ",
+            " FUNCIONES POR FECHA ",
+            " DESACTIVAR FUNCION ",
+            " VOLVER "
+        };
 
-        rlutil::setColor(rlutil::WHITE);
+        int cantidad = 8;
 
-        // Opciones del submenú
-        mostrarItemSalas(" CREAR FUNCION UNICA         ", 44, 13, opcion == 0);
-        mostrarItemSalas(" CREAR FUNCIONES POR DIA     ", 44, 14, opcion == 1);
-        mostrarItemSalas(" CREAR FUNCIONES POR MES     ", 44, 15, opcion == 2);
-        mostrarItemSalas(" MOSTRAR TODAS LAS FUNCIONES ", 44, 17, opcion == 3);
-        mostrarItemSalas(" FUNCIONES POR SALA          ", 44, 18, opcion == 4);
-        mostrarItemSalas(" FUNCIONES POR FECHA         ", 44, 19, opcion == 5);
-        mostrarItemSalas(" DESACTIVAR FUNCION          ", 44, 20, opcion == 6);
-        mostrarItemSalas(" VOLVER                      ", 44, 22, opcion == 7);
+        int op = menuInteractivo(opciones, cantidad, "SUB MODULO DE FUNCIONES", 50, 20);
 
-        // Pointer
-        rlutil::locate(41, 13 + opcion + (opcion >= 3 ? 1 : 0) + (opcion == 7 ? 1 : 0));
-        cout << (char)175;
+        if (op == -1 || op == 7) return;
 
-        int key = rlutil::getkey();
+        rlutil::cls();
 
-        switch (key) {
-            case 14: // Flecha ARRIBA
-                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
-                opcion--;
-                if (opcion < 0) opcion = 7;
+        switch (op) {
+            case 0:
+                funciones.crearFuncion(gestorSalas, gestorPeliculas);
+                funciones.guardarFunciones("funciones.dat");
+                rlutil::anykey();
                 break;
 
-            case 15: // Flecha ABAJO
-                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
-                opcion++;
-                if (opcion > 7) opcion = 0;
+            case 1:
+                funciones.crearFuncionesPorDia(gestorSalas, gestorPeliculas);
+                funciones.guardarFunciones("funciones.dat");
+                rlutil::anykey();
                 break;
 
-            case 1: { // ENTER
-                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundStrong.wav"),NULL,SND_FILENAME | SND_ASYNC );
-                rlutil::cls();
-                fondoVentana();
+            case 2:
+                funciones.crearFuncionesPorMes(gestorSalas, gestorPeliculas);
+                funciones.guardarFunciones("funciones.dat");
+                rlutil::anykey();
+                break;
 
-                switch (opcion) {
-                    case 0: // CREAR FUNCION UNICA
-                        funciones.crearFuncion(gestorSalas, gestorPeliculas);
-                        funciones.guardarFunciones("funciones.dat");
-                        rlutil::anykey();
-                        break;
+            case 3:
+                funciones.mostrarFunciones(gestorPeliculas);
+                rlutil::anykey();
+                break;
 
-                    case 1: // CREAR FUNCIONES POR DIA
-                        funciones.crearFuncionesPorDia(gestorSalas, gestorPeliculas);
-                        funciones.guardarFunciones("funciones.dat");
-                        rlutil::anykey();
-                        break;
+            case 4:
+                {
+                    fondoVentana();
+                    rlutil::setColor(rlutil::YELLOW);
+                    rlutil::locate(45, 10); cout << "BUSCAR FUNCIONES POR SALA";
 
-                    case 2: // CREAR FUNCIONES POR MES
-                        funciones.crearFuncionesPorMes(gestorSalas, gestorPeliculas);
-                        funciones.guardarFunciones("funciones.dat");
-                        rlutil::anykey();
-                        break;
+                    rlutil::setColor(rlutil::WHITE);
+                    rlutil::locate(40, 12); cout << "Ingrese ID de la sala: ";
 
-                    case 3: // MOSTRAR TODAS LAS FUNCIONES
-                        funciones.mostrarFunciones(gestorPeliculas);
-                        rlutil::anykey();
-                        break;
+                    rlutil::showcursor();
+                    string idSala;
+                    getline(cin, idSala);
+                    rlutil::hidecursor();
 
-                    case 4: { // FUNCIONES POR SALA
-                        string idSala;
-                        cout << "Ingrese ID de la sala: ";
-                        getline(cin, idSala);
-                        funciones.mostrarFuncionesPorSala(idSala, gestorPeliculas);
-                        rlutil::anykey();
-                        break;
-                    }
-
-                    case 5: { // FUNCIONES POR FECHA
-                        int d, m, a;
-                        cout << "Ingrese dia: ";  cin >> d;
-                        cout << "Ingrese mes: "; cin >> m;
-                        cout << "Ingrese anio: "; cin >> a;
-                        cin.ignore();
-                        funciones.mostrarFuncionesPorFecha(d, m, a, gestorPeliculas);
-                        rlutil::anykey();
-                        break;
-                    }
-
-                    case 6: { // DESACTIVAR FUNCION
-                        string id;
-                        cout << "Ingrese ID de funcion a desactivar: ";
-                        getline(cin, id);
-
-                        int pos = funciones.buscarFuncion(id);
-                        if (pos == -1) {
-                            cout << "No se encontro la funcion con ese ID.\n";
-                        } else {
-                            funciones.desactivarFuncion(id);
-                            funciones.guardarFunciones("funciones.dat");
-                            cout << "Funcion desactivada correctamente.\n";
-                        }
-                        rlutil::anykey();
-                        break;
-                    }
-
-                    case 7: // VOLVER
-                        salir = true;
-                        break;
+                    rlutil::cls();
+                    funciones.mostrarFuncionesPorSala(idSala, gestorPeliculas);
+                    rlutil::anykey();
                 }
-
                 break;
-            }
+
+            case 5:
+                {
+                    fondoVentana();
+                    rlutil::setColor(rlutil::YELLOW);
+                    rlutil::locate(45, 10); cout << "BUSCAR FUNCIONES POR FECHA";
+
+                    int d, m, a;
+                    rlutil::setColor(rlutil::WHITE);
+                    rlutil::showcursor();
+
+                    rlutil::locate(40, 12); cout << "Ingrese dia: "; cin >> d;
+                    rlutil::locate(40, 13); cout << "Ingrese mes: "; cin >> m;
+                    rlutil::locate(40, 14); cout << "Ingrese anio: "; cin >> a;
+                    cin.ignore();
+                    rlutil::hidecursor();
+
+                    rlutil::cls();
+                    funciones.mostrarFuncionesPorFecha(d, m, a, gestorPeliculas);
+                    rlutil::anykey();
+                }
+                break;
+
+            case 6:
+                {
+                    fondoVentana();
+                    rlutil::setColor(rlutil::RED);
+                    rlutil::locate(45, 10); cout << "DESACTIVAR FUNCION";
+
+                    rlutil::setColor(rlutil::WHITE);
+                    rlutil::locate(40, 12); cout << "Ingrese ID de funcion: ";
+
+                    rlutil::showcursor();
+                    string id;
+                    getline(cin, id);
+                    rlutil::hidecursor();
+
+                    int pos = funciones.buscarFuncion(id);
+
+                    rlutil::locate(40, 14);
+                    if (pos == -1) {
+                        rlutil::setColor(rlutil::RED);
+                        cout << "No se encontro la funcion con ese ID.";
+                    } else {
+                        funciones.desactivarFuncion(id);
+                        funciones.guardarFunciones("funciones.dat");
+                        rlutil::setColor(rlutil::GREEN);
+                        cout << "Funcion desactivada correctamente.";
+                    }
+                    rlutil::anykey();
+                }
+                break;
         }
     }
 }
 
-// ---------------------------------------------------------
-// MENÚ SALAS ESTILO PELÍCULAS
-// ---------------------------------------------------------
-
 void salas() {
-
-    rlutil::hidecursor();
-    rlutil::setBackgroundColor(rlutil::BLACK);
-    rlutil::cls();
-    rlutil::setColor(rlutil::WHITE);
+    configuracionesVisuales();
 
     clsSala gestorSalas;
     clsPelicula gestorPeliculas;
@@ -163,115 +142,97 @@ void salas() {
 
     bool guardadoAutomatico = true;
 
-    // Persistencia inicial
     cargarSalas(gestorSalas);
     cargarPeliculas(gestorPeliculas);
     funciones.cargarFunciones("funciones.dat");
 
-    int opcion = 0;
-    bool salir = false;
-
-    while (!salir) {
-
+    while (true) {
         rlutil::cls();
         fondoVentana();
 
-        // ---------------- TÍTULO CENTRADO ----------------
-        rlutil::setColor(rlutil::YELLOW);
-        rlutil::locate(51, 10); // CENTRO para "GESTION DE SALAS"
-        cout << "GESTION DE SALAS";
+        const char* opciones[] = {
+            " CREAR NUEVA SALA ",
+            " MOSTRAR TODAS ",
+            " MODIFICAR SALA ",
+            " VER CAPACIDAD DE SALA ",
+            " CONFIGURACION DE GUARDADO ",
+            " GESTIONAR FUNCIONES ",
+            " VOLVER "
+        };
 
-        rlutil::setColor(rlutil::WHITE);
+        int cantidad = 7;
 
-        // ---------------- MENÚ PRINCIPAL CENTRADO ----------------
-        // X = 44, Y desde 13 hacia abajo
+        int op = menuInteractivo(opciones, cantidad, "MODULO DE SALAS", 50, 20);
 
-        mostrarItemSalas(" CREAR NUEVA SALA            ", 44, 13, opcion == 0);
-        mostrarItemSalas(" MOSTRAR TODAS               ", 44, 14, opcion == 1);
-        mostrarItemSalas(" MODIFICAR SALA              ", 44, 15, opcion == 2);
-        mostrarItemSalas(" VER CAPACIDAD DE SALA       ", 44, 16, opcion == 3);
-        mostrarItemSalas(" CONFIGURACION DE GUARDADO   ", 44, 17, opcion == 4);
+        if (op == -1 || op == 6) {
+            guardarSalas(gestorSalas);
+            funciones.guardarFunciones("funciones.dat");
+            break;
+        }
 
-        // ------------------- FUNCIONES -------------------
-        mostrarItemSalas(" GESTIONAR FUNCIONES         ", 44, 19, opcion == 5);
+        rlutil::cls();
 
-        // ------------------- SALIR -----------------------
-        mostrarItemSalas(" VOLVER AL MENU PRINCIPAL    ", 44, 21, opcion == 6);
-
-        // ------------------- POINTER ----------------------
-        rlutil::locate(41, 13 + opcion);
-        cout << (char)175;
-
-        // ------------------- Navegación y Ejecución -------------------
-        switch (rlutil::getkey()) {
-            case 14: // Flecha ARRIBA
-                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
-                opcion--;
-                if (opcion < 0) opcion = 6;
+        switch (op) {
+            case 0:
+                gestorSalas.crearSala();
+                if (guardadoAutomatico) guardarSalas(gestorSalas);
+                rlutil::anykey();
                 break;
 
-            case 15: // Flecha ABAJO
-                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
-                opcion++;
-                if (opcion > 6) opcion = 0;
+            case 1:
+                gestorSalas.mostrarSalas();
+                rlutil::anykey();
                 break;
 
-            case 1: { // TECLA ENTER (Ejecutar)
-                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundStrong.wav"),NULL,SND_FILENAME | SND_ASYNC );
-                rlutil::cls();
+            case 2:
+                {
+                    fondoVentana();
+                    rlutil::setColor(rlutil::YELLOW);
+                    rlutil::locate(45, 10); cout << "MODIFICAR SALA";
 
-                switch (opcion) {
+                    rlutil::setColor(rlutil::WHITE);
+                    rlutil::locate(40, 12); cout << "Ingrese ID de la sala: ";
 
-                    case 0:
-                        gestorSalas.crearSala();
-                        if (guardadoAutomatico) guardarSalas(gestorSalas);
-                        rlutil::anykey();
-                        break;
+                    rlutil::showcursor();
+                    string id;
+                    getline(cin, id);
+                    rlutil::hidecursor();
 
-                    case 1:
-                        gestorSalas.mostrarSalas();
-                        rlutil::anykey();
-                        break;
-
-                    case 2: {
-                        string id;
-                        cout << "Ingrese ID de la sala a modificar: ";
-                        getline(cin, id);
+                    if (!id.empty()) {
                         gestorSalas.modificarSala(id);
                         if (guardadoAutomatico) guardarSalas(gestorSalas);
-                        rlutil::anykey();
-                        break;
                     }
-
-                    case 3: {
-                        string id;
-                        cout << "Ingrese ID de la sala: ";
-                        getline(cin, id);
-                        gestorSalas.verCapacidad(id);
-                        rlutil::anykey();
-                        break;
-                    }
-
-                    case 4:
-                        menuGuardarSalas(guardadoAutomatico, gestorSalas);
-                        rlutil::anykey();
-                        break;
-
-                    case 5: // SUBMENÚ DE FUNCIONES
-                        menuFunciones(funciones, gestorSalas, gestorPeliculas);
-                        break;
-
-                    case 6:
-                        guardarSalas(gestorSalas);
-                        funciones.guardarFunciones("funciones.dat");
-                        salir = true;
-                        menuGestor();
-                        break;
+                    rlutil::anykey();
                 }
-
-                rlutil::cls();
                 break;
-            }
+
+            case 3:
+                {
+                    fondoVentana();
+                    rlutil::setColor(rlutil::YELLOW);
+                    rlutil::locate(45, 10); cout << "CONSULTAR CAPACIDAD";
+
+                    rlutil::setColor(rlutil::WHITE);
+                    rlutil::locate(40, 12); cout << "Ingrese ID de la sala: ";
+
+                    rlutil::showcursor();
+                    string id;
+                    getline(cin, id);
+                    rlutil::hidecursor();
+
+                    rlutil::cls();
+                    gestorSalas.verCapacidad(id);
+                    rlutil::anykey();
+                }
+                break;
+
+            case 4:
+                menuGuardarSalas(guardadoAutomatico, gestorSalas);
+                break;
+
+            case 5:
+                menuFunciones(funciones, gestorSalas, gestorPeliculas);
+                break;
         }
     }
 }

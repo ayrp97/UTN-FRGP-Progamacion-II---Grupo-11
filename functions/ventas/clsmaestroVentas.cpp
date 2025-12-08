@@ -2,6 +2,7 @@
 
 clsmaestroVenta::clsmaestroVenta() {
     std::strcpy(idVenta, "VE00000"); // Inicializar vacío
+    std::strcpy(idFuncion, "");
     dniCliente = 0;
     fecha = clsFecha(); // Usa el constructor por defecto (hoy o 1/1/2000)
     hora = 0;
@@ -17,6 +18,10 @@ void clsmaestroVenta::setIdVenta(const std::string& id) {
     std::strncpy(idVenta, id.c_str(), 9);
     idVenta[9] = '\0';
 }
+void clsmaestroVenta::setIdFuncion(const std::string& id) {
+    std::strncpy(idFuncion, id.c_str(), 49);
+    idFuncion[49] = '\0';
+}
 void clsmaestroVenta::setDniCliente(int dni) { dniCliente = dni; }
 void clsmaestroVenta::setFecha(const clsFecha& f) { fecha = f; }
 void clsmaestroVenta::setHora(int h) { hora = h; }
@@ -25,6 +30,9 @@ void clsmaestroVenta::setActiva(bool a) { activa = a; }
 // ================= GETTERS =================
 std::string clsmaestroVenta::getIdVenta() const {
     return std::string(idVenta);
+}
+std::string clsmaestroVenta::getIdFuncion() const {
+    return std::string(idFuncion);
 }
 int clsmaestroVenta::getDniCliente() const { return dniCliente; }
 clsFecha clsmaestroVenta::getFecha() const { return fecha; }

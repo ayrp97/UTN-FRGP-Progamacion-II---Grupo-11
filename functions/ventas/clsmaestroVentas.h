@@ -6,7 +6,8 @@
 class clsmaestroVenta {
 private:
     char idVenta[10];           // Número de ticket
-    int dniCliente;        // DNI del comprador
+    int dniCliente; 
+    char idFuncion[50];       // DNI del comprador
     clsFecha fecha;        // Fecha de la operación
     int hora;              // HHMM
     
@@ -27,6 +28,7 @@ public:
     void setFecha(const clsFecha& f);
     void setHora(int h);
     void setActiva(bool a);
+    void setIdFuncion(const std::string& id);
 
     // Getters de Cabecera
     std::string getIdVenta() const;
@@ -35,6 +37,7 @@ public:
     int getHora() const;
     float getImporteTotal() const;
     bool estaActiva() const;
+    std::string getIdFuncion() const;
 
     // --- MÉTODOS PARA MANEJAR EL DETALLE ---
     

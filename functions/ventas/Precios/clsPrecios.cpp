@@ -6,9 +6,6 @@
 
 using namespace std;
 
-// ========================================================
-// CONSTRUCTOR: Asegura que existan tarifas base
-// ========================================================
 clsPrecios::clsPrecios() {
     ifstream archivo(ARCHIVO_TARIFAS);
     if (!archivo.good()) {
@@ -19,12 +16,7 @@ clsPrecios::clsPrecios() {
     }
 }
 
-// ========================================================
-// INICIALIZACIÓN AUTOMÁTICA (Mapeo Sala -> Código Ticket)
-// ========================================================
 void clsPrecios::inicializarTarifasDefault() {
-    // Definimos los tipos que usaste en clsSalas.cpp
-    // y les asignamos tus códigos de ticket personalizados.
 
     clsTarifa t;
     ofstream archivo(ARCHIVO_TARIFAS, ios::binary);
@@ -62,9 +54,6 @@ void clsPrecios::inicializarTarifasDefault() {
     archivo.close();
 }
 
-// ========================================================
-// LISTAR TARIFAS
-// ========================================================
 void clsPrecios::mostrarListadoTarifas() const {
     rlutil::cls();
     ifstream archivo(ARCHIVO_TARIFAS, ios::binary);
@@ -85,9 +74,6 @@ void clsPrecios::mostrarListadoTarifas() const {
     archivo.close();
 }
 
-// ========================================================
-// MODIFICAR PRECIO ENTRADA
-// ========================================================
 bool clsPrecios::actualizarPrecioEntrada(const string& codigo, float nuevoPrecio) {
     fstream archivo(ARCHIVO_TARIFAS, ios::binary | ios::in | ios::out);
     clsTarifa t;
@@ -97,7 +83,6 @@ bool clsPrecios::actualizarPrecioEntrada(const string& codigo, float nuevoPrecio
         if (t.getCodigo() == codigo) {
             t.setPrecio(nuevoPrecio);
 
-            // Retroceder el cursor para sobreescribir
             archivo.seekp(archivo.tellg() - static_cast<streamoff>(sizeof(clsTarifa)));
             archivo.write(reinterpret_cast<const char*>(&t), sizeof(clsTarifa));
             encontrado = true;
@@ -128,57 +113,48 @@ void clsPrecios::menuModificarPreciosEntradas() {
     rlutil::anykey();
 }
 
-// ========================================================
-// BUSQUEDA PARA VENTAS
-// ========================================================
 clsTarifa clsPrecios::buscarPorDescripcion(const std::string& descripcionSala) const {
     ifstream archivo(ARCHIVO_TARIFAS, ios::binary);
     clsTarifa t;
     while (archivo.read(reinterpret_cast<char*>(&t), sizeof(clsTarifa))) {
-        // Comparamos strings. Ojo, deben ser exactos.
         if (t.getDescripcion() == descripcionSala) {
             archivo.close();
             return t;
         }
     }
     archivo.close();
-    // Retornamos un objeto vacío/gratis si no encuentra (o manejar error)
     return clsTarifa();
 }
 
-// ========================================================
-// MENU PRINCIPAL DE GESTION DE PRECIOS
-// ========================================================
 void clsPrecios::menuPrincipalPrecios() {
-    int op = 0;
     while (true) {
         rlutil::cls();
-        rlutil::setColor(rlutil::YELLOW);
-        cout << "--- GESTION DE PRECIOS Y TARIFAS ---\n\n";
-        rlutil::setColor(rlutil::WHITE);
+        fondoVentana();
 
-        cout << "1. Modificar Precios de ENTRADAS (2D, 3D, etc)\n";
-        cout << "2. Modificar Precios de CANDY (Gaseosas, Pochoclos)\n";
-        cout << "0. Volver\n";
+        const char* opciones[] = {
+            " MODIFICAR PRECIOS ENTRADAS ",
+            " MODIFICAR PRECIOS CANDY    ",
+            " VOLVER                     "
+        };
 
-        cout << "\nSeleccione: ";
-        cin >> op;
+        int cantidad = 3;
 
+        int op = menuInteractivo(opciones, cantidad, "GESTION DE PRECIOS Y TARIFAS", 50, 20);
+
+        if (op == -1 || op == 2) return;
+
+        rlutil::cls();
         switch (op) {
-            case 1:
+            case 0:
                 menuModificarPreciosEntradas();
                 break;
-            case 2: {
-                // AQUÍ USAMOS LA CLASE CANDY
-                clsCandy gestorCandy;
-                gestorCandy.modificarPrecio(); // Llamamos al menú del otro módulo
+
+            case 1:
+                {
+                    clsCandy gestorCandy;
+                    gestorCandy.modificarPrecio();
+                }
                 break;
-            }
-            case 0:
-                return;
-            default:
-                cout << "Opcion incorrecta.\n";
-                rlutil::anykey();
         }
     }
 }

@@ -6,9 +6,6 @@
 #include "../../mainHeader.h"
 using namespace std;
 
-// ============================================================
-// GUARDAR EN ARCHIVO BINARIO
-// ============================================================
 void guardarPeliculas(const clsPelicula& gestor) {
     ofstream archivo(ARCHIVO_PELICULAS, ios::binary | ios::trunc);
     if (!archivo) {
@@ -28,9 +25,6 @@ void guardarPeliculas(const clsPelicula& gestor) {
     cout << "Películas guardadas correctamente (" << cantidad << " registros).\n";
 }
 
-// ============================================================
-// CARGAR DESDE ARCHIVO BINARIO
-// ============================================================
 void cargarPeliculas(clsPelicula& gestor) {
     ifstream archivo(ARCHIVO_PELICULAS, ios::binary);
     if (!archivo) {
@@ -51,12 +45,9 @@ void cargarPeliculas(clsPelicula& gestor) {
     }
 
     archivo.close();
-    cout << cantidad << " películas cargadas desde archivo.\n";
+    //cout << cantidad << " películas cargadas desde archivo.\n";
 }
 
-// ============================================================
-// EXPORTAR A CSV
-// ============================================================
 void exportarPeliculasCSV(const clsPelicula& gestor, const string& nombreArchivo) {
     ofstream archivo(nombreArchivo);
     if (!archivo) {
@@ -85,100 +76,60 @@ void exportarPeliculasCSV(const clsPelicula& gestor, const string& nombreArchivo
     cout << "Películas exportadas a '" << nombreArchivo << "'.\n";
 }
 
-// ============================================================
-// BORRAR ARCHIVO BINARIO
-// ============================================================
 void borrarArchivoPeliculas() {
     ofstream clear(ARCHIVO_PELICULAS, ios::binary | ios::trunc);
     cout << "Archivo de películas borrado.\n";
 }
 
-// ============================================================
-// MENU DE CONFIGURACION DE GUARDADO
-// ============================================================
-
-void mostrarItemGuardarPeliculas(const char* texto, int x, int y, bool seleccionado) {
-    if (seleccionado) {
-        rlutil::setBackgroundColor(rlutil::WHITE);
-        rlutil::setColor(rlutil::BLACK);
-    } else {
-        rlutil::setBackgroundColor(rlutil::BLACK);
-        rlutil::setColor(rlutil::WHITE);
-    }
-
-    rlutil::locate(x, y);
-    cout << texto;
-
-    rlutil::setBackgroundColor(rlutil::BLACK);
-}
-
 void menuGuardarPeliculas(bool& guardadoAutomatico, clsPelicula& gestor) {
-    int opcion = 0;
-    bool salir = false;
 
-    while (!salir) {
+    while (true) {
         rlutil::cls();
         fondoVentana();
 
-        rlutil::setColor(rlutil::YELLOW);
-        rlutil::locate(46, 12);
-        cout << "CONFIGURACION DE GUARDADO - PELICULAS";
+        const char* textoAuto = guardadoAutomatico ? " DESACTIVAR GUARDADO AUTOMATICO "
+                                                   : " ACTIVAR GUARDADO AUTOMATICO ";
+        const char* opciones[] = {
+            textoAuto,
+            " GUARDAR CAMBIOS MANUALMENTE ",
+            " EXPORTAR PELICULAS A CSV ",
+            " BORRAR ARCHIVO DE PELICULAS ",
+            " VOLVER "
+        };
 
-        rlutil::setColor(rlutil::WHITE);
+        int cantidad = 5;
 
-        // ----- Opciones -----
-        mostrarItemGuardarPeliculas(
-            guardadoAutomatico ? " DESACTIVAR GUARDADO AUTOMATICO " 
-                               : " ACTIVAR GUARDADO AUTOMATICO   ",
-            50, 20, opcion == 0
-        );
+        int op = menuInteractivo(opciones, cantidad, "CONFIGURACION DE GUARDADO", 50, 20);
 
-        mostrarItemGuardarPeliculas(" GUARDAR CAMBIOS MANUALMENTE      ", 50, 21, opcion == 1);
-        mostrarItemGuardarPeliculas(" EXPORTAR PELICULAS A CSV         ", 50, 22, opcion == 2);
-        mostrarItemGuardarPeliculas(" BORRAR ARCHIVO DE PELICULAS      ", 50, 23, opcion == 3);
-        mostrarItemGuardarPeliculas(" VOLVER                           ", 50, 25, opcion == 4);
+        if (op == -1 || op == 4) return;
 
-        // Entrada por teclado
-        int key = rlutil::getkey();
-
-        switch (key) {
-
-            case rlutil::KEY_UP:
-                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
-                opcion--;
-                if (opcion < 0) opcion = 4;
+        switch (op) {
+            case 0: // CAMBIAR ESTADO AUTOMÁTICO
+                guardadoAutomatico = !guardadoAutomatico;
                 break;
 
-            case rlutil::KEY_DOWN:
-                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
-                opcion++;
-                if (opcion > 4) opcion = 0;
+            case 1: // GUARDAR MANUAL
+                rlutil::cls();
+                fondoVentana(); // Mantenemos estética
+                rlutil::locate(40, 12);
+                guardarPeliculas(gestor);
+                rlutil::anykey();
                 break;
 
-            case rlutil::KEY_ENTER:
-                PlaySound(TEXT("D:\\UTN FRGP\\PROG II\\Salas de Cine\\PROG2-TP1-G11\\sounds\\keySoundStrong.wav"),NULL,SND_FILENAME | SND_ASYNC );
-                switch (opcion) {
+            case 2: // EXPORTAR CSV
+                rlutil::cls();
+                fondoVentana();
+                rlutil::locate(40, 12);
+                exportarPeliculasCSV(gestor, "peliculas.csv");
+                rlutil::anykey();
+                break;
 
-                    case 0:
-                        guardadoAutomatico = !guardadoAutomatico;
-                        break;
-
-                    case 1:
-                        guardarPeliculas(gestor);
-                        break;
-
-                    case 2:
-                        exportarPeliculasCSV(gestor, "peliculas.csv");
-                        break;
-
-                    case 3:
-                        borrarArchivoPeliculas();
-                        break;
-
-                    case 4:
-                        salir = true;
-                        break;
-                }
+            case 3: // BORRAR ARCHIVO
+                rlutil::cls();
+                fondoVentana();
+                rlutil::locate(40, 12);
+                borrarArchivoPeliculas();
+                rlutil::anykey();
                 break;
         }
     }

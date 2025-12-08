@@ -7,9 +7,6 @@
 
 using namespace std;
 
-// ============================================================
-// GUARDAR EN ARCHIVO BINARIO
-// ============================================================
 void guardarSalas(const clsSala& gestor) {
     ofstream archivo(ARCHIVO_SALAS, ios::binary | ios::trunc);
     if (!archivo) {
@@ -30,9 +27,6 @@ void guardarSalas(const clsSala& gestor) {
     cout << "Salas guardadas correctamente (" << cantidad << " registros).\n";
 }
 
-// ============================================================
-// CARGAR DESDE ARCHIVO BINARIO (VERSIÓN CORRECTA)
-// ============================================================
 void cargarSalas(clsSala& gestor) {
     ifstream archivo(ARCHIVO_SALAS, ios::binary);
     if (!archivo) {
@@ -61,12 +55,9 @@ void cargarSalas(clsSala& gestor) {
     }
 
     archivo.close();
-    cout << cantidad << " salas cargadas desde archivo.\n";
+    //cout << cantidad << " salas cargadas desde archivo.\n";
 }
 
-// ============================================================
-// EXPORTAR A CSV
-// ============================================================
 void exportarSalasCSV(const clsSala& gestor, const string& nombreArchivo) {
     ofstream archivo(nombreArchivo);
     if (!archivo) {
@@ -89,9 +80,6 @@ void exportarSalasCSV(const clsSala& gestor, const string& nombreArchivo) {
     cout << "Salas exportadas a '" << nombreArchivo << "'.\n";
 }
 
-// ============================================================
-// BORRAR ARCHIVO
-// ============================================================
 void borrarArchivoSalas(clsSala& gestor) {
     ofstream clear(ARCHIVO_SALAS, ios::binary | ios::trunc);
     if (!clear.is_open()) {
@@ -104,24 +92,6 @@ void borrarArchivoSalas(clsSala& gestor) {
     gestor.vaciarSalas();  // este método lo definimos en clsSala
 
     cout << "Archivo de salas y datos en memoria borrados.\n";
-}
-
-// ============================================================
-// MENU DE CONFIGURACIÓN DE GUARDADO
-// ============================================================
-void mostrarItemGuardar(const char* texto, int x, int y, bool seleccionado) {
-    if (seleccionado) {
-        rlutil::setBackgroundColor(rlutil::WHITE);
-        rlutil::setColor(rlutil::BLACK);
-    } else {
-        rlutil::setBackgroundColor(rlutil::BLACK);
-        rlutil::setColor(rlutil::WHITE);
-    }
-
-    rlutil::locate(x, y);
-    cout << texto;
-
-    rlutil::setBackgroundColor(rlutil::BLACK); // Reset
 }
 
 void menuGuardarSalas(bool& guardadoAutomatico, clsSala& gestor) {
@@ -140,16 +110,16 @@ void menuGuardarSalas(bool& guardadoAutomatico, clsSala& gestor) {
         // Mostrar items del menú
         rlutil::setColor(rlutil::WHITE);
 
-        mostrarItemGuardar(
+        mostrarItem(
             guardadoAutomatico ? " DESACTIVAR GUARDADO AUTOMATICO "
                                : " ACTIVAR GUARDADO AUTOMATICO   ",
             50, 20, opcion == 0
         );
 
-        mostrarItemGuardar(" GUARDAR CAMBIOS MANUALMENTE      ", 50, 21, opcion == 1);
-        mostrarItemGuardar(" EXPORTAR SALAS A CSV             ", 50, 22, opcion == 2);
-        mostrarItemGuardar(" BORRAR ARCHIVO DE SALAS          ", 50, 23, opcion == 3);
-        mostrarItemGuardar(" VOLVER                           ", 50, 25, opcion == 4);
+        mostrarItem(" GUARDAR CAMBIOS MANUALMENTE      ", 50, 21, opcion == 1);
+        mostrarItem(" EXPORTAR SALAS A CSV             ", 50, 22, opcion == 2);
+        mostrarItem(" BORRAR ARCHIVO DE SALAS          ", 50, 23, opcion == 3);
+        mostrarItem(" VOLVER                           ", 50, 25, opcion == 4);
 
         // Entrada por teclado
         int key = rlutil::getkey();

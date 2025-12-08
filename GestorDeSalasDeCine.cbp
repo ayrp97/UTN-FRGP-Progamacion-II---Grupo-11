@@ -41,9 +41,16 @@
 		<Unit filename="README.md" />
 		<Unit filename="UX-UI/08fondoVentana.cpp" />
 		<Unit filename="UX-UI/09dibujoMenu.cpp" />
-		<Unit filename="contador.txt" />
+		<Unit filename="UX-UI/10dibujarMenú.cpp" />
+		<Unit filename="UX-UI/11navegacionTeclas.cpp" />
+		<Unit filename="UX-UI/12configuracionesVisuales.cpp" />
+		<Unit filename="candy.dat" />
+		<Unit filename="contador_id_peliculas.txt" />
 		<Unit filename="contador_salas.txt" />
+		<Unit filename="contador_sku.txt" />
+		<Unit filename="contador_ventas.txt" />
 		<Unit filename="creditos.cpp" />
+		<Unit filename="funciones.dat" />
 		<Unit filename="functions/peliculas/clsPeliculas.cpp" />
 		<Unit filename="functions/peliculas/clsPeliculas.h" />
 		<Unit filename="functions/peliculas/clsdataPeliculas.cpp" />
@@ -86,10 +93,14 @@
 		<Unit filename="sounds/Bienvenida.wav" />
 		<Unit filename="sounds/keySoundLight.wav" />
 		<Unit filename="sounds/keySoundStrong.wav" />
+		<Unit filename="tarifas.dat" />
 		<Unit filename="utilities/classes/clsFechas.cpp" />
 		<Unit filename="utilities/classes/clsFechas.h" />
+		<Unit filename="utilities/classes/clsReportes.cpp" />
+		<Unit filename="utilities/classes/clsReportes.h" />
 		<Unit filename="utilities/menuGuardar.cpp" />
 		<Unit filename="utilities/rlutil.h" />
+		<Unit filename="ventas.dat" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

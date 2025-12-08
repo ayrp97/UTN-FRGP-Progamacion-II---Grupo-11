@@ -17,5 +17,7 @@ void corteTotal();
 // FONDO
 void fondoVentana();
 void dibujoMenu();
-
+void mostrarItem(const char* text, int x, int y, bool selected);
+int menuInteractivo(const char* opciones[], int cantidad, const char* titulo, int x, int yBase);
+void configuracionesVisuales();
 #endif //MAINHEADER_H_INCLUDED
