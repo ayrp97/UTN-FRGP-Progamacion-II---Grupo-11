@@ -24,16 +24,10 @@ public:
     clsFunciones(int maxFunciones = 2000);
     ~clsFunciones();
 
-    // ───────────────────────────────
-    // Funciones de creación
-    // ───────────────────────────────
     void crearFuncion(clsSala& salas, clsPelicula& peliculas);
     void crearFuncionesPorDia(clsSala& salas, clsPelicula& peliculas);
     void crearFuncionesPorMes(clsSala& salas, clsPelicula& peliculas);
 
-    // ───────────────────────────────
-    // Consultas
-    // ───────────────────────────────
     void mostrarFunciones(const clsPelicula& gestorPeliculas) const;
     void mostrarFuncionesPorSala(const std::string& idSala, const clsPelicula& gestorPeliculas) const;
     void mostrarFuncionesPorFecha(int dia, int mes, int anio, const clsPelicula& gestorPeliculas) const;
@@ -41,15 +35,9 @@ public:
     int buscarFuncion(const std::string& id) const;
     void desactivarFuncion(const std::string& id);
 
-    // ───────────────────────────────
-    // Persistencia
-    // ───────────────────────────────
     bool guardarFunciones(const char* nombreArchivo) const;
     bool cargarFunciones(const char* nombreArchivo);
 
-    // ───────────────────────────────
-    // Getters
-    // ───────────────────────────────
     int getCantidad() const;
     const clsDataFuncion* getFunciones() const;
 

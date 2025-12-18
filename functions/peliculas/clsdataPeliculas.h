@@ -17,10 +17,8 @@ private:
     bool activa;
 
 public:
-    // Constructor
     clsDataPeliculas();
 
-    // Getters
     std::string getId() const;
     std::string getNombre() const;
     int getDuracion() const;
@@ -32,7 +30,6 @@ public:
     std::string getFormatos() const;
     bool estaActiva() const;
 
-    // Setters
     void setId(const std::string& nuevoId);
     void setNombre(const std::string& nuevoNombre);
     void setDuracion(int nuevaDuracion);

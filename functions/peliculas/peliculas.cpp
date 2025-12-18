@@ -22,12 +22,12 @@ void peliculas() {
 
         const char* opciones[] = {
             " AGREGAR NUEVA PELICULA ",
-            " MODIFICAR PELICULA     ",
-            " DAR DE BAJA            ",
-            " DAR DE ALTA            ",
-            " MOSTRAR TODAS          ",
+            " MODIFICAR PELICULA ",
+            " DAR DE BAJA ",
+            " DAR DE ALTA ",
+            " MOSTRAR TODAS ",
             " CONFIGURACION GUARDADO ",
-            " VOLVER AL MENU         "
+            " VOLVER "
         };
 
         int cantidadOpciones = 7;

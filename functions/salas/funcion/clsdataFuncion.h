@@ -1,14 +1,13 @@
 #pragma once
 #include <string>
-#include <cstring> // Necesario para strcpy, strncpy
+#include <cstring>
 #include "../../../utilities/classes/clsFechas.h"
 
 class clsDataFuncion {
 private:
-    char idFuncion[50];  // Cambiado de string a char[]
-    char idSala[10];     // Cambiado de string a char[]
-    char idPelicula[10]; // Cambiado de string a char[]
-
+    char idFuncion[50];
+    char idSala[10];
+    char idPelicula[10];
     clsFecha fecha;
 
     int horaInicio;
@@ -20,41 +19,28 @@ private:
 public:
     clsDataFuncion();
 
-    // IDs
     void setIdFuncion(const std::string& id);
-    std::string getIdFuncion() const;
-
     void setIdSala(const std::string& id);
     void setIdPelicula(const std::string& id);
+    void setFecha(const clsFecha& f);
+    void setHoraInicio(int hora);
+    void setDuracionPelicula(int minutos);
+    void setCapacidadSala(int cap);
+    void setAsientosDisponibles(int cant);
 
+    std::string getIdFuncion() const;
     std::string getIdSala() const;
     std::string getIdPelicula() const;
-
-    // Fecha
-    void setFecha(const clsFecha& f);
     clsFecha getFecha() const;
-
     int getDia() const;
     int getMes() const;
     int getAnio() const;
-
-    // Horarios
-    void setHoraInicio(int hora);
     int getHoraInicio() const;
-
-    void setDuracionPelicula(int minutos);
     int getDuracionPelicula() const;
-
     int getHoraFin() const;
-
-    // Sala / Asientos
-    void setCapacidadSala(int cap);
     int getCapacidadSala() const;
-
-    void setAsientosDisponibles(int cant);
     int getAsientosDisponibles() const;
 
-    // Estado
     void setActiva(bool estado);
     bool estaActiva() const;
 };

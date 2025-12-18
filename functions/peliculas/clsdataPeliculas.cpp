@@ -1,6 +1,5 @@
 #include "clsDataPeliculas.h"
 
-// Constructor
 clsDataPeliculas::clsDataPeliculas() {
     std::strcpy(id, "");
     std::strcpy(nombre, "");
@@ -13,7 +12,6 @@ clsDataPeliculas::clsDataPeliculas() {
     activa = false;
 }
 
-// ====================== GETTERS ======================
 std::string clsDataPeliculas::getId() const { return std::string(id); }
 std::string clsDataPeliculas::getNombre() const { return std::string(nombre); }
 int clsDataPeliculas::getDuracion() const { return duracion; }
@@ -25,7 +23,6 @@ std::string clsDataPeliculas::getIdiomas() const { return std::string(idiomas); 
 std::string clsDataPeliculas::getFormatos() const { return std::string(formatos); }
 bool clsDataPeliculas::estaActiva() const { return activa; }
 
-// ====================== SETTERS ======================
 void clsDataPeliculas::setId(const std::string& nuevoId) {
     std::strncpy(id, nuevoId.c_str(), sizeof(id) - 1);
     id[sizeof(id) - 1] = '\0';

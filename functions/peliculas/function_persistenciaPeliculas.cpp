@@ -36,8 +36,7 @@ void cargarPeliculas(clsPelicula& gestor) {
     archivo.read(reinterpret_cast<char*>(&cantidad), sizeof(int));
     if (cantidad <= 0) return;
 
-    gestor.vaciarPeliculas(); // Limpia las existentes
-
+    gestor.vaciarPeliculas();
     for (int i = 0; i < cantidad; i++) {
         clsDataPeliculas temp;
         archivo.read(reinterpret_cast<char*>(&temp), sizeof(clsDataPeliculas));
@@ -45,7 +44,6 @@ void cargarPeliculas(clsPelicula& gestor) {
     }
 
     archivo.close();
-    //cout << cantidad << " películas cargadas desde archivo.\n";
 }
 
 void exportarPeliculasCSV(const clsPelicula& gestor, const string& nombreArchivo) {
@@ -104,19 +102,19 @@ void menuGuardarPeliculas(bool& guardadoAutomatico, clsPelicula& gestor) {
         if (op == -1 || op == 4) return;
 
         switch (op) {
-            case 0: // CAMBIAR ESTADO AUTOMÁTICO
+            case 0: 
                 guardadoAutomatico = !guardadoAutomatico;
                 break;
 
-            case 1: // GUARDAR MANUAL
+            case 1:
                 rlutil::cls();
-                fondoVentana(); // Mantenemos estética
+                fondoVentana();
                 rlutil::locate(40, 12);
                 guardarPeliculas(gestor);
                 rlutil::anykey();
                 break;
 
-            case 2: // EXPORTAR CSV
+            case 2:
                 rlutil::cls();
                 fondoVentana();
                 rlutil::locate(40, 12);
@@ -124,7 +122,7 @@ void menuGuardarPeliculas(bool& guardadoAutomatico, clsPelicula& gestor) {
                 rlutil::anykey();
                 break;
 
-            case 3: // BORRAR ARCHIVO
+            case 3:
                 rlutil::cls();
                 fondoVentana();
                 rlutil::locate(40, 12);

@@ -4,22 +4,20 @@
 
 class clsDataSalas {
 private:
-    char idSala[10];     // Ej.: "SALA01", "SALA12"
-    int capacidad;       // Cantidad de butacas
+    
+    char idSala[10];
+    int capacidad;
     char tipoSala[30];
-    bool activa;         // true = activa, false = inactiva
+    bool activa;
 
 public:
-    // Constructor
     clsDataSalas();
 
-    // Getters
     std::string getIdSala() const;
     int getCapacidad() const;
     std::string getTipoSala() const;
     bool estaActiva() const;
 
-    // Setters
     void setIdSala(const std::string& id);
     void setCapacidad(int cap);
     void setTipoSala(const std::string& tipo);

@@ -1,6 +1,8 @@
 #include <iostream>
 #include <locale>
 #include <windows.h>
+#include <string>
+#include <sstream>
 #include "../../rlutil.h"
 #include "../../mainHeader.h"
 #include "clsVentas.h"
@@ -72,12 +74,13 @@ void ventas() {
                             " AGREGAR NUEVO ARTICULO       ",
                             " VER LISTADO COMPLETO         ",
                             " CARGAR STOCK MANUALMENTE     ",
+                            " ELIMINAR ARTICULO (BAJA)     ",
                             " VOLVER                       "
                         };
 
-                        int opCandy = menuInteractivo(opcionesCandy, 4, "GESTION RAPIDA DE CANDY", 50, 20);
+                        int opCandy = menuInteractivo(opcionesCandy, 5, "GESTION RAPIDA DE CANDY", 50, 20);
 
-                        if (opCandy == -1 || opCandy == 3) break;
+                        if (opCandy == -1 || opCandy == 4) break;
 
                         rlutil::cls();
 
@@ -85,6 +88,7 @@ void ventas() {
                             case 0: gestorCandy.agregarArticulo(); break;
                             case 1: gestorCandy.mostrarListado(); rlutil::anykey(); break;
                             case 2: gestorCandy.modificarStock(); break;
+                            case 3: gestorCandy.menuDarDeBaja(); break;
                         }
                     }
                 }

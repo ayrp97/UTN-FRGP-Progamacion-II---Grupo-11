@@ -4,9 +4,6 @@
 #include <string>
 #include <fstream>
 
-
-// ------------------- Constructor y Destructor -------------------
-
 clsPelicula::clsPelicula() {
     capacidad = 5;
     cantidad = 0;
@@ -18,8 +15,6 @@ clsPelicula::~clsPelicula() {
     delete[] peliculas;
 }
 
-// ------------------- Métodos de control -------------------
-
 void clsPelicula::setGuardadoAutomatico(bool estado) {
     guardadoAutomatico = estado;
 }
@@ -28,25 +23,19 @@ bool clsPelicula::getGuardadoAutomatico() const {
     return guardadoAutomatico;
 }
 
-// ------------------- Métodos privados -------------------
-
-
 std::string clsPelicula::generarId() {
     const std::string archivo = "contador_id_peliculas.txt";
     int contador = 1;
 
-    // Leer el último valor del archivo
     std::ifstream in(archivo);
     if (in.is_open()) {
         in >> contador;
         in.close();
     }
 
-    // Generar el ID con 5 dígitos
     std::ostringstream oss;
     oss << "PE" << std::setw(5) << std::setfill('0') << contador;
 
-    // Guardar el siguiente valor en el archivo
     std::ofstream out(archivo);
     if (out.is_open()) {
         out << (contador + 1);
@@ -68,8 +57,6 @@ void clsPelicula::redimensionar() {
     peliculas = nuevoArray;
     capacidad = nuevaCapacidad;
 }
-
-// ------------------- Métodos públicos -------------------
 
 void clsPelicula::cargarNuevaPelicula() {
     if (cantidad == capacidad) redimensionar();
@@ -103,7 +90,6 @@ void clsPelicula::cargarNuevaPelicula() {
 
     std::cout << "Película cargada con ID: " << p.getId() << "\n";
 
-    // 🔹 Guardado automático
     if (guardadoAutomatico) guardarPeliculas(*this);
 
     std::cout << "Presione ENTER para continuar...";
@@ -154,7 +140,6 @@ void clsPelicula::modificarPelicula(const std::string& id) {
 
             std::cout << "Película modificada!\n";
 
-            // 🔹 Guardado automático
             if (guardadoAutomatico) guardarPeliculas(*this);
             return;
         }
@@ -168,7 +153,6 @@ void clsPelicula::darDeBaja(const std::string& id) {
             peliculas[i].setActiva(false);
             std::cout << "Película dada de baja.\n";
 
-            // 🔹 Guardado automático
             if (guardadoAutomatico) guardarPeliculas(*this);
             return;
         }
@@ -182,7 +166,6 @@ void clsPelicula::darDeAlta(const std::string& id) {
             peliculas[i].setActiva(true);
             std::cout << "Película activada.\n";
 
-            // 🔹 Guardado automático
             if (guardadoAutomatico) guardarPeliculas(*this);
             return;
         }
@@ -199,8 +182,6 @@ void clsPelicula::mostrarPeliculas() const {
         std::cout << " - " << (p.estaActiva() ? "Activa" : "Inactiva") << "\n";
     }
 }
-
-// ------------------- Métodos auxiliares -------------------
 
 int clsPelicula::getCantidad() const { return cantidad; }
 const clsDataPeliculas* clsPelicula::getPeliculas() const { return peliculas; }
@@ -220,12 +201,9 @@ int clsPelicula::buscarPelicula(const std::string& id) const {
             return i;
         }
     }
-    return -1;  // No encontrada
+    return -1;
 }
 
-/// ===============================================
-/// Obtener duración de la película por índice
-/// ===============================================
 int clsPelicula::getDuracion(int index) const {
     if (index < 0 || index >= cantidad) {
         return -1;  // índice inválido

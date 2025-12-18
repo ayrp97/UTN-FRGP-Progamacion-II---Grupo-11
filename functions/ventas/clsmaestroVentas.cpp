@@ -1,19 +1,17 @@
 #include "clsmaestroVentas.h"
 
 clsmaestroVenta::clsmaestroVenta() {
-    std::strcpy(idVenta, "VE00000"); // Inicializar vacío
+    std::strcpy(idVenta, "VE00000");
     std::strcpy(idFuncion, "");
     dniCliente = 0;
-    fecha = clsFecha(); // Usa el constructor por defecto (hoy o 1/1/2000)
+    fecha = clsFecha();
     hora = 0;
     
     cantidadDetalles = 0;
     importeTotal = 0.0f;
     activa = true;
-    // El array 'detalles' se autoinicializa con sus constructores vacíos
 }
 
-// ================= SETTERS =================
 void clsmaestroVenta::setIdVenta(const std::string& id) {
     std::strncpy(idVenta, id.c_str(), 9);
     idVenta[9] = '\0';
@@ -27,7 +25,7 @@ void clsmaestroVenta::setFecha(const clsFecha& f) { fecha = f; }
 void clsmaestroVenta::setHora(int h) { hora = h; }
 void clsmaestroVenta::setActiva(bool a) { activa = a; }
 
-// ================= GETTERS =================
+
 std::string clsmaestroVenta::getIdVenta() const {
     return std::string(idVenta);
 }
@@ -40,7 +38,7 @@ int clsmaestroVenta::getHora() const { return hora; }
 float clsmaestroVenta::getImporteTotal() const { return importeTotal; }
 bool clsmaestroVenta::estaActiva() const { return activa; }
 
-// ================= LOGICA DE DETALLES =================
+// LOGICA DE DETALLES
 
 bool clsmaestroVenta::agregarDetalle(const clsdetalleVenta& item) {
     if (cantidadDetalles >= 20) {

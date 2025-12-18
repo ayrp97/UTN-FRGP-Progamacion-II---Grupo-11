@@ -7,23 +7,19 @@ const std::string ARCHIVO_ID_CANDY = "contador_sku.txt";
 
 class clsCandy {
 private:
-    std::string generarSKU(); // Método privado para crear SKU0001...
-
+    std::string generarSKU();
 public:
-    // ABM
-    void agregarArticulo();   // Pide datos al usuario y guarda
-    void modificarPrecio();   // Busca por SKU y cambia precio
-    void modificarStock();    // Suma stock (reposición)
-    void darDeBaja();
-    
-    // Método técnico para Ventas (descuenta stock)
-    bool restarStock(const std::string& sku, int cantidad); 
+    void agregarArticulo();
+    void modificarPrecio();
+    void modificarStock();
+    bool darDeBajaLogica(const std::string& sku);
+    void menuDarDeBaja();
 
-    // Consultas
+    bool restarStock(const std::string& sku, int cantidad);
+
     void mostrarListado() const;
-    int buscarArticulo(const std::string& sku) const; // Retorna posición
+    int buscarArticulo(const std::string& sku) const;
     clsArticulo leerArticulo(int pos) const;
-    
-    // Auxiliar para clsPrecios (Facade)
+
     bool actualizarPrecioDirecto(const std::string& sku, float nuevoPrecio);
 };

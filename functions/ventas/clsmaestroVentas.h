@@ -1,28 +1,24 @@
 #pragma once
 #include <string>
-#include "clsdetalleVentas.h"         // Incluimos la clase hija
-#include "../../utilities/classes/clsFechas.h" // Asegurate que la ruta sea correcta
+#include "clsdetalleVentas.h"
+#include "../../utilities/classes/clsFechas.h"
 
 class clsmaestroVenta {
 private:
-    char idVenta[10];           // Número de ticket
-    int dniCliente; 
-    char idFuncion[50];       // DNI del comprador
-    clsFecha fecha;        // Fecha de la operación
-    int hora;              // HHMM
-    
-    // AQUÍ ESTÁ LA MAGIA DE LA COMPOSICIÓN:
-    // El maestro "contiene" hasta 20 detalles adentro.
+    char idVenta[10];  
+    int dniCliente;
+    char idFuncion[50];
+    clsFecha fecha;
+    int hora;
     clsdetalleVenta detalles[20]; 
-    int cantidadDetalles;  // Contador de cuántos items cargamos (0 a 20)
+    int cantidadDetalles;
     
-    float importeTotal;    // Suma total
-    bool activa;           // true = válida, false = anulada
+    float importeTotal;    
+    bool activa;
 
 public:
     clsmaestroVenta();
 
-    // Setters de Cabecera
     void setIdVenta(const std::string& id);
     void setDniCliente(int dni);
     void setFecha(const clsFecha& f);
@@ -30,7 +26,6 @@ public:
     void setActiva(bool a);
     void setIdFuncion(const std::string& id);
 
-    // Getters de Cabecera
     std::string getIdVenta() const;
     int getDniCliente() const;
     clsFecha getFecha() const;
@@ -39,14 +34,9 @@ public:
     bool estaActiva() const;
     std::string getIdFuncion() const;
 
-    // --- MÉTODOS PARA MANEJAR EL DETALLE ---
-    
-    // Agrega un item al array y suma el precio al total automáticamente
     bool agregarDetalle(const clsdetalleVenta& item);
     
-    // Devuelve cuántos items tiene este ticket
     int getCantidadDetalles() const;
     
-    // Devuelve un detalle específico (para leerlo o imprimirlo)
     clsdetalleVenta leerDetalle(int indice) const;
 };

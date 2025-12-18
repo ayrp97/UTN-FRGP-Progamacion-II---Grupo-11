@@ -3,13 +3,10 @@
 #include <iomanip>
 #include <sstream>
 #include "clsCandy.h"
-#include "../../../rlutil.h" // Ajusta la ruta si es necesario
+#include "../../../rlutil.h"
 
 using namespace std;
 
-// ==========================================================
-// GENERADOR DE SKU: SKU0001, SKU0002...
-// ==========================================================
 string clsCandy::generarSKU() {
     int contador = 1;
     ifstream in(ARCHIVO_ID_CANDY);
@@ -18,7 +15,6 @@ string clsCandy::generarSKU() {
         in.close();
     }
 
-    // Formato: SKU + 4 dígitos (SKU0001)
     ostringstream oss;
     oss << "SKU" << setw(4) << setfill('0') << contador;
 
@@ -29,9 +25,6 @@ string clsCandy::generarSKU() {
     return oss.str();
 }
 
-// ==========================================================
-// BUSCAR (Retorna posición en bytes o -1)
-// ==========================================================
 int clsCandy::buscarArticulo(const string& sku) const {
     clsArticulo art;
     ifstream archivo(ARCHIVO_CANDY, ios::binary);
@@ -55,9 +48,6 @@ clsArticulo clsCandy::leerArticulo(int pos) const {
     return art;
 }
 
-// ==========================================================
-// AGREGAR ARTICULO
-// ==========================================================
 void clsCandy::agregarArticulo() {
     rlutil::cls();
     rlutil::setColor(rlutil::YELLOW);
@@ -69,13 +59,12 @@ void clsCandy::agregarArticulo() {
     float precio;
     int stock;
 
-    // Generar SKU
     string sku = generarSKU();
     nuevo.setSKU(sku);
     cout << "SKU Generado: " << sku << endl;
 
     cout << "Nombre/Descripcion: ";
-    cin.ignore(); // Limpiar buffer si viene sucio
+    cin.ignore();
     getline(cin, temp);
     nuevo.setNombre(temp);
 
@@ -89,7 +78,6 @@ void clsCandy::agregarArticulo() {
 
     nuevo.setActivo(true);
 
-    // Guardar
     ofstream archivo(ARCHIVO_CANDY, ios::binary | ios::app);
     archivo.write(reinterpret_cast<const char*>(&nuevo), sizeof(clsArticulo));
     archivo.close();
@@ -99,9 +87,6 @@ void clsCandy::agregarArticulo() {
     rlutil::anykey();
 }
 
-// ==========================================================
-// MOSTRAR LISTADO
-// ==========================================================
 void clsCandy::mostrarListado() const {
     rlutil::cls();
     ifstream archivo(ARCHIVO_CANDY, ios::binary);
@@ -130,15 +115,11 @@ void clsCandy::mostrarListado() const {
     archivo.close();
 }
 
-// ==========================================================
-// MODIFICAR PRECIO (Interfaz Visual)
-// ==========================================================
 void clsCandy::modificarPrecio() {
     mostrarListado();
     cout << "\nIngrese SKU a modificar: ";
     string sku;
-    cin >> sku; // SKU no tiene espacios
-
+    cin >> sku;
     int pos = buscarArticulo(sku);
     if (pos == -1) {
         cout << "Articulo no encontrado.\n";
@@ -154,7 +135,6 @@ void clsCandy::modificarPrecio() {
     cin >> nuevoPrecio;
     art.setPrecio(nuevoPrecio);
 
-    // Sobreescribir
     fstream archivo(ARCHIVO_CANDY, ios::binary | ios::in | ios::out);
     archivo.seekp(pos * sizeof(clsArticulo), ios::beg);
     archivo.write(reinterpret_cast<const char*>(&art), sizeof(clsArticulo));
@@ -164,9 +144,6 @@ void clsCandy::modificarPrecio() {
     rlutil::anykey();
 }
 
-// ==========================================================
-// AUXILIAR PARA clsPrecios (Sin interfaz)
-// ==========================================================
 bool clsCandy::actualizarPrecioDirecto(const string& sku, float nuevoPrecio) {
     int pos = buscarArticulo(sku);
     if (pos == -1) return false;
@@ -180,16 +157,13 @@ bool clsCandy::actualizarPrecioDirecto(const string& sku, float nuevoPrecio) {
     return true;
 }
 
-// ==========================================================
-// RESTAR STOCK (Para Ventas)
-// ==========================================================
 bool clsCandy::restarStock(const string& sku, int cantidad) {
     int pos = buscarArticulo(sku);
     if (pos == -1) return false;
 
     clsArticulo art = leerArticulo(pos);
 
-    if (art.getStock() < cantidad) return false; // No hay suficiente stock
+    if (art.getStock() < cantidad) return false;
 
     art.setStock(art.getStock() - cantidad);
 
@@ -229,7 +203,6 @@ void clsCandy::modificarStock() {
 
     art.setStock(art.getStock() + cantidad);
 
-    // Guardar cambios
     fstream archivo(ARCHIVO_CANDY, ios::binary | ios::in | ios::out);
     archivo.seekp(pos * sizeof(clsArticulo), ios::beg);
     archivo.write(reinterpret_cast<const char*>(&art), sizeof(clsArticulo));
@@ -237,5 +210,56 @@ void clsCandy::modificarStock() {
 
     rlutil::setColor(rlutil::GREEN);
     cout << "Stock actualizado. Nuevo total: " << art.getStock() << endl;
+    rlutil::anykey();
+}
+
+bool clsCandy::darDeBajaLogica(const string& sku) {
+
+    int pos = buscarArticulo(sku);
+    if (pos == -1) return false;
+
+    clsArticulo art = leerArticulo(pos);
+    
+    art.setActivo(false);
+
+    fstream archivo(ARCHIVO_CANDY, ios::binary | ios::in | ios::out);
+
+    archivo.seekp(pos * sizeof(clsArticulo), ios::beg);
+    archivo.write(reinterpret_cast<const char*>(&art), sizeof(clsArticulo));
+    archivo.close();
+
+    return true;
+}
+
+void clsCandy::menuDarDeBaja() {
+    rlutil::cls();
+    
+    mostrarListado(); 
+    
+    rlutil::setColor(rlutil::RED);
+    cout << "\n--- DAR DE BAJA ARTICULO ---\n";
+    rlutil::setColor(rlutil::WHITE);
+
+    string sku;
+    cout << "Ingrese el SKU del articulo a eliminar: ";
+    cin >> sku;
+
+    cout << "Esta seguro que desea eliminar " << sku << "? (S/N): ";
+    char confirmacion;
+    cin >> confirmacion;
+
+    if (confirmacion == 's' || confirmacion == 'S') {
+        if (darDeBajaLogica(sku)) {
+            rlutil::setColor(rlutil::GREEN);
+            cout << "\nArticulo dado de baja exitosamente.\n";
+        } else {
+            rlutil::setColor(rlutil::RED);
+            cout << "\nError: No se encontro el articulo con ese SKU.\n";
+        }
+    } else {
+        rlutil::setColor(rlutil::YELLOW);
+        cout << "\nOperacion cancelada.\n";
+    }
+    
     rlutil::anykey();
 }

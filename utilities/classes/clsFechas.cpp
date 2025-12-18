@@ -3,7 +3,6 @@
 #include "clsFechas.h"
 using namespace std;
 
-// --- Métodos privados ---
 bool clsFecha::esBisiesto(int a) const {
     return (a % 4 == 0 && a % 100 != 0) || (a % 400 == 0);
 }
@@ -23,7 +22,6 @@ bool clsFecha::fechaValida(int d, int m, int a) const {
     return d >= 1 && d <= maxDias;
 }
 
-// --- Constructores ---
 clsFecha::clsFecha() {
     dia = 1;
     mes = 1;
@@ -42,7 +40,6 @@ clsFecha::clsFecha(int d, int m, int a) {
     }
 }
 
-// --- Setters ---
 void clsFecha::setDia(int d) {
     if (fechaValida(d, mes, anio)) dia = d;
 }
@@ -55,12 +52,10 @@ void clsFecha::setAnio(int a) {
     if (fechaValida(dia, mes, a)) anio = a;
 }
 
-// --- Getters ---
 int clsFecha::getDia() const { return dia; }
 int clsFecha::getMes() const { return mes; }
 int clsFecha::getAnio() const { return anio; }
 
-// --- Métodos públicos ---
 void clsFecha::cargar() {
     int d, m, a;
     do {
@@ -95,8 +90,6 @@ int clsFecha::comparar(const clsFecha& otra) const {
     if (dia > otra.dia) return 1;
     return 0;
 }
-
-// --- Sumar días (simplificado, sin cronología negativa) ---
 void clsFecha::sumarDias(int cantidad) {
     dia += cantidad;
     while (dia > diasEnMes(mes, anio)) {

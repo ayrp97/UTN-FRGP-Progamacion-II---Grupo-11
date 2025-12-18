@@ -42,20 +42,17 @@ void cargarSalas(clsSala& gestor) {
         return;
     }
 
-    // Limpiar gestor actual sin llamar a crearSala()
     gestor.vaciarSalas();
 
-    // Cargar cada registro directamente al array
     for (int i = 0; i < cantidad; i++) {
         clsDataSalas temp;
         archivo.read(reinterpret_cast<char*>(&temp), sizeof(clsDataSalas));
         if (!archivo) break;
 
-        gestor.agregarSala(temp);   // NO genera ID, NO pide input
+        gestor.agregarSala(temp);
     }
 
     archivo.close();
-    //cout << cantidad << " salas cargadas desde archivo.\n";
 }
 
 void exportarSalasCSV(const clsSala& gestor, const string& nombreArchivo) {
@@ -88,26 +85,24 @@ void borrarArchivoSalas(clsSala& gestor) {
     }
     clear.close();
 
-    // Vaciar también las salas en memoria
-    gestor.vaciarSalas();  // este método lo definimos en clsSala
+    gestor.vaciarSalas();
 
     cout << "Archivo de salas y datos en memoria borrados.\n";
 }
 
 void menuGuardarSalas(bool& guardadoAutomatico, clsSala& gestor) {
-    int opcion = 0; // Navegación con flechas
+    int opcion = 0;
     bool salir = false;
 
     while (!salir) {
 
         rlutil::cls();
-        fondoVentana(); // Tu función de fondo
+        fondoVentana();
 
         rlutil::setColor(rlutil::YELLOW);
         rlutil::locate(46, 12);
         cout << "CONFIGURACION DE GUARDADO";
 
-        // Mostrar items del menú
         rlutil::setColor(rlutil::WHITE);
 
         mostrarItem(
@@ -121,7 +116,6 @@ void menuGuardarSalas(bool& guardadoAutomatico, clsSala& gestor) {
         mostrarItem(" BORRAR ARCHIVO DE SALAS          ", 50, 23, opcion == 3);
         mostrarItem(" VOLVER                           ", 50, 25, opcion == 4);
 
-        // Entrada por teclado
         int key = rlutil::getkey();
 
         switch (key) {

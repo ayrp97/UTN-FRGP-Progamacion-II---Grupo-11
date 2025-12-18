@@ -21,31 +21,26 @@ void clsPrecios::inicializarTarifasDefault() {
     clsTarifa t;
     ofstream archivo(ARCHIVO_TARIFAS, ios::binary);
 
-    // 1. BASIC 2D
     t.setCodigo("ENT2DBA");
     t.setDescripcion("BASIC 2D");
     t.setPrecio(4500);
     archivo.write(reinterpret_cast<const char*>(&t), sizeof(clsTarifa));
 
-    // 2. BASIC 3D
     t.setCodigo("ENT3DBA");
     t.setDescripcion("BASIC 3D");
     t.setPrecio(5500);
     archivo.write(reinterpret_cast<const char*>(&t), sizeof(clsTarifa));
 
-    // 3. PREMIUM 2D
     t.setCodigo("ENT2DPR");
     t.setDescripcion("PREMIUM 2D CONFORT");
     t.setPrecio(6500);
     archivo.write(reinterpret_cast<const char*>(&t), sizeof(clsTarifa));
 
-    // 4. PREMIUM 3D
     t.setCodigo("ENT3DPR");
     t.setDescripcion("PREMIUM 3D CONFORT");
     t.setPrecio(7500);
     archivo.write(reinterpret_cast<const char*>(&t), sizeof(clsTarifa));
 
-    // 5. 4D MOTION
     t.setCodigo("ENT4DMO");
     t.setDescripcion("PREMIUM 4D MOTION");
     t.setPrecio(9000);

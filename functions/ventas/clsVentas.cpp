@@ -17,12 +17,10 @@ string clsVentas::generarIdVenta() {
         in.close();
     }
 
-    // Guardamos el siguiente número para la próxima
     ofstream out(ARCHIVO_ID_VENTAS);
     out << contador + 1;
     out.close();
 
-    // Formateamos: "VE" + 5 dígitos
     ostringstream oss;
     oss << "VE" << setw(5) << setfill('0') << contador;
 
@@ -47,7 +45,6 @@ bool clsVentas::esFuncionFutura(const clsDataFuncion& f) {
     if (f.getDia() > diaAct) return true;
     if (f.getDia() < diaAct) return false;
 
-    // Si es hoy, comparamos hora
     if (f.getHoraInicio() > horaAct) return true;
 
     return false;
@@ -58,26 +55,15 @@ int seleccionarFuncionUI(clsFunciones& gestorFunc,
                          clsSala& gestorSala,
                          int filtroModo, int dia, int mes, int anio)
 {
-    // ----------------------------------------------------
-    // 1. PREPARACIÓN DE DATOS
-    // ----------------------------------------------------
     int indicesReales[100];
     int totalOpciones = 0;
 
-    // FECHA DE HOY
     time_t t = time(0);
     tm* now = localtime(&t);
     int anioHoy = now->tm_year + 1900;
     int mesHoy = now->tm_mon + 1;
     int diaHoy = now->tm_mday;
     int horaActual = (now->tm_hour * 100) + now->tm_min;
-
-    // FECHA DE MAÑANA (Truco: Sumamos 24hs en segundos)
-    time_t t_manana = t + (24 * 60 * 60);
-    tm* tm_manana = localtime(&t_manana);
-    int anioManana = tm_manana->tm_year + 1900;
-    int mesManana = tm_manana->tm_mon + 1;
-    int diaManana = tm_manana->tm_mday;
 
     for (int i = 0; i < gestorFunc.getCantidad(); i++) {
         if (totalOpciones >= 100) break;
@@ -87,18 +73,17 @@ int seleccionarFuncionUI(clsFunciones& gestorFunc,
 
         bool incluir = false;
 
-        if (filtroModo == 1) { // VENTA RAPIDA: Solo HOY y MAÑANA
+        if (filtroModo == 1) { // Solo HOY
 
             bool esHoy = (f.getDia() == diaHoy && f.getMes() == mesHoy && f.getAnio() == anioHoy);
-            bool esManana = (f.getDia() == diaManana && f.getMes() == mesManana && f.getAnio() == anioManana);
 
-            if (esHoy || esManana) incluir = true;
+            if (esHoy) incluir = true;
         }
         else if (filtroModo == 2) { // FECHA EXACTA
             if (f.getDia() == dia && f.getMes() == mes && f.getAnio() == anio) incluir = true;
         }
 
-        // Filtro de horario: Si es HOY, ocultamos las funciones que ya pasaron
+        // Filtro de horario, ocultamos las funciones que ya pasaron
         if (incluir && f.getDia() == diaHoy && f.getMes() == mesHoy && f.getAnio() == anioHoy) {
              if (f.getHoraInicio() < horaActual) incluir = false;
         }
@@ -117,9 +102,7 @@ int seleccionarFuncionUI(clsFunciones& gestorFunc,
         rlutil::anykey();
         return -1;
     }
-    // ----------------------------------------------------
-    // 2. BUCLE VISUAL (Navegación)
-    // ----------------------------------------------------
+    
     int seleccion = 0;
     bool elegido = false;
 
@@ -128,6 +111,7 @@ int seleccionarFuncionUI(clsFunciones& gestorFunc,
         rlutil::hidecursor();
 
         // --- CABECERA ---
+        rlutil::cls();
         rlutil::setColor(rlutil::YELLOW);
         if (filtroModo == 1) cout << "=== VENTA RAPIDA ===\n";
         else cout << "=== SELECCION POR FECHA (" << dia << "/" << mes << "/" << anio << ") ===\n";
@@ -553,9 +537,8 @@ void clsVentas::realizarVenta(clsFunciones& gestorFunciones,
     rlutil::anykey();
 }
 
-// ========================================================
-// SIMULACIÓN DE TICKET
-// ========================================================
+// TICKET
+
 void clsVentas::imprimirTicketEnPantalla(const clsmaestroVenta& venta, const clsPelicula& peliGestor) {
     rlutil::cls();
     cout << string(40, '*') << endl;
@@ -610,7 +593,7 @@ void clsVentas::mostrarHistorialVentas() {
             int h = venta.getHora();
             string horaStr = to_string(h / 100) + ":" + (h % 100 < 10 ? "0" : "") + to_string(h % 100);
 
-            cout << left << setw(12) << venta.getIdVenta() // <--- Ahora imprime el string
+            cout << left << setw(12) << venta.getIdVenta()
                  << left << setw(15) << venta.getFecha().toString()
                  << left << setw(10) << horaStr
                  << left << setw(10) << venta.getCantidadDetalles()

@@ -1,12 +1,9 @@
 #include "clsFunciones.h"
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 #include "../../../rlutil.h"
 using namespace std;
-
-// =====================================================
-// CONSTRUCTOR / DESTRUCTOR
-// =====================================================
 
 clsFunciones::clsFunciones(int maxFunciones) {
     capacidadMax = maxFunciones;
@@ -18,18 +15,9 @@ clsFunciones::~clsFunciones() {
     delete[] funciones;
 }
 
-// =====================================================
-// Redondear minutos a próximo múltiplo de 10
-// =====================================================
-
 int clsFunciones::redondear10(int minutos) const {
     return ((minutos + 9) / 10) * 10;
 }
-
-// =====================================================
-// Generar ID de función
-// Formato: PE00001_SA00001_FU1730
-// =====================================================
 
 string clsFunciones::generarIdFuncion(const string& idPelicula,
                                       const string& idSala,
@@ -44,13 +32,8 @@ string clsFunciones::generarIdFuncion(const string& idPelicula,
         << setw(2) << setfill('0') << mes
         << anio;
 
-    // Resultado: PE00001_SA00001_FU1200_01122025
     return oss.str();
 }
-
-// =====================================================
-// Verificar solapamiento
-// =====================================================
 
 bool clsFunciones::verificarSolapamiento(const string& idSala,
                                          int dia, int mes, int anio,
@@ -71,10 +54,6 @@ bool clsFunciones::verificarSolapamiento(const string& idSala,
     }
     return false;
 }
-
-// =====================================================
-// Crear función manual
-// =====================================================
 
 void clsFunciones::crearFuncion(clsSala& salas, clsPelicula& peliculas)
 {
@@ -137,10 +116,6 @@ void clsFunciones::crearFuncion(clsSala& salas, clsPelicula& peliculas)
     cout << "Funcion creada con ID: " << idFuncion << "\n";
 }
 
-// =====================================================
-// Crear funciones por DIA
-// =====================================================
-
 void clsFunciones::crearFuncionesPorDia(clsSala& salas, clsPelicula& peliculas)
 {
     string idSala, idPeli;
@@ -197,10 +172,6 @@ void clsFunciones::crearFuncionesPorDia(clsSala& salas, clsPelicula& peliculas)
         inicioMin = redondear10(finMin);
     }
 }
-
-// =====================================================
-// Crear funciones por MES COMPLETO
-// =====================================================
 
 void clsFunciones::crearFuncionesPorMes(clsSala& salas, clsPelicula& peliculas)
 {
@@ -268,10 +239,6 @@ void clsFunciones::crearFuncionesPorMes(clsSala& salas, clsPelicula& peliculas)
     cout << ">>> MES COMPLETO GENERADO <<<\n";
 }
 
-// =====================================================
-// Mostrar todas las funciones
-// =====================================================
-
 void clsFunciones::mostrarFunciones(const clsPelicula& gestorPeliculas) const
 {
     if (cantidad == 0) {
@@ -281,22 +248,19 @@ void clsFunciones::mostrarFunciones(const clsPelicula& gestorPeliculas) const
 
     rlutil::setColor(rlutil::YELLOW);
     
-    // Encabezado CON la columna de Asientos Libres
-    cout << left << setw(30) << "ID FUNCION"
-         << left << setw(25) << "PELICULA"
+    cout << left << setw(35) << "ID FUNCION"
+         << left << setw(40) << "PELICULA"
          << left << setw(15) << "FECHA"
          << left << setw(10) << "HORARIO"
-         << left << setw(10) << "LIBRES" // <--- NUEVA COLUMNA
+         << left << setw(10) << "LIBRES"
          << endl;
 
-    // Línea separadora un poco más larga
-    cout << string(90, '-') << endl; 
+    cout << string(106, '-') << endl; 
     rlutil::setColor(rlutil::WHITE);
 
     for (int i = 0; i < cantidad; i++) {
         const clsDataFuncion& f = funciones[i];
 
-        // 1. Buscamos el nombre de la película
         string nombrePelicula = "DESCONOCIDO";
         int pos = gestorPeliculas.buscarPelicula(f.getIdPelicula());
 
@@ -304,23 +268,18 @@ void clsFunciones::mostrarFunciones(const clsPelicula& gestorPeliculas) const
             nombrePelicula = gestorPeliculas.getPeliculas()[pos].getNombre();
         }
 
-        // 2. Formateamos la hora
+
         int hora = f.getHoraInicio();
         string horaStr = to_string(hora / 100) + ":" + (hora % 100 < 10 ? "0" : "") + to_string(hora % 100);
 
-        // 3. Mostramos la fila con los asientos disponibles
-        cout << left << setw(30) << f.getIdFuncion()
-             << left << setw(25) << nombrePelicula.substr(0, 24) 
+        cout << left << setw(35) << f.getIdFuncion()
+             << left << setw(40) << nombrePelicula.substr(0, 24) 
              << left << setw(15) << f.getFecha().toString()
              << left << setw(10) << horaStr
-             << left << setw(10) << f.getAsientosDisponibles() // <--- EL DATO CLAVE
+             << left << setw(10) << f.getAsientosDisponibles()
              << "\n";
     }
 }
-
-// =====================================================
-// Buscar función
-// =====================================================
 
 int clsFunciones::buscarFuncion(const string& id) const {
     for (int i = 0; i < cantidad; i++)
@@ -328,10 +287,6 @@ int clsFunciones::buscarFuncion(const string& id) const {
             return i;
     return -1;
 }
-
-// =====================================================
-// Desactivar función
-// =====================================================
 
 void clsFunciones::desactivarFuncion(const string& id)
 {
@@ -341,15 +296,10 @@ void clsFunciones::desactivarFuncion(const string& id)
     funciones[pos].setActiva(false);
 }
 
-// =====================================================
-// Mostrar funciones por sala
-// =====================================================
-
 void clsFunciones::mostrarFuncionesPorSala(const string& idSala, const clsPelicula& gestorPeliculas) const
 {
     rlutil::setColor(rlutil::YELLOW);
 
-    // Encabezado (Igual al de mostrar todas)
     cout << left << setw(30) << "ID FUNCION"
          << left << setw(25) << "PELICULA"
          << left << setw(15) << "FECHA"
@@ -361,24 +311,21 @@ void clsFunciones::mostrarFuncionesPorSala(const string& idSala, const clsPelicu
     bool hayFunciones = false;
 
     for (int i = 0; i < cantidad; i++) {
-        // FILTRO: Solo mostramos si coincide la Sala
+       
         if (funciones[i].getIdSala() == idSala) {
 
             hayFunciones = true;
             const clsDataFuncion& f = funciones[i];
 
-            // 1. Buscamos el nombre de la película
             string nombrePelicula = "DESCONOCIDO";
             int pos = gestorPeliculas.buscarPelicula(f.getIdPelicula());
             if (pos != -1) {
                 nombrePelicula = gestorPeliculas.getPeliculas()[pos].getNombre();
             }
 
-            // 2. Formateamos la hora
             int hora = f.getHoraInicio();
             string horaStr = to_string(hora / 100) + ":" + (hora % 100 < 10 ? "0" : "") + to_string(hora % 100);
 
-            // 3. Imprimimos
             cout << left << setw(30) << f.getIdFuncion()
                  << left << setw(25) << nombrePelicula
                  << left << setw(15) << f.getFecha().toString()
@@ -392,15 +339,10 @@ void clsFunciones::mostrarFuncionesPorSala(const string& idSala, const clsPelicu
     }
 }
 
-// =====================================================
-// Mostrar funciones por fecha
-// =====================================================
-
 void clsFunciones::mostrarFuncionesPorFecha(int dia, int mes, int anio, const clsPelicula& gestorPeliculas) const
 {
     rlutil::setColor(rlutil::YELLOW);
 
-    // Encabezado estandarizado
     cout << left << setw(30) << "ID FUNCION"
          << left << setw(25) << "PELICULA"
          << left << setw(15) << "FECHA"
@@ -412,7 +354,6 @@ void clsFunciones::mostrarFuncionesPorFecha(int dia, int mes, int anio, const cl
     bool hayFunciones = false;
 
     for (int i = 0; i < cantidad; i++) {
-        // FILTRO: Solo mostramos si coincide la Fecha completa
         if (funciones[i].getDia() == dia &&
             funciones[i].getMes() == mes &&
             funciones[i].getAnio() == anio)
@@ -420,18 +361,15 @@ void clsFunciones::mostrarFuncionesPorFecha(int dia, int mes, int anio, const cl
             hayFunciones = true;
             const clsDataFuncion& f = funciones[i];
 
-            // 1. Buscamos el nombre de la película
             string nombrePelicula = "DESCONOCIDO";
             int pos = gestorPeliculas.buscarPelicula(f.getIdPelicula());
             if (pos != -1) {
                 nombrePelicula = gestorPeliculas.getPeliculas()[pos].getNombre();
             }
 
-            // 2. Formateamos la hora
             int hora = f.getHoraInicio();
             string horaStr = to_string(hora / 100) + ":" + (hora % 100 < 10 ? "0" : "") + to_string(hora % 100);
 
-            // 3. Imprimimos la fila
             cout << left << setw(30) << f.getIdFuncion()
                  << left << setw(25) << nombrePelicula
                  << left << setw(15) << f.getFecha().toString()
@@ -446,10 +384,6 @@ void clsFunciones::mostrarFuncionesPorFecha(int dia, int mes, int anio, const cl
     }
 }
 
-// =====================================================
-// Persistencia: Guardar
-// =====================================================
-
 bool clsFunciones::guardarFunciones(const char* nombreArchivo) const
 {
     FILE* p = fopen(nombreArchivo, "wb");
@@ -461,10 +395,6 @@ bool clsFunciones::guardarFunciones(const char* nombreArchivo) const
     fclose(p);
     return true;
 }
-
-// =====================================================
-// Persistencia: Cargar
-// =====================================================
 
 bool clsFunciones::cargarFunciones(const char* nombreArchivo)
 {
@@ -484,26 +414,20 @@ bool clsFunciones::cargarFunciones(const char* nombreArchivo)
     return true;
 }
 
-// =====================================================
-// Getters
-// =====================================================
-
 int clsFunciones::getCantidad() const { return cantidad; }
+
 const clsDataFuncion* clsFunciones::getFunciones() const { return funciones; }
 
 bool clsFunciones::restarCapacidad(const std::string& idFuncion, int cantidad) {
-    int pos = buscarFuncion(idFuncion); // Reutilizamos tu método de búsqueda
+    int pos = buscarFuncion(idFuncion); 
 
-    if (pos == -1) return false; // ID no encontrado
+    if (pos == -1) return false; 
 
-    // 1. Modificar Memoria
     int actuales = funciones[pos].getAsientosDisponibles();
     
-    // Validación extra por seguridad
     if (actuales < cantidad) return false; 
 
     funciones[pos].setAsientosDisponibles(actuales - cantidad);
 
-    // 2. Guardar en Disco
     return guardarFunciones("funciones.dat");
 }

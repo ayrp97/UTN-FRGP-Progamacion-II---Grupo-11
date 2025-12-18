@@ -1,27 +1,19 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <sstream>
 #include "clsSalas.h"
 
-// ----------------------------------------------------------
-// CONSTRUCTOR
-// ----------------------------------------------------------
 clsSala::clsSala() {
     capacidadMax = 15;
     cantidad = 0;
     salas = new clsDataSalas[capacidadMax];
 }
 
-// ----------------------------------------------------------
-// DESTRUCTOR
-// ----------------------------------------------------------
 clsSala::~clsSala() {
     delete[] salas;
 }
 
-// ----------------------------------------------------------
-// BUSCAR SALA POR ID
-// ----------------------------------------------------------
 int clsSala::buscarSala(const std::string& idSala) const {
     for (int i = 0; i < cantidad; i++) {
         if (salas[i].getIdSala() == idSala) return i;
@@ -29,9 +21,6 @@ int clsSala::buscarSala(const std::string& idSala) const {
     return -1;
 }
 
-// ----------------------------------------------------------
-// GENERADOR DE ID: SA0001, SA0002, SA0003...
-// ----------------------------------------------------------
 std::string clsSala::generarIdSala() {
     const std::string archivo = "contador_salas.txt";
     int contador = 1;
@@ -52,9 +41,6 @@ std::string clsSala::generarIdSala() {
     return oss.str();
 }
 
-// ----------------------------------------------------------
-// ASIGNAR CAPACIDAD SEGÚN TIPO
-// ----------------------------------------------------------
 int obtenerCapacidadPorTipo(const std::string& tipo) {
     if (tipo == "BASIC 2D") return 120;
     if (tipo == "BASIC 3D") return 120;
@@ -64,9 +50,6 @@ int obtenerCapacidadPorTipo(const std::string& tipo) {
     return 0;
 }
 
-// ----------------------------------------------------------
-// CREAR SALA
-// ----------------------------------------------------------
 void clsSala::crearSala() {
     if (cantidad >= capacidadMax) {
         std::cout << "No se pueden crear más salas.\n";
@@ -75,11 +58,9 @@ void clsSala::crearSala() {
 
     clsDataSalas nueva;
 
-    // ... (Generación de ID igual que antes) ...
     std::string id = generarIdSala();
     nueva.setIdSala(id);
 
-    // SELECCIÓN DE TIPO
     std::string tipoSeleccionado;
     int capacidad = 0;
 
@@ -101,8 +82,7 @@ void clsSala::crearSala() {
             return;
     }
 
-    // AQUÍ GUARDAMOS AMBOS DATOS:
-    nueva.setTipoSala(tipoSeleccionado); // <--- ESTO ES LO QUE FALTABA
+    nueva.setTipoSala(tipoSeleccionado);
     nueva.setCapacidad(capacidad);
     
     nueva.setActiva(true);
@@ -111,9 +91,6 @@ void clsSala::crearSala() {
     std::cout << "Sala " << tipoSeleccionado << " creada correctamente.\n";
 }
 
-// ----------------------------------------------------------
-// MODIFICAR SALA (solo estado por ahora)
-// ----------------------------------------------------------
 void clsSala::modificarSala(const std::string& idSala) {
     int pos = buscarSala(idSala);
     if (pos == -1) {
@@ -131,9 +108,6 @@ void clsSala::modificarSala(const std::string& idSala) {
     std::cout << "Modificación realizada.\n";
 }
 
-// ----------------------------------------------------------
-// MOSTRAR CAPACIDAD
-// ----------------------------------------------------------
 void clsSala::verCapacidad(const std::string& idSala) const {
     int pos = buscarSala(idSala);
     if (pos == -1) {
@@ -145,9 +119,6 @@ void clsSala::verCapacidad(const std::string& idSala) const {
               << salas[pos].getCapacidad() << " asientos.\n";
 }
 
-// ----------------------------------------------------------
-// ASIGNAR / DESASIGNAR PELICULA (placeholder)
-// ----------------------------------------------------------
 void clsSala::asignarPelicula(const std::string& idSala, const std::string& idPelicula) {
     std::cout << "(Pendiente, depende de clsDataFuncion y peliculas.dat)\n";
 }
@@ -156,9 +127,6 @@ void clsSala::desasignarPelicula(const std::string& idSala) {
     std::cout << "(Pendiente, depende de clsDataFuncion)\n";
 }
 
-// ----------------------------------------------------------
-// MOSTRAR SALAS
-// ----------------------------------------------------------
 void clsSala::mostrarSalas() const {
     for (int i = 0; i < cantidad; i++) {
         std::cout << salas[i].getIdSala()
@@ -168,7 +136,6 @@ void clsSala::mostrarSalas() const {
     }
 }
 
-// ----------------------------------------------------------
 int clsSala::getCantidad() const { return cantidad; }
 const clsDataSalas* clsSala::getSalas() const { return salas; }
 

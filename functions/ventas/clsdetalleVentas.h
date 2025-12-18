@@ -4,10 +4,10 @@
 
 class clsdetalleVenta {
 private:
-    char codigo[15];      // "SKU0001" o "ENT2DBA"
-    char descripcion[40]; // "Pochoclos Grandes"
-    int cantidad;         // 2
-    float precioUnitario; // $5000
+    char codigo[15];
+    char descripcion[40];
+    int cantidad;
+    float precioUnitario;
 
 public:
     clsdetalleVenta();

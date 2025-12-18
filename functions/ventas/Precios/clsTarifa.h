@@ -4,9 +4,9 @@
 
 class clsTarifa {
 private:
-    char codigo[10];        // Ej: "ENT2DBA"
-    char descripcion[40];   // Ej: "BASIC 2D" (Debe coincidir con clsSalas)
-    float precio;           // $5000
+    char codigo[10];
+    char descripcion[40];
+    float precio;
 
 public:
     clsTarifa() {

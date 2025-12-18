@@ -9,9 +9,6 @@
 
 using namespace std;
 
-// ========================================================
-// MENU PRINCIPAL DE REPORTES 📊
-// ========================================================
 void clsReportes::menuPrincipalReportes() {
     while (true) {
         rlutil::cls();
@@ -38,9 +35,6 @@ void clsReportes::menuPrincipalReportes() {
     }
 }
 
-// ========================================================
-// SUBMENU 1: RECAUDACIONES 💰
-// ========================================================
 void clsReportes::menuRecaudaciones() {
     while(true) {
         rlutil::cls();
@@ -48,7 +42,7 @@ void clsReportes::menuRecaudaciones() {
         const char* ops[] = {
             " RECAUDACION DE HOY         ",
             " RANGO DE FECHAS            ",
-            " HISTOGRAMA COMPARATIVO     ",
+            " GRAFICO COMPARATIVO     ",
             " VOLVER                     "
         };
         int op = menuInteractivo(ops, 4, "INFORMES DE CAJA", 46, 14);
@@ -140,7 +134,7 @@ void clsReportes::reportePorFechas() {
                            ticket.getFecha().getDia();
 
         if (fechaTicket >= fechaDesde && fechaTicket <= fechaHasta) {
-            if (y < 25) { // Mostrar solo los primeros para no desbordar pantalla
+            if (y < 25) {
                 rlutil::locate(20, y++);
                 cout << ticket.getFecha().toString() << "  "
                      << ticket.getHora() << "     "
@@ -213,18 +207,16 @@ void clsReportes::histogramaMensual() {
 
     rlutil::locate(30, 4);
     rlutil::setColor(rlutil::YELLOW);
-    cout << "HISTOGRAMA DE RECAUDACION";
+    cout << "GRAFICO DE RECAUDACION";
 
     for(int i=0; i<cantidadPeriodos; i++) {
         int alturaBarra = (totales[i] * alturaMax) / maxVal;
 
-        // Color dinámico (9=Azul, 10=Verde, 12=Rojo, etc)
         int color = (i % 5) + 9;
         rlutil::setBackgroundColor(color);
 
-        // Dibujar barra
         for(int h=0; h<alturaBarra; h++) {
-            for(int w=0; w<8; w++) { // Ancho 8
+            for(int w=0; w<8; w++) {
                 rlutil::locate(xInicio + (i*14) + w, yBase - h);
                 cout << " ";
             }
@@ -233,21 +225,15 @@ void clsReportes::histogramaMensual() {
         rlutil::setBackgroundColor(rlutil::BLACK);
         rlutil::setColor(rlutil::WHITE);
 
-        // Texto abajo (Fecha)
         rlutil::locate(xInicio + (i*14), yBase + 1);
         cout << meses[i] << "/" << anios[i];
 
-        // Texto arriba (Monto)
         rlutil::locate(xInicio + (i*14), yBase - alturaBarra - 1);
         cout << "$" << (int)totales[i];
     }
     rlutil::anykey();
 }
 
-
-// ========================================================
-// SUBMENU 2: CANDY 🍿
-// ========================================================
 void clsReportes::menuCandy() {
     while(true) {
         rlutil::cls();
@@ -258,20 +244,18 @@ void clsReportes::menuCandy() {
 
         rlutil::cls();
         switch(op) {
-            case 0: reporteDiario(); break; // Reutilizamos el diario (es general)
+            case 0: reporteDiario(); break;
             case 1: rankingCandy(); break;
         }
     }
 }
 
 void clsReportes::rankingCandy() {
-    // ARRAYS PARALELOS (Max 50 productos)
     char skus[50][10];
     char nombres[50][30];
     float recaudacion[50] = {0};
     int cantidad = 0;
 
-    // 1. Cargar Articulos
     FILE* fC = fopen("candy.dat", "rb");
     if(!fC) return;
     clsArticulo art;
@@ -285,7 +269,6 @@ void clsReportes::rankingCandy() {
     }
     fclose(fC);
 
-    // 2. Sumar Ventas
     FILE* fV = fopen("ventas.dat", "rb");
     if(fV) {
         clsmaestroVenta t;
@@ -293,7 +276,6 @@ void clsReportes::rankingCandy() {
             for(int i=0; i<t.getCantidadDetalles(); i++) {
                 clsdetalleVenta d = t.leerDetalle(i);
                 if(d.getCodigo().substr(0,3) == "SKU") {
-                    // Buscar indice
                     for(int k=0; k<cantidad; k++) {
                         if(strcmp(skus[k], d.getCodigo().c_str()) == 0) {
                             recaudacion[k] += d.getSubTotal();
@@ -306,13 +288,10 @@ void clsReportes::rankingCandy() {
         fclose(fV);
     }
 
-    // 3. Ordenar (Burbuja)
     for(int i=0; i<cantidad-1; i++) {
         for(int j=0; j<cantidad-i-1; j++) {
             if(recaudacion[j] < recaudacion[j+1]) {
-                // Swap float
                 float auxF = recaudacion[j]; recaudacion[j] = recaudacion[j+1]; recaudacion[j+1] = auxF;
-                // Swap strings
                 char auxS[50];
                 strcpy(auxS, nombres[j]); strcpy(nombres[j], nombres[j+1]); strcpy(nombres[j+1], auxS);
                 strcpy(auxS, skus[j]); strcpy(skus[j], skus[j+1]); strcpy(skus[j+1], auxS);
@@ -333,10 +312,6 @@ void clsReportes::rankingCandy() {
     rlutil::anykey();
 }
 
-
-// ========================================================
-// SUBMENU 3: PELICULAS 🎬
-// ========================================================
 void clsReportes::menuPeliculas() {
     while(true) {
         rlutil::cls();
@@ -354,7 +329,6 @@ void clsReportes::menuPeliculas() {
 }
 
 void clsReportes::top10Peliculas() {
-    // Arrays paralelos
     char ids[100][10];
     char nombres[100][50];
     float rec[100] = {0};
@@ -376,7 +350,6 @@ void clsReportes::top10Peliculas() {
     if(fV) {
         clsmaestroVenta t;
         while(fread(&t, sizeof(clsmaestroVenta), 1, fV)) {
-            // ID Funcion: PE00001_SA... -> Extraemos PE00001
             string idFull = t.getIdFuncion();
             if(idFull.length() < 7) continue;
             string idPeli = idFull.substr(0, 7);
@@ -391,7 +364,6 @@ void clsReportes::top10Peliculas() {
         fclose(fV);
     }
 
-    // Ordenar
     for(int i=0; i<cant-1; i++) {
         for(int j=0; j<cant-i-1; j++) {
             if(rec[j] < rec[j+1]) {
@@ -419,7 +391,6 @@ void clsReportes::recaudacionPorGenero() {
     float recGen[20] = {0};
     int cantGen = 0;
 
-    // 1. Descubrir generos y mapear peliculas
     struct PeliGenero { char idPeli[10]; int idxGenero; };
     PeliGenero mapa[100];
     int totalMap = 0;
@@ -430,7 +401,6 @@ void clsReportes::recaudacionPorGenero() {
     while(fread(&p, sizeof(clsDataPeliculas), 1, fP)) {
         if(!p.estaActiva()) continue;
 
-        // Buscar si el genero ya existe
         int idx = -1;
         for(int i=0; i<cantGen; i++) {
             if(strcmp(generos[i], p.getGenero().c_str()) == 0) {
@@ -450,7 +420,6 @@ void clsReportes::recaudacionPorGenero() {
     }
     fclose(fP);
 
-    // 2. Sumar ventas
     FILE* fV = fopen("ventas.dat", "rb");
     if(fV) {
         clsmaestroVenta t;
@@ -466,7 +435,6 @@ void clsReportes::recaudacionPorGenero() {
         fclose(fV);
     }
 
-    // 3. Ordenar
     for(int i=0; i<cantGen-1; i++) {
         for(int j=0; j<cantGen-i-1; j++) {
             if(recGen[j] < recGen[j+1]) {
@@ -487,10 +455,6 @@ void clsReportes::recaudacionPorGenero() {
     rlutil::anykey();
 }
 
-
-// ========================================================
-// SUBMENU 4: CLIENTES 👤
-// ========================================================
 void clsReportes::menuClientes() {
     while(true) {
         rlutil::cls();
@@ -533,7 +497,6 @@ void clsReportes::topClientesVentas() {
     }
     fclose(f);
 
-    // Ordenar por cantidad
     for(int i=0; i<totalC-1; i++) {
         for(int j=0; j<totalC-i-1; j++) {
             if(cant[j] < cant[j+1]) {
@@ -579,7 +542,6 @@ void clsReportes::topClientesMonto() {
     }
     fclose(f);
 
-    // Ordenar por monto
     for(int i=0; i<totalC-1; i++) {
         for(int j=0; j<totalC-i-1; j++) {
             if(montos[j] < montos[j+1]) {
@@ -599,9 +561,6 @@ void clsReportes::topClientesMonto() {
     rlutil::anykey();
 }
 
-// ========================================================
-// EXTRA: HORARIOS PICO 🕒
-// ========================================================
 void clsReportes::reporteHorariosPico() {
     int ventasHora[24] = {0};
     FILE* f = fopen("ventas.dat", "rb");
@@ -616,14 +575,14 @@ void clsReportes::reporteHorariosPico() {
     fondoVentana();
     rlutil::locate(35, 4); cout << "HORARIOS PICO (VENTAS)";
     rlutil::setColor(rlutil::CYAN);
+    rlutil::cls();
 
-    // Grafico simple de barras horizontal
-    for(int i=10; i<24; i++) { // De 10am a 12pm
+    for(int i=10; i<24; i++) {
         rlutil::locate(20, 6 + (i-10));
         cout << i << "hs: ";
 
         rlutil::setBackgroundColor(rlutil::RED);
-        for(int b=0; b<ventasHora[i]; b++) cout << " "; // Una barra por venta
+        for(int b=0; b<ventasHora[i]; b++) cout << " ";
 
         rlutil::setBackgroundColor(rlutil::BLACK);
         cout << " (" << ventasHora[i] << ")";

@@ -13,11 +13,10 @@ private:
     bool fechaValida(int d, int m, int a) const;
 
 public:
-    // Constructores
-    clsFecha();  // Fecha por defecto (1/1/2000)
+
+    clsFecha();
     clsFecha(int d, int m, int a);
 
-    // Setters y Getters
     void setDia(int d);
     void setMes(int m);
     void setAnio(int a);
@@ -26,12 +25,10 @@ public:
     int getMes() const;
     int getAnio() const;
 
-    // Métodos de utilidad
-    void cargar();    // Cargar por consola con validación
+    void cargar();
     void mostrar() const;
 
-    // Operaciones con fechas
-    int comparar(const clsFecha& otra) const; // -1 si menor, 0 si igual, 1 si mayor
+    int comparar(const clsFecha& otra) const;
     void sumarDias(int cantidad);
 
     std::string toString() const;
