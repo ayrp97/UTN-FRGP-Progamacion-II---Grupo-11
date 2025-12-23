@@ -8,7 +8,6 @@ clsArticulo::clsArticulo() {
     activo = true;
 }
 
-// Setters
 void clsArticulo::setSKU(const std::string& s) {
     std::strncpy(sku, s.c_str(), sizeof(sku) - 1);
     sku[sizeof(sku) - 1] = '\0';

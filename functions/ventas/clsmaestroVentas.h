@@ -40,3 +40,4 @@ public:
     
     clsdetalleVenta leerDetalle(int indice) const;
 };
+

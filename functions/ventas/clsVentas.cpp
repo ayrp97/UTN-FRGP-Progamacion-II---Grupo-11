@@ -464,7 +464,7 @@ void clsVentas::realizarVenta(clsFunciones& gestorFunciones,
                 rlutil::setColor(rlutil::WHITE);
                 cout << "Cantidad a llevar: ";
 
-                int cantCandy; // <--- SE DECLARA AQUÍ ÚNICAMENTE
+                int cantCandy;
                 cin >> cantCandy;
 
                 if (cantCandy > 0) {

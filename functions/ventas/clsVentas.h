@@ -14,15 +14,10 @@ class clsVentas {
 private:
     std::string generarIdVenta();
 
-    // Función visual para simular la impresión
     void imprimirTicketEnPantalla(const clsmaestroVenta& venta, const clsPelicula& peliGestor);
-
-    // Validación de horario (lo que hablamos antes)
     bool esFuncionFutura(const clsDataFuncion& f);
 
 public:
-    // EL MÉTODO PRINCIPAL
-    // Recibe referencias a TODOS los gestores porque necesita leer y modificar sus datos
     void realizarVenta(clsFunciones& gestorFunciones,
                        clsPelicula& gestorPeliculas,
                        clsSala& gestorSalas,
@@ -31,3 +26,5 @@ public:
 
     void mostrarHistorialVentas();
 };
+
+

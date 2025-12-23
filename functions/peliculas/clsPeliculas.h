@@ -35,3 +35,6 @@ public:
     int buscarPelicula(const std::string& id) const;
     int getDuracion(int index) const;
 };
+
+
+
