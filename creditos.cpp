@@ -61,7 +61,11 @@ void creditos(){
 
         switch(rlutil::getkey()){
             case 0:
+<<<<<<< HEAD
                 PlaySound(TEXT("keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
+=======
+                PlaySound(TEXT("../../sounds/keySoundLight.wav"),NULL,SND_FILENAME | SND_ASYNC );
+>>>>>>> develop
                 corteCreditos = 0;
                 rlutil::cls();
                 break;

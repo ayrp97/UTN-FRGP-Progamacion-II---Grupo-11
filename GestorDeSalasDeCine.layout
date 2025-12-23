@@ -2,54 +2,129 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="02menuGestor.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+	<File name="mainHeader.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3119" topLine="60" />
+			<Cursor1 position="588" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="01main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="utilities\classes\clsReportes.cpp" open="1" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1300" topLine="0" />
+			<Cursor1 position="11860" topLine="362" />
 		</Cursor>
 	</File>
-	<File name="mainHeader.h" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="functions\salas\salas.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7628" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="UX-UI\10dibujarMenú.cpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="298" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="functions\salas\function_persistenciaSalas.cpp" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="04salas.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="functions\ventas\Precios\clsPrecios.cpp" open="1" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="60" topLine="0" />
+			<Cursor1 position="140" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="03peliculas.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="UX-UI\08fondoVentana.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="60" topLine="0" />
+			<Cursor1 position="64" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="07salir.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="211" topLine="0" />
+			<Cursor1 position="1329" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="08fondoVentana.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="functions\ventas\Candy\clsCandy.h" open="1" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="60" topLine="0" />
+			<Cursor1 position="57" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="06creditos.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="functions\ventas\clsdetalleVentas.cpp" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="350" topLine="6" />
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="05ventas.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="functions\ventas\clsVentas.cpp" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="186" topLine="0" />
+			<Cursor1 position="185" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="09dibujoMenu.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="functions\peliculas\clsPeliculas.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="60" topLine="0" />
+			<Cursor1 position="3049" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="UX-UI\11navegacionTeclas.cpp" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="600" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="functions\ventas\clsmaestroVentas.cpp" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="menuGestor.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1483" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="functions\peliculas\function_persistenciaPeliculas.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3461" topLine="90" />
+		</Cursor>
+	</File>
+	<File name="functions\salas\funcion\clsFunciones.cpp" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="functions\ventas\ventas.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="99" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="functions\peliculas\clsdataPeliculas.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="24" />
+		</Cursor>
+	</File>
+	<File name="functions\salas\funcion\clsdataFuncion.cpp" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="utilities\classes\clsReportes.h" open="1" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="164" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="functions\ventas\Candy\clsCandy.cpp" open="1" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6236" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="UX-UI\09dibujoMenu.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="213" />
+		</Cursor>
+	</File>
+	<File name="functions\peliculas\peliculas.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="998" topLine="68" />
+		</Cursor>
+	</File>
+	<File name="functions\ventas\Precios\clsPrecios.h" open="1" top="1" tabpos="25" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="405" topLine="3" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

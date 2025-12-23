@@ -32,20 +32,75 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="01main.cpp" />
-		<Unit filename="02menuGestor.cpp">
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="03peliculas.cpp" />
-		<Unit filename="04salas.cpp" />
-		<Unit filename="05ventas.cpp" />
-		<Unit filename="06creditos.cpp" />
-		<Unit filename="07salir.cpp" />
-		<Unit filename="08fondoVentana.cpp" />
-		<Unit filename="09dibujoMenu.cpp" />
-		<Unit filename="mainHeader.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Linker>
+			<Add library="winmm" />
+		</Linker>
+		<Unit filename="Esquema.drawio" />
+		<Unit filename="GestorDeSalasDeCine.depend" />
+		<Unit filename="GestorDeSalasDeCine.layout" />
+		<Unit filename="README.md" />
+		<Unit filename="UX-UI/08fondoVentana.cpp" />
+		<Unit filename="UX-UI/09dibujoMenu.cpp" />
+		<Unit filename="UX-UI/10dibujarMenú.cpp" />
+		<Unit filename="UX-UI/11navegacionTeclas.cpp" />
+		<Unit filename="UX-UI/12configuracionesVisuales.cpp" />
+		<Unit filename="candy.dat" />
+		<Unit filename="contador_id_peliculas.txt" />
+		<Unit filename="contador_salas.txt" />
+		<Unit filename="contador_sku.txt" />
+		<Unit filename="contador_ventas.txt" />
+		<Unit filename="creditos.cpp" />
+		<Unit filename="funciones.dat" />
+		<Unit filename="functions/peliculas/clsPeliculas.cpp" />
+		<Unit filename="functions/peliculas/clsPeliculas.h" />
+		<Unit filename="functions/peliculas/clsdataPeliculas.cpp" />
+		<Unit filename="functions/peliculas/clsdataPeliculas.h" />
+		<Unit filename="functions/peliculas/function_persistenciaPeliculas.cpp" />
+		<Unit filename="functions/peliculas/function_persistenciaPeliculas.h" />
+		<Unit filename="functions/peliculas/peliculas.cpp" />
+		<Unit filename="functions/salas/clsSalas.cpp" />
+		<Unit filename="functions/salas/clsSalas.h" />
+		<Unit filename="functions/salas/clsdataSalas.cpp" />
+		<Unit filename="functions/salas/clsdataSalas.h" />
+		<Unit filename="functions/salas/funcion/clsFunciones.cpp" />
+		<Unit filename="functions/salas/funcion/clsFunciones.h" />
+		<Unit filename="functions/salas/funcion/clsdataFuncion.cpp" />
+		<Unit filename="functions/salas/funcion/clsdataFuncion.h" />
+		<Unit filename="functions/salas/function_persistenciaSalas.cpp" />
+		<Unit filename="functions/salas/function_persistenciaSalas.h" />
+		<Unit filename="functions/salas/salas.cpp" />
+		<Unit filename="functions/ventas/Candy/clsArticulo.cpp" />
+		<Unit filename="functions/ventas/Candy/clsArticulo.h" />
+		<Unit filename="functions/ventas/Candy/clsCandy.cpp" />
+		<Unit filename="functions/ventas/Candy/clsCandy.h" />
+		<Unit filename="functions/ventas/Precios/clsPrecios.cpp" />
+		<Unit filename="functions/ventas/Precios/clsPrecios.h" />
+		<Unit filename="functions/ventas/Precios/clsTarifa.h" />
+		<Unit filename="functions/ventas/clsVentas.cpp" />
+		<Unit filename="functions/ventas/clsVentas.h" />
+		<Unit filename="functions/ventas/clsdetalleVentas.cpp" />
+		<Unit filename="functions/ventas/clsdetalleVentas.h" />
+		<Unit filename="functions/ventas/clsmaestroVentas.cpp" />
+		<Unit filename="functions/ventas/clsmaestroVentas.h" />
+		<Unit filename="functions/ventas/ventas.cpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="mainHeader.h" />
+		<Unit filename="menuGestor.cpp" />
+		<Unit filename="peliculas.dat" />
+		<Unit filename="rlutil.h" />
+		<Unit filename="salas.dat" />
+		<Unit filename="salir.cpp" />
+		<Unit filename="sounds/Bienvenida.wav" />
+		<Unit filename="sounds/keySoundLight.wav" />
+		<Unit filename="sounds/keySoundStrong.wav" />
+		<Unit filename="tarifas.dat" />
+		<Unit filename="utilities/classes/clsFechas.cpp" />
+		<Unit filename="utilities/classes/clsFechas.h" />
+		<Unit filename="utilities/classes/clsReportes.cpp" />
+		<Unit filename="utilities/classes/clsReportes.h" />
+		<Unit filename="utilities/menuGuardar.cpp" />
+		<Unit filename="utilities/rlutil.h" />
+		<Unit filename="ventas.dat" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
